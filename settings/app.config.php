@@ -1,7 +1,6 @@
 <?php
 namespace Cant\Phase\Me;
 
-use Cant\Phase\Me\Model\PhasedUser\PhasedUser;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
@@ -18,8 +17,6 @@ class CantPhaseMeModule extends Module
 		include_once( "settings/site.config.php" );
 
 		SolutionSchema::RegisterSchema( "home", 'Cant\Phase\Me\Model\CantPhaseMeSolutionSchema' );
-		$a = new PhasedUser();
-		$a->save();
 	}
 	protected function registerUrlHandlers()
 	{
