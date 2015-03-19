@@ -1,0 +1,25 @@
+{
+  "name": "rhubarbphp/bootstrap-webapp",
+  "description": "A bootstrap project for a web app",
+  "minimum-stability": "stable",
+  "license": "Apache 2.0",
+  "repositories": [
+  ],
+  "require":
+  {
+    "rhubarbphp/rhubarb": "dev-master",
+    "rhubarbphp/module-stem": "*",
+    "rhubarbphp/module-leaf": "*",
+    "rhubarbphp/module-patterns": "*",
+    "rhubarbphp/scaffold-authentication": "*",
+    "rhubarbphp/scaffold-authentication-with-roles": "*",
+    "rhubarbphp/module-restapi": "*"
+  },
+  "autoload":
+  {
+    "psr-4":
+    {
+      "Cant\\Phase\\Me\\": "src/"
+    }
+  }
+}
