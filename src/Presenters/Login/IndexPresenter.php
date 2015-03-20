@@ -8,4 +8,11 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
     {
 	    return new IndexView();
     }
+
+	protected function configureView()
+	{
+		parent::configureView();
+
+		$this->view->hasOverlay = true;
+	}
 }

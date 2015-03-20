@@ -8,6 +8,7 @@ class DefaultLayout extends BaseLayout
 	function __construct()
 	{
 		ResourceLoader::loadResource( "/static/css/base.css" );
+		ResourceLoader::loadJquery( '1.9.1' );
 	}
 	protected function printPageHeading()
 	{

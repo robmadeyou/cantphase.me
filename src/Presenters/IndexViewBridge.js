@@ -1,14 +1,13 @@
 var bridge = function( presenterPath )
 {
-    window.gcd.core.mvp.viewBridgeClasses.HtmlViewBridge.apply( this, arguments );
+    window.gcd.core.mvp.viewBridgeClasses.JqueryHtmlViewBridge.apply( this, arguments );
 }
 
-bridge.prototype = new window.gcd.core.mvp.viewBridgeClasses.HtmlViewBridge();
+bridge.prototype = new window.gcd.core.mvp.viewBridgeClasses.JqueryHtmlViewBridge();
 bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function()
 {
-	alert( "hi" );
 }
 
 window.gcd.core.mvp.viewBridgeClasses.IndexViewBridge = bridge;

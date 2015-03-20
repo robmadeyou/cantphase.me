@@ -3,23 +3,29 @@
 namespace Cant\Phase\Me\Presenters;
 
 use Rhubarb\Leaf\Views\HtmlView;
-use Rhubarb\Leaf\Views\WithViewBridgeTrait;
+use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 
 class IndexView extends HtmlView
 {
-	use WithViewBridgeTrait;
+	use WithJqueryViewBridgeTrait;
+	public $hasOverlay = false;
 
-    protected function PrintViewContent()
-    {
-	    ?>
-			<div class="main">
-
-				<div class="overlay">
-
-				</div>
+	protected function PrintViewContent()
+	{
+		?>
+			<div style="text-align: center;">
+				Main body is hidden... right?
 			</div>
 		<?php
-    }
+			if( $this->hasOverlay )
+			{
+			?>
+				<div class="overlay" style="">
+					<?= $this->printOverlay() ?>
+				</div>
+			<?php
+			}
+	}
 
 	/**
 	 * Override this method with the Login model to add the overlay effect.
