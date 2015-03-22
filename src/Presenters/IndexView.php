@@ -20,7 +20,7 @@ class IndexView extends HtmlView
 			if( $this->hasOverlay )
 			{
 			?>
-				<div class="overlay" style="">
+				<div class="overlay">
 					<?= $this->printOverlay() ?>
 				</div>
 			<?php
