@@ -1,6 +1,7 @@
 <?php
 namespace Cant\Phase\Me;
 
+use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
@@ -35,6 +36,7 @@ class CantPhaseMeModule extends Module
 	}
 	protected function registerDependantModules()
 	{
+		HashProvider::setHashProviderClassName( 'Rhubarb\Crown\Encryption\Sha512HashProvider' );
 		Module::registerModule( new LayoutModule( 'Cant\Phase\Me\Layouts\DefaultLayout' ) );
 		Module::registerModule( new AuthenticationWithRolesModule( 'Rhubarb\Scaffolds\Authentication\LoginProvider') );
 	}

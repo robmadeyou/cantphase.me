@@ -5,9 +5,11 @@ namespace Cant\Phase\Me\Presenters\Login;
 use Rhubarb\Leaf\Presenters\Controls\Text\Password\Password;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextArea\TextArea;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
+use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 
 class IndexView extends \Cant\Phase\Me\Presenters\IndexView
 {
+	use WithJqueryViewBridgeTrait;
 
 	public function createPresenters()
 	{
@@ -44,7 +46,13 @@ class IndexView extends \Cant\Phase\Me\Presenters\IndexView
 			<?= $this->presenters[ "username" ] ?><br>
 			<?= $this->presenters[ "password" ] ?><br>
 			<?= $this->presenters[ "email" ] ?><br>
-			<?= $this->presenters[ "info" ] ?>
+			<?= $this->presenters[ "info" ] ?><br>
+			<a href="#" class="submit-button">submit</a>
 		<?php
+	}
+
+	public function getDeploymentPackageDirectory()
+	{
+		return __DIR__;
 	}
 }
