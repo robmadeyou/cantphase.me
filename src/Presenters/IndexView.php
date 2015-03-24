@@ -2,6 +2,9 @@
 
 namespace Cant\Phase\Me\Presenters;
 
+use Cant\Phase\Me\Model\PhasedUser\PhasedUser;
+use Rhubarb\Crown\LoginProviders\Exceptions\NotLoggedInException;
+use Rhubarb\Crown\LoginProviders\LoginProvider;
 use Rhubarb\Leaf\Views\HtmlView;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 
@@ -14,7 +17,17 @@ class IndexView extends HtmlView
 	{
 		?>
 			<div style="text-align: center;">
-				Main body is hidden... right?
+				<?php
+					try
+					{
+						$user = PhasedUser::getLoggedInUser();
+						print "Hello $user->Username!";
+					}
+					catch( NotLoggedInException $ex )
+					{
+						print "Main body is hidden... right?";
+					}
+				?>
 			</div>
 		<?php
 			if( $this->hasOverlay )
