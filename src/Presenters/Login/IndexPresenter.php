@@ -3,9 +3,11 @@
 namespace Cant\Phase\Me\Presenters\Login;
 
 use Cant\Phase\Me\Model\PhasedUser\PhasedUser;
-use Cant\Phase\Me\Various\PhasedLoginProvider;
+use Rhubarb\Crown\Exceptions\ForceResponseException;
 use Rhubarb\Crown\LoginProviders\Exceptions\LoginDisabledException;
 use Rhubarb\Crown\LoginProviders\Exceptions\LoginFailedException;
+use Rhubarb\Crown\Response\RedirectResponse;
+use Rhubarb\Scaffolds\Authentication\LoginProvider;
 use Rhubarb\Stem\Exceptions\RecordNotFoundException;
 use Rhubarb\Stem\Filters\Equals;
 
@@ -24,48 +26,42 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 
 		$this->view->attachEventHandler( 'login', function( $user, $pass, $email, $info )
 		{
+			$providerName = LoginProvider::getDefaultLoginProviderClassName();
+			$login = new $providerName( "PhasedUser", "Username", "Password", "Enabled" );
 			try
 			{
-				$login = new PhasedLoginProvider( "PhasedUser", "Username", "Password", "Enabled" );
+				PhasedUser::findFirst( new Equals( "Username", $user ) );
 				try
 				{
-					PhasedUser::findFirst( new Equals( "Username", $user ) );
-					try
+					if ( $login->login( $user, $pass ) )
 					{
-						if ( $login->login( $user, $pass ) )
-						{
-							return 1;
-						}
-					} catch ( LoginDisabledException $er )
-					{
-						$this->Disabled = true;
-						$this->Failed = true;
-
-						return 3;
-					} catch ( LoginFailedException $er )
-					{
-						$this->Failed = true;
-
-						return 3;
+						return 1;
 					}
-				} catch ( RecordNotFoundException $ex )
+				} catch ( LoginDisabledException $er )
 				{
-					$user = new PhasedUser();
-					$user->Username = $user;
-					$user->setNewPassword( $pass );
-					$user->Forename = $user;
-					$user->Email = $email;
-					$user->Info = $info;
-					$user->save();
+					$this->Disabled = true;
+					$this->Failed = true;
 
-					$login->login( $user, $pass );
+					return 3;
+				} catch ( LoginFailedException $er )
+				{
+					$this->Failed = true;
 
-					return 2;
+					return 4;
 				}
-			}
-			catch( \Exception $ex )
+			} catch ( RecordNotFoundException $ex )
 			{
-				return $ex;
+				$u = new PhasedUser();
+				$u->Username = $user;
+				$u->setNewPassword( $pass );
+				$u->Forename = $user;
+				$u->Email = $email;
+				$u->Info = $info;
+				$u->save();
+
+				$login->login( $user, $pass );
+
+				return 2;
 			}
 			return 0;
 		});

@@ -27,7 +27,10 @@ bridge.prototype.attachEvents = function()
 		debugger;
 		self.raiseServerEvent( "login", self.user.val(), self.pass.val(), self.email.val(), self.info.val(), function ( out )
 		{
-			debugger;
+			if( out == 1 )
+			{
+				$( ".overlay" ).fadeOut();
+			}
 		} );
 	} );
 };

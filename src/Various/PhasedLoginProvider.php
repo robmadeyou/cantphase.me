@@ -3,8 +3,8 @@
 namespace Cant\Phase\Me\Various;
 
 
-use Rhubarb\Stem\LoginProviders\ModelLoginProvider;
+use Rhubarb\Scaffolds\Authentication\LoginProvider;
 
-class PhasedLoginProvider extends ModelLoginProvider
+class PhasedLoginProvider extends LoginProvider
 {
 }
