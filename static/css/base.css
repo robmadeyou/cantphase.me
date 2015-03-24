@@ -40,3 +40,242 @@ body
 {
     color: blue;
 }
+
+body
+{
+    background: #0d0d0d;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#loggedInNotifier
+{
+    margin-right: 20px;
+    color: white;
+}
+
+#migi
+{
+    position: fixed;
+    z-index: 99999;
+    bottom: 0;
+    right: 0;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+#login
+{
+    color:red;
+    cursor: pointer;
+}
+
+#logout
+{
+    color:blue;
+    cursor: pointer;
+}
+
+#songTitle
+{
+    color: white;
+    margin-top: 20px;
+    font-family: "Courier New";
+}
+
+#songTitle
+{
+    float: left;
+    margin-left: 50px;
+}
+
+#volume
+{
+    float: right;
+    margin-right: 50px;
+}
+
+#interactive
+{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#search
+{
+    height: 450px;
+    overflow-y: scroll;
+}
+
+.box
+{
+    width: 32%;
+    float: left;
+    border-color: gray;
+    border-style: dashed;
+    border-width: 3px;
+    border-radius: 20px;
+}
+
+#pullResults
+{
+    color:white;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: white;
+    text-decoration: underline;
+}
+
+#overlay
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: gray;
+    opacity: 0.7;
+    z-index:9999;
+}
+
+#left
+{
+    border: solid black;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#right
+{
+    border: solid black;
+    -webkit-border-top-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#innerPullForm
+{
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 99%;
+    z-index: inherit;
+}
+
+#innerPullForm div
+{
+    float: left;
+    padding: 24px;
+    width: 40%;
+    min-height: 400px;
+}
+
+#innerPullForm div .textbox
+{
+    width: 100%;
+}
+
+#innerPullForm div textarea
+{
+    width: 100%;
+    resize: none;
+    height: 200px;
+}
+
+#outerPullForm
+{
+    display: none;
+    position: fixed;
+    background-color: whitesmoke;
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-radius: 10px;
+    padding: 40px;
+    min-width: 600px;
+    z-index: 999999;
+}
+
+#outerPullForm #close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9999999;
+}
+
+
+#finalizePull
+{
+    margin-left: 40%;
+    margin-bottom: 0;
+}
+
+p
+{
+    color: white;
+}
+
+h1
+{
+    color: white;
+}
+
+#title
+{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.floatingImages
+{
+    float: left;
+    width: 25%;
+    height: auto;
+}
+
+#img
+{
+    width: inherit;
+    height: inherit;
+}
+
+#nextButton
+{
+    float: right;
+}

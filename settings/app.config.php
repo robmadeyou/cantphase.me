@@ -29,7 +29,10 @@ class CantPhaseMeModule extends Module
 
 		$this->addUrlHandlers(
 			[
-				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter' ),
+				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter',
+					[
+						'music/' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Music\MusicCollectionPresenter' )
+					]),
 				"/login/" => $login
 			]
 		);
