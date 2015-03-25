@@ -24,12 +24,15 @@ bridge.prototype.attachEvents = function()
 
 	$( ".submit-button" ).click( function( )
 	{
-		debugger;
 		self.raiseServerEvent( "login", self.user.val(), self.pass.val(), self.email.val(), self.info.val(), function ( out )
 		{
 			if( out == 1 )
 			{
 				$( ".overlay" ).fadeOut();
+				setTimeout( function()
+				{
+					window.location.href = "/";
+				}, 500 )
 			}
 		} );
 	} );

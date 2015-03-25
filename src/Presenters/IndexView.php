@@ -28,6 +28,18 @@ class IndexView extends HtmlView
 						print "Main body is hidden... right?";
 					}
 				?>
+				<div class="underlay">
+					<?php
+						for( $i = 0; $i < 50; $i++ )
+						{
+							?>
+							<div class="content-box">
+								Test content
+							</div>
+						<?php
+						}
+					?>
+				</div>
 			</div>
 		<?php
 			if( $this->hasOverlay )

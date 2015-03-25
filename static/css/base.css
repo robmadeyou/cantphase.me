@@ -18,6 +18,32 @@ body
     text-align: center;
 }
 
+.underlay
+{
+    margin-top: 120px;
+    margin-left: 130px;
+    border-radius: 5px;
+    border-color: #003147;
+}
+
+.content-box
+{
+    float: left;
+    margin-right: 15px;
+    margin-top: 15px;
+    position: relative;
+    min-width: 150px;
+    min-height: 150px;
+    background-color: #007fff;
+    opacity: 0.2;
+    transition: opacity 0.5s;
+}
+
+.content-box:hover
+{
+    opacity: 1;
+}
+
 .input-center
 {
     text-align: center;
