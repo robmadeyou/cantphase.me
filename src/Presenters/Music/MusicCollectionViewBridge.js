@@ -8,10 +8,11 @@ bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function()
 {
+	var self = this;
 	var FFTSIZE = 1024;      // number of samples for the analyser node FFT, min 32
 	var TICK_FREQ = 20;     // how often to run the tick function, in milliseconds
 	var image = 0;
-	var assetsPath = "music/"; // Create a single item to load.
+	var assetsPath = "/static/music/"; // Create a single item to load.
 	var src = "";  // set up our source
 	var soundInstance;      // the sound instance we create
 	var analyserNode;       // the analyser node that allows us to visualize the audio
@@ -30,8 +31,8 @@ bridge.prototype.attachEvents = function()
 
 	function init( song ) {
 		currentSong = song;
-		$( "#img" ).attr( "src", "music/" + song.image );
-		$( "#songTitle" ).html( song.name );
+		$( "#img" ).attr( "src", "/static/music/" + song.image );
+		$( "#songTitle" ).html( song );
 
 		if( song != "" )
 		{
@@ -42,7 +43,7 @@ bridge.prototype.attachEvents = function()
 			}
 			else
 			{
-				src = song.name;
+				src = song;
 			}
 		}
 		if (window.top != window) {
@@ -203,21 +204,13 @@ bridge.prototype.attachEvents = function()
 			return;
 		}
 		event.preventDefault();
-		$.ajax(
-			{
-				url : "pull/",
-				type : "POST",
-				data : { url : url,
-					tags : tags,
-					prefix : prefix,
-					notes : notes,
-					usePrefix : usePrefix }
-			}).done( function( data )
-			{
-				alert( data );
-				$( "#overlay" ).fadeOut();
-				$( "#outerPullForm" ).fadeOut();
-			});
+
+		self.raiseServerEvent( "Download", url, notes, tags, usePrefix, prefix, function( message)
+		{
+			alert( data );
+			$( "#overlay" ).fadeOut();
+			$( "#outerPullForm" ).fadeOut();
+		} );
 	});
 
 
@@ -288,13 +281,10 @@ bridge.prototype.attachEvents = function()
 
 	$( document ).ready( function()
 	{
-		setTimeout( function(){
-			if( src == "" )
-			{
-				ajaxGetSong();
-				soundInstance.volume = 0.5;
-			}
-		}, 500 );
+		self.raiseServerEvent( "GetNewSong", function( song )
+		{
+			init( song );
+		} );
 
 		$( "#pull" ).click( function( event )
 		{

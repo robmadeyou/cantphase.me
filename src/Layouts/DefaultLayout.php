@@ -10,6 +10,14 @@ class DefaultLayout extends BaseLayout
 		ResourceLoader::loadResource( "/static/css/base.css" );
 		ResourceLoader::loadJquery( '1.9.1' );
 	}
+
+	protected function printHead()
+	{
+		?>
+			<link rel="shortcut icon" href="http://www.localfoodmap.net/images/icons/banana.ico"/>
+		<?php
+	}
+
 	protected function printPageHeading()
 	{
 		?>
