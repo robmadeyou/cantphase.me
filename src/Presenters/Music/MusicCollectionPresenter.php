@@ -5,6 +5,11 @@ namespace Cant\Phase\Me\Presenters\Music;
 use Cant\Phase\Me\Model\Music\Music;
 use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Leaf\Presenters\Forms\Form;
+use Rhubarb\Stem\Filters\AndGroup;
+use Rhubarb\Stem\Filters\Contains;
+use Rhubarb\Stem\Filters\Equals;
+use Rhubarb\Stem\Filters\Not;
+use Rhubarb\Stem\Filters\OneOf;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
 class MusicCollectionPresenter extends Form
@@ -31,8 +36,71 @@ class MusicCollectionPresenter extends Form
 				$randSong = $sql->prepare( "SELECT * FROM tblMusic ORDER BY RAND() LIMIT 1" );
 				$randSong->execute();
 				$data = $randSong->fetchAll( );
-				return $data[ 0 ][ "Name" ];
+
+				$song = new \stdClass();
+				$song->image = $data[ 0 ][ "Image" ];
+				$song->name = $data[ 0 ][ "Name" ];
+				return json_encode( $song );
 			}
+		} );
+
+		$this->view->attachEventHandler( "Search", function( $query )
+		{
+			$title = "";
+			$noGenres = [];
+			$genres = [];
+			$uploader = "";
+			preg_match_all( '/@(\w)+/', $query, $this->title );
+			try
+			{
+				$this->title = $this->title[0][0];
+			}
+			catch( \Exception $ex )
+			{
+				$title = "";
+			}
+			preg_match_all( '/\+(\w)+/', $query, $this->genres );
+			$this->genres = $this->genres[0];
+			preg_match_all( '/-(\w)+/', $query, $this->noGenres );
+			$this->noGenres = $this->noGenres[0];
+			preg_match_all( '/#(\w)+/', $query, $this->uploader );
+			try
+			{
+				$this->uploader = $this->uploader[0][0];
+			}
+			catch( \Exception $ex )
+			{
+				$this->uploader = "";
+			}
+
+			$andFilter = new AndGroup();
+
+			if( $title )
+			{
+				$andFilter->addFilters( new Contains( 'Name', $title ) );
+			}
+
+			if( $noGenres )
+			{
+				foreach( $noGenres as $noGenre )
+				{
+					$andFilter->addFilters( new Not( new Contains( "Genre", $noGenre ) ) );
+				}
+			}
+
+			if( $genres )
+			{
+				foreach( $genres as $genre )
+				{
+					$andFilter->addFilters( new Contains( "Genre", $genre ) );
+				}
+			}
+
+			if( $uploader )
+			{
+				$andFilter->addFilters( new Contains( "Uploader", $uploader ) );
+			}
+
 		} );
 
 		$this->view->attachEventHandler( "Download", function( $url, $notes, $tags, $usePrefix, $prefix )
@@ -75,6 +143,7 @@ class MusicCollectionPresenter extends Form
 						$music->Notes = $notes;
 						$music->Name = $songName;
 						$music->Image = $image;
+						$music->Uploader = $uploader;
 						$music->save();
 
 						rename( "$dir/tmp/" . $item, "$dir/static/music/" . $songName );

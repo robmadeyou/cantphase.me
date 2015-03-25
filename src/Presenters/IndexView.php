@@ -17,28 +17,13 @@ class IndexView extends HtmlView
 	{
 		?>
 			<div style="text-align: center;">
-				<?php
-					try
-					{
-						$user = PhasedUser::getLoggedInUser();
-						print "Hello $user->Username!";
-					}
-					catch( NotLoggedInException $ex )
-					{
-						print "Main body is hidden... right?";
-					}
-				?>
+				<img src="/static/image/title-2.jpg">
 				<div class="underlay">
-					<?php
-						for( $i = 0; $i < 50; $i++ )
-						{
-							?>
-							<div class="content-box">
-								Test content
-							</div>
-						<?php
-						}
-					?>
+					<a href="/music/">
+						<div class="content-box content-box-3x3">
+							Music!
+						</div>
+					</a>
 				</div>
 			</div>
 		<?php

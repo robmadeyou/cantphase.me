@@ -30,20 +30,20 @@ bridge.prototype.attachEvents = function()
 	var self = this;
 
 	function init( song ) {
-		currentSong = song;
+		currentSong = song.name;
 		$( "#img" ).attr( "src", "/static/music/" + song.image );
-		$( "#songTitle" ).html( song );
+		$( "#songTitle" ).html( song.name );
 
 		if( song != "" )
 		{
-			if( assetsPath + src == assetsPath + song.name)
+			if( assetsPath + src == assetsPath + song.name )
 			{
 				handleLoad(this);
 				return;
 			}
 			else
 			{
-				src = song;
+				src = song.name;
 			}
 		}
 		if (window.top != window) {
@@ -126,26 +126,22 @@ bridge.prototype.attachEvents = function()
 	$( "#searchIn" ).keypress(function()
 	{
 		var text = $(this).val();
-		$.ajax(
+
+		self.raiseServerEvent( "Search", text, function( data )
+		{
+			data = JSON.parse( data );
+			var search = $( "#search" );
+			search.html( "" );
+			songList = data;
+			for( var i = 0; i < data.length; i++)
 			{
-				url : "get/",
-				type : "POST",
-				data : { filter : text, list : true }
-			}).done(function( data )
+				search.append( '<p class="songLink" song="' + data[ i ].id + '" >' + data[ i ].name + '</p>' );
+			}
+			$( ".songLink" ).click( function()
 			{
-				data = JSON.parse( data );
-				var search = $( "#search" );
-				search.html( "" );
-				songList = data;
-				for( var i = 0; i < data.length; i++)
-				{
-					search.append( '<p class="songLink" song="' + data[ i ].id + '" >' + data[ i ].name + '</p>' );
-				}
-				$( ".songLink" ).click( function()
-				{
-					ajaxGetSong( $( this ).attr( "song" ) );
-				});
+				ajaxGetSong( $( this ).attr( "song" ) );
 			});
+		} );
 	});
 
 	$( "#login" ).click( function()
@@ -283,7 +279,7 @@ bridge.prototype.attachEvents = function()
 	{
 		self.raiseServerEvent( "GetNewSong", function( song )
 		{
-			init( song );
+			init( JSON.parse( song ) );
 		} );
 
 		$( "#pull" ).click( function( event )

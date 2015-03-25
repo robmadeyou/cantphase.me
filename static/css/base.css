@@ -7,7 +7,7 @@ body
 .overlay
 {
     position: absolute;
-    top: 120px;
+    top: 180px;
     left: 130px;
     right: 0;
     bottom: 0;
@@ -28,6 +28,8 @@ body
 
 .content-box
 {
+    display: block;
+    vertical-align: middle;
     float: left;
     margin-right: 15px;
     margin-top: 15px;
@@ -37,6 +39,67 @@ body
     background-color: #007fff;
     opacity: 0.2;
     transition: opacity 0.5s;
+    text-align: center;
+}
+
+.content-box-1x1
+{
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.content-box-2x2
+{
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.content-box-3x3
+{
+    min-width: 450px;
+    min-height: 450px;
+}
+
+.content-box-4x4
+{
+    min-width: 600px;
+    min-height: 600px;
+}
+
+.content-box-1x2
+{
+    min-width: 150px;
+    min-height: 300px;
+}
+
+.content-box-1x3
+{
+    min-width: 150px;
+    min-height: 450px;
+}
+
+.content-box-1x4
+{
+    min-width: 150px;
+    min-height: 600px;
+}
+
+.content-box-2x1
+{
+    min-width: 300px;
+    min-height: 150px;
+}
+
+.content-box-3x1
+{
+    min-width: 450px;
+    min-height: 150px;
+}
+
+.content-box-4x1
+{
+    min-width: 600px;
+    min-height: 150px;
 }
 
 .content-box:hover

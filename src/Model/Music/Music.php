@@ -31,7 +31,8 @@ class Music extends Model
 			new Varchar( "Genre", 256 ),
 			new MediumText( "Notes" ),
 			new Varchar( "Name", 256 ),
-			new Varchar( "Image", 256 )
+			new Varchar( "Image", 256 ),
+			new Varchar( "Uploader", 256 )
 		);
 
 		$schema->labelColumnName = 'Name';
