@@ -25,10 +25,8 @@ class IndexView extends \Cant\Phase\Me\Presenters\IndexView
 	{
 		parent::configurePresenters();
 
-		$this->presenters[ "username" ]->setPlaceholderText( "Username" );
 		$this->presenters[ "username" ]->addCssClassName( "input-center login-input login-username" );
 
-		$this->presenters[ "password" ]->setPlaceholderText( "Password" );
 		$this->presenters[ "password" ]->addCssClassName( "input-center login-input login-password" );
 	}
 

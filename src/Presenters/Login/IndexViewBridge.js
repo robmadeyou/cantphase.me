@@ -17,7 +17,7 @@ bridge.prototype.attachEvents = function()
 		self.user = $( "#" + uname.presenterPath );
 		self.pass = $( "#" + pass.presenterPath );
 	} );
-	
+
 	var onLoginScreen = false;
 	$( "#login-button" ).click( function()
 	{
@@ -25,7 +25,7 @@ bridge.prototype.attachEvents = function()
 		setTimeout( function()
 		{
 			onLoginScreen = true;
-			$( "#actual-login" ).fadeIn().delay( 500 );
+			$( "#actual-login" ).slideDown();
 		}, 300 );
 	} );
 
