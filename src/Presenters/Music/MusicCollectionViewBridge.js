@@ -100,6 +100,8 @@ bridge.prototype.attachEvents = function()
 		init( song );
 	}
 
+	var tickrotate = 0;
+
 	function tick(evt) {
 		analyserNode.getFloatFrequencyData(freqFloatData);  // this gives us the dBs
 		analyserNode.getByteFrequencyData(freqByteData);  // this gives us the frequency
@@ -110,17 +112,40 @@ bridge.prototype.attachEvents = function()
 		var width = Math.ceil(canvas.width / freqByteData.length)
 		var lastX = 0;
 		var lastY = 0;
+
+		ctx.restore();
+		var rotat = 0;
 		for( var i = 0; i < freqByteData.length; i++)
 		{
+			if( i > ( freqByteData.length / 5 ) * 3 )
+			{
+				ctx.fillStyle = "white";
+			}
+			else
+			{
+				ctx.fillStyle = "#4DA6A6";
+			}
 			ctx.beginPath();
-			ctx.strokeStyle =  "#67C5C2";
+			ctx.strokeStyle =  "#4DA6A6";
+			ctx.lineWidth = 6;
 			ctx.moveTo( lastX, lastY);
 			ctx.lineTo( i * width, canvas.height - timeByteData[i]);
-			lastY = canvas.height - timeByteData[i] * 2;
+			lastY = canvas.height - timeByteData[i] * 1;
 			lastX = i * width;
 			ctx.stroke();
-			ctx.fillRect( i * ( width + 1 ), 0, width, freqByteData[i] * 2);
+			ctx.save();
+				ctx.translate( canvas.width / 2, canvas.height / 2);
+			var initialRotate = ( i * 3.3 ) * Math.PI / 180;
+				ctx.rotate( initialRotate + tickrotate );
+				ctx.save();
+
+					//ctx.rotate( -initialRotate );
+					ctx.fillRect( -(freqByteData[i]) / 4, 0, freqByteData[i] * 2, width + 2 );
+				ctx.restore();
+			ctx.restore();
 		}
+		tickrotate += 0.005;
+		ctx.restore();
 	}
 
 	$( "#searchIn" ).keypress(function()
