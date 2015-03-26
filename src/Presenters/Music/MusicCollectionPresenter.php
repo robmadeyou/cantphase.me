@@ -7,9 +7,7 @@ use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Leaf\Presenters\Forms\Form;
 use Rhubarb\Stem\Filters\AndGroup;
 use Rhubarb\Stem\Filters\Contains;
-use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Filters\Not;
-use Rhubarb\Stem\Filters\OneOf;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
 class MusicCollectionPresenter extends Form
@@ -28,7 +26,20 @@ class MusicCollectionPresenter extends Form
 		{
 			if( $filter )
 			{
+				try
+				{
+					$songModel = new Music( $filter );
+					$song = new \stdClass();
 
+					$song->name = $songModel->Name;
+					$song->image = $songModel->Image;
+
+					return json_encode( $song );
+				}
+				catch( \Exception $ex )
+				{
+
+				}
 			}
 			else
 			{
@@ -50,41 +61,41 @@ class MusicCollectionPresenter extends Form
 			$noGenres = [];
 			$genres = [];
 			$uploader = "";
-			preg_match_all( '/@(\w)+/', $query, $this->title );
+			preg_match_all( '/@(\w)+/', $query, $title );
 			try
 			{
-				$this->title = $this->title[0][0];
+				$title = $title[0][0];
 			}
 			catch( \Exception $ex )
 			{
 				$title = "";
 			}
-			preg_match_all( '/\+(\w)+/', $query, $this->genres );
-			$this->genres = $this->genres[0];
-			preg_match_all( '/-(\w)+/', $query, $this->noGenres );
-			$this->noGenres = $this->noGenres[0];
-			preg_match_all( '/#(\w)+/', $query, $this->uploader );
+			preg_match_all( '/\+(\w)+/', $query, $genres );
+			$genres = $genres[0];
+			preg_match_all( '/-(\w)+/', $query, $noGenres );
+			$noGenres = $noGenres[0];
+			preg_match_all( '/#(\w)+/', $query, $uploader );
 			try
 			{
-				$this->uploader = $this->uploader[0][0];
+				$uploader = $uploader[0][0];
 			}
 			catch( \Exception $ex )
 			{
-				$this->uploader = "";
+				$uploader = "";
 			}
 
 			$andFilter = new AndGroup();
 
 			if( $title )
 			{
-				$andFilter->addFilters( new Contains( 'Name', $title ) );
+				$andFilter->addFilters( new Contains( 'Name', str_replace( "@", "", $title ) ) );
 			}
 
 			if( $noGenres )
 			{
 				foreach( $noGenres as $noGenre )
 				{
-					$andFilter->addFilters( new Not( new Contains( "Genre", $noGenre ) ) );
+					$andFilter->addFilters( new Not( new Contains( "Genre", str_replace( "-", "", $noGenre ) ) ) );
 				}
 			}
 
@@ -92,15 +103,30 @@ class MusicCollectionPresenter extends Form
 			{
 				foreach( $genres as $genre )
 				{
-					$andFilter->addFilters( new Contains( "Genre", $genre ) );
+					$andFilter->addFilters( new Contains( "Genre", str_replace( "+", "", $genre ) ) );
 				}
 			}
 
 			if( $uploader )
 			{
-				$andFilter->addFilters( new Contains( "Uploader", $uploader ) );
+				$andFilter->addFilters( new Contains( "Uploader", str_replace( "#", "", $uploader ) ) );
 			}
 
+			$songsArray = [];
+
+			$songs = Music::find( $andFilter );
+			$songs->setRange( 0, 150 );
+
+			foreach( $songs as $s )
+			{
+				$song = new \stdClass();
+				$song->name = $s->Name;
+				$song->image = $s->Image;
+				$song->id = $s->MusicID;
+				$songsArray[] = $song;
+			}
+
+			return json_encode( $songsArray );
 		} );
 
 		$this->view->attachEventHandler( "Download", function( $url, $notes, $tags, $usePrefix, $prefix )
@@ -144,6 +170,7 @@ class MusicCollectionPresenter extends Form
 						$music->Name = $songName;
 						$music->Image = $image;
 						$music->Uploader = $uploader;
+						$music->Source = $songUrl;
 						$music->save();
 
 						rename( "$dir/tmp/" . $item, "$dir/static/music/" . $songName );

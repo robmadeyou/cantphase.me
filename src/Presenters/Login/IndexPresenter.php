@@ -3,17 +3,17 @@
 namespace Cant\Phase\Me\Presenters\Login;
 
 use Cant\Phase\Me\Model\PhasedUser\PhasedUser;
-use Rhubarb\Crown\Exceptions\ForceResponseException;
 use Rhubarb\Crown\LoginProviders\Exceptions\LoginDisabledException;
 use Rhubarb\Crown\LoginProviders\Exceptions\LoginFailedException;
-use Rhubarb\Crown\Response\RedirectResponse;
 use Rhubarb\Scaffolds\Authentication\LoginProvider;
 use Rhubarb\Stem\Exceptions\RecordNotFoundException;
 use Rhubarb\Stem\Filters\Equals;
 
 class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 {
-    protected function CreateView()
+	public $canRegister = false;
+
+	protected function CreateView()
     {
 	    return new IndexView();
     }
@@ -21,10 +21,9 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 	protected function configureView()
 	{
 		parent::configureView();
-
 		$this->view->hasOverlay = true;
 
-		$this->view->attachEventHandler( 'login', function( $user, $pass )
+		$this->view->attachEventHandler( 'login', function( $user, $pass, $info = "", $email = "" )
 		{
 			$providerName = LoginProvider::getDefaultLoginProviderClassName();
 			$login = new $providerName( "PhasedUser", "Username", "Password", "Enabled" );
@@ -51,15 +50,21 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 				}
 			} catch ( RecordNotFoundException $ex )
 			{
-				$u = new PhasedUser();
-				$u->Username = $user;
-				$u->setNewPassword( $pass );
-				$u->Forename = $user;
-				$u->save();
+				if( $this->canRegister )
+				{
+					$u = new PhasedUser();
+					$u->Username = $user;
+					$u->setNewPassword( $pass );
+					$u->Info = $info;
+					$u->Email = $email;
+					$u->Forename = $user;
+					$u->save();
 
-				$login->login( $user, $pass );
+					$login->login( $user, $pass );
 
-				return 2;
+					return 2;
+				}
+				return 0;
 			}
 			return 0;
 		});

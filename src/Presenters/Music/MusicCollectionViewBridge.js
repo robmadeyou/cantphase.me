@@ -212,17 +212,12 @@ bridge.prototype.attachEvents = function()
 
 	function getRandomSong()
 	{
-		$.ajax(
-			{
-				url : "get/",
-				type : "POST"
-			}
-		).done(function( data )
-			{
-				data = JSON.parse( data );
-				console.log( data );
-				self.next( data );
-			});
+		self.raiseServerEvent( "GetNewSong", "", function( data )
+		{
+			data = JSON.parse( data );
+			console.log( data );
+			next( data );
+		} );
 	}
 
 	function voteOnSong( view )
@@ -261,18 +256,12 @@ bridge.prototype.attachEvents = function()
 	 */
 	function ajaxGetSong( song )
 	{
-		$.ajax(
-			{
-				url : "get/",
-				type : "POST",
-				data : { id : song }
-			}
-		).done(function( data )
-			{
-				data = JSON.parse( data );
-				console.log( data );
-				self.next( data );
-			});
+		self.raiseServerEvent( "GetNewSong", song, function( data )
+		{
+			data = JSON.parse( data );
+			console.log( data );
+			next( data );
+		} );
 	}
 
 	$( document ).ready( function()

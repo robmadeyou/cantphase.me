@@ -2,9 +2,6 @@
 
 namespace Cant\Phase\Me\Presenters;
 
-use Cant\Phase\Me\Model\PhasedUser\PhasedUser;
-use Rhubarb\Crown\LoginProviders\Exceptions\NotLoggedInException;
-use Rhubarb\Crown\LoginProviders\LoginProvider;
 use Rhubarb\Leaf\Views\HtmlView;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 
@@ -20,7 +17,68 @@ class IndexView extends HtmlView
 				<img src="/static/image/title-2.jpg">
 				<div class="underlay">
 					<a href="/music/">
-						<div class="content-box content-box-3x3">
+						<div class="content-box content-box-1x1">
+							Music!
+						</div>
+						<div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
+							Music!
+						</div><div class="content-box content-box-1x1">
 							Music!
 						</div>
 					</a>

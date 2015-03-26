@@ -10,13 +10,27 @@
     src: url(/static/fonts/Quicksand-Light.otf)
 }
 
+/* Chrome, Safari, Opera */
+@-webkit-keyframes glow {
+    0% {opacity: 1;}
+    50% {opacity: 0.7;}
+    100% {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes glow {
+    0% {opacity: 1;}
+    50% {opacity: 0.7;}
+    100% {opacity: 1;}
+}
+
 body
 {
     margin: 0;
     background-color: #000000;
     color: white;
     font-family: Quicksand;
-
+    overflow:hidden;
 }
 .overlay
 {
@@ -32,13 +46,13 @@ body
     padding-top: 40px;
     padding-left: 40px;
     text-align: center;
+    height: 100%;
 }
 
 #login
 {
     margin-top: 100px;
     margin-bottom: 100px;
-    transition:  1s;
 }
 
 #login-base
@@ -91,6 +105,7 @@ body
     opacity: 0.2;
     transition: opacity 0.5s;
     text-align: center;
+
 }
 
 .content-box-1x1
@@ -156,6 +171,9 @@ body
 .content-box:hover
 {
     opacity: 1;
+    -webkit-animation-name: glow;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
 }
 
 .input-center

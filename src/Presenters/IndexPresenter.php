@@ -6,7 +6,7 @@ use Rhubarb\Leaf\Presenters\Forms\Form;
 
 class IndexPresenter extends Form
 {
-    protected function CreateView()
+    protected function createView()
     {
         return new IndexView();
     }
