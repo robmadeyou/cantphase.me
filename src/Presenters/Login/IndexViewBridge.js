@@ -8,34 +8,45 @@ bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function()
 {
-
 	var user, pass, info, email;
 
 	var self = this;
 
-	this.waitForPresenters( [ "username", "password", "email", "info" ], function ( uname, pass, inf, eml )
+	this.waitForPresenters( [ "username", "password" ], function ( uname, pass )
 	{
 		self.user = $( "#" + uname.presenterPath );
 		self.pass = $( "#" + pass.presenterPath );
-		self.email = $( "#" + inf.presenterPath );
-		self.info = $( "#" + eml.presenterPath );
 	} );
-
-
-	$( ".submit-button" ).click( function( )
+	
+	var onLoginScreen = false;
+	$( "#login-button" ).click( function()
 	{
-		self.raiseServerEvent( "login", self.user.val(), self.pass.val(), self.email.val(), self.info.val(), function ( out )
+		$( "#login-base" ).fadeOut( 300 );
+		setTimeout( function()
 		{
-			if( out == 1 )
-			{
-				$( ".overlay" ).fadeOut();
-				setTimeout( function()
-				{
-					window.location.href = "/";
-				}, 500 )
-			}
-		} );
+			onLoginScreen = true;
+			$( "#actual-login" ).fadeIn().delay( 500 );
+		}, 300 );
 	} );
+
+	$( document ).keydown( function( event )
+	{
+		if( event.which == 13 )
+		{
+			self.raiseServerEvent( "login", self.user.val(), self.pass.val(), function ( out )
+			{
+				if( out == 1 )
+				{
+					$( ".overlay" ).fadeOut();
+					setTimeout( function()
+					{
+						window.location.href = "/";
+					}, 500 )
+				}
+			} );
+		}
+	} );
+
 };
 
 window.gcd.core.mvp.viewBridgeClasses.IndexViewBridge = bridge;

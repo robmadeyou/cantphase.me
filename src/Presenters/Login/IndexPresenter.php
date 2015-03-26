@@ -24,7 +24,7 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 
 		$this->view->hasOverlay = true;
 
-		$this->view->attachEventHandler( 'login', function( $user, $pass, $email, $info )
+		$this->view->attachEventHandler( 'login', function( $user, $pass )
 		{
 			$providerName = LoginProvider::getDefaultLoginProviderClassName();
 			$login = new $providerName( "PhasedUser", "Username", "Password", "Enabled" );
@@ -55,8 +55,6 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 				$u->Username = $user;
 				$u->setNewPassword( $pass );
 				$u->Forename = $user;
-				$u->Email = $email;
-				$u->Info = $info;
 				$u->save();
 
 				$login->login( $user, $pass );

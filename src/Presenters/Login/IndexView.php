@@ -17,9 +17,7 @@ class IndexView extends \Cant\Phase\Me\Presenters\IndexView
 
 		$this->addPresenters(
 			new TextBox( "username" ),
-			new Password( "password" ),
-			new TextBox( "email" ),
-			new TextArea( "info" )
+			new Password( "password" )
 		);
 	}
 
@@ -28,26 +26,30 @@ class IndexView extends \Cant\Phase\Me\Presenters\IndexView
 		parent::configurePresenters();
 
 		$this->presenters[ "username" ]->setPlaceholderText( "Username" );
-		$this->presenters[ "username" ]->addCssClassName( "input-center" );
+		$this->presenters[ "username" ]->addCssClassName( "input-center login-input login-username" );
 
 		$this->presenters[ "password" ]->setPlaceholderText( "Password" );
-		$this->presenters[ "password" ]->addCssClassName( "input-center" );
-
-		$this->presenters[ "email" ]->setPlaceholderText( "Email" );
-		$this->presenters[ "email" ]->addCssClassName( "input-center" );
-
-		$this->presenters[ "info" ]->setPlaceholderText( "A little info about yourself" );
-		$this->presenters[ "info" ]->addCssClassName( "input-center" );
+		$this->presenters[ "password" ]->addCssClassName( "input-center login-input login-password" );
 	}
 
 	public function printOverlay()
 	{
 		?>
-			<?= $this->presenters[ "username" ] ?><br>
-			<?= $this->presenters[ "password" ] ?><br>
-			<?= $this->presenters[ "email" ] ?><br>
-			<?= $this->presenters[ "info" ] ?><br>
-			<a href="#" class="submit-button">submit</a>
+			<div id="login">
+				<hr>
+				<div  id="login-base">
+					<h1 id="login-button">Login</h1>
+				</div>
+				<div id="actual-login" style="">
+					<h1>Username</h1>
+					<?= $this->presenters[ "username" ] ?><br>
+					<h1>Password</h1>
+					<?= $this->presenters[ "password" ] ?><br>
+					<p>Haven't registered yet?</p>
+					<a href="/login/signup">Sign up</a>
+				</div>
+			</div>
+			<hr>
 		<?php
 	}
 

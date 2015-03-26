@@ -1,21 +1,70 @@
+@font-face {
+    font-family: siteFont;
+    src: url(/static/fonts/OpenSans-Light.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(/static/fonts/Quicksand-Light.otf)
+}
+
 body
 {
     margin: 0;
     background-color: #000000;
     color: white;
+    font-family: Quicksand;
+
 }
 .overlay
 {
+    font-size: 120%;
     position: absolute;
     top: 180px;
     left: 130px;
     right: 0;
     bottom: 0;
-    background-color: green;
+    background-color: #191919;
     border-top-left-radius: 80px;
     padding-top: 40px;
     padding-left: 40px;
     text-align: center;
+}
+
+#login
+{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#login-base
+{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#login-base:hover
+{
+    cursor: pointer;
+}
+
+#actual-login
+{
+    display: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.login-input
+{
+    width: 350px;
+    height: 50px;
+    font-size: 46px;
+    box-shadow:none;
+    outline: none;
+    border-radius: 10px;
 }
 
 .underlay
@@ -110,7 +159,6 @@ body
 .input-center
 {
     text-align: center;
-    border-radius: 90px;
 }
 
 .submit-button
@@ -141,32 +189,6 @@ body
 {
     margin-right: 20px;
     color: white;
-}
-
-#migi
-{
-    position: fixed;
-    z-index: 99999;
-    bottom: 0;
-    right: 0;
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-}
-
-#login
-{
-    color:red;
-    cursor: pointer;
-}
-
-#logout
-{
-    color:blue;
-    cursor: pointer;
 }
 
 #songTitle
