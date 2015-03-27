@@ -12,6 +12,14 @@ class IndexView extends HtmlView
 
 	protected function PrintViewContent()
 	{
+		if( $this->hasOverlay )
+		{
+			?>
+			<div class="overlay">
+				<?= $this->printOverlay() ?>
+			</div>
+		<?php
+		}
 		?>
 			<div style="text-align: center;">
 				<img src="/static/image/title-2.jpg">
@@ -85,14 +93,7 @@ class IndexView extends HtmlView
 				</div>
 			</div>
 		<?php
-			if( $this->hasOverlay )
-			{
-			?>
-				<div class="overlay">
-					<?= $this->printOverlay() ?>
-				</div>
-			<?php
-			}
+
 	}
 
 	/**
