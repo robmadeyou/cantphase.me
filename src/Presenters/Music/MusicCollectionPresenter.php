@@ -26,7 +26,7 @@ class MusicCollectionPresenter extends Form
 		{
 			if( $filter )
 			{
-				if( $filter === true )
+				if( $filter === true && $this->songID )
 				{
 					$filter = $this->songID;
 				}
