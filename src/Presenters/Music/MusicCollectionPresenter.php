@@ -24,13 +24,27 @@ class MusicCollectionPresenter extends Form
 
 		$this->view->attachEventHandler( "GetNewSong", function( $filter = "" )
 		{
-			if( $filter )
+			if( $filter === true && $this->songID )
 			{
-				if( $filter === true && $this->songID )
-				{
-					$filter = $this->songID;
-				}
+				$filter = $this->songID;
 
+				try
+				{
+					$songModel = new Music( $filter );
+					$song = new \stdClass();
+
+					$song->name = $songModel->Name;
+					$song->image = $songModel->Image;
+
+					return json_encode( $song );
+				}
+				catch( \Exception $ex )
+				{
+
+				}
+			}
+			else if( $filter !== true )
+			{
 				try
 				{
 					$songModel = new Music( $filter );
