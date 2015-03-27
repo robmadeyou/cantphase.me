@@ -5,6 +5,7 @@ use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
+use Rhubarb\Patterns\Mvp\Crud\CrudUrlHandler;
 use Rhubarb\Scaffolds\AuthenticationWithRoles\AuthenticationWithRolesModule;
 use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
@@ -33,7 +34,7 @@ class CantPhaseMeModule extends Module
 			[
 				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter',
 					[
-						'music/' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Music\MusicCollectionPresenter' )
+						'music/' => new CrudUrlHandler( 'Music', 'Cant\Phase\Me\Presenters\Music' )
 					]),
 				"/login/" => $login
 			]

@@ -26,6 +26,11 @@ class MusicCollectionPresenter extends Form
 		{
 			if( $filter )
 			{
+				if( $filter === true )
+				{
+					$filter = $this->songID;
+				}
+
 				try
 				{
 					$songModel = new Music( $filter );

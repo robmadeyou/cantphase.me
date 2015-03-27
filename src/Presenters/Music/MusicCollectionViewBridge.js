@@ -110,6 +110,7 @@ bridge.prototype.attachEvents = function()
 		canvas.width = canvas.width;
 		ctx.fillStyle = "#3D2117";
 		var width = Math.ceil(canvas.width / freqByteData.length)
+
 		var lastX = 0;
 		var lastY = 0;
 
@@ -125,6 +126,11 @@ bridge.prototype.attachEvents = function()
 			{
 				ctx.fillStyle = "#4DA6A6";
 			}
+			if( i == 0 )
+			{
+				lastX = 0;
+				lastY = canvas.height - timeByteData[i];
+			}
 			ctx.beginPath();
 			ctx.strokeStyle =  "#4DA6A6";
 			ctx.lineWidth = 6;
@@ -134,13 +140,14 @@ bridge.prototype.attachEvents = function()
 			lastX = i * width;
 			ctx.stroke();
 			ctx.save();
+
 				ctx.translate( canvas.width / 2, canvas.height / 2);
 			var initialRotate = ( i * 3.3 ) * Math.PI / 180;
 				ctx.rotate( initialRotate + tickrotate );
 				ctx.save();
 
-					//ctx.rotate( -initialRotate );
 					ctx.fillRect( -(freqByteData[i]) / 4, 0, freqByteData[i] * 2, width + 2 );
+
 				ctx.restore();
 			ctx.restore();
 		}
@@ -265,7 +272,7 @@ bridge.prototype.attachEvents = function()
 	{
 		if( songList.length != 0 )
 		{
-			self.next( songList[ parseInt( parseInt( Math.random() * songList.length ) ) ] );
+			next( songList[ parseInt( parseInt( Math.random() * songList.length ) ) ] );
 		}
 		else
 		{
@@ -291,7 +298,7 @@ bridge.prototype.attachEvents = function()
 
 	$( document ).ready( function()
 	{
-		self.raiseServerEvent( "GetNewSong", function( song )
+		self.raiseServerEvent( "GetNewSong", true, function( song )
 		{
 			init( JSON.parse( song ) );
 		} );

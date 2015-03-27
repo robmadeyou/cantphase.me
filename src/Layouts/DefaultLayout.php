@@ -14,7 +14,7 @@ class DefaultLayout extends BaseLayout
 	protected function printHead()
 	{
 		?>
-			<link rel="shortcut icon" href="http://www.localfoodmap.net/images/icons/banana.ico"/>
+			<link rel="shortcut icon" href="/static/image/spider.ico">
 		<?php
 	}
 
