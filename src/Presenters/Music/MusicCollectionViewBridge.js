@@ -126,11 +126,14 @@ bridge.prototype.attachEvents = function()
 			{
 				ctx.fillStyle = "#4DA6A6";
 			}
+
+
 			if( i == 0 )
 			{
 				lastX = 0;
 				lastY = canvas.height - timeByteData[i];
 			}
+
 			ctx.beginPath();
 			ctx.strokeStyle =  "#4DA6A6";
 			ctx.lineWidth = 6;
@@ -141,17 +144,22 @@ bridge.prototype.attachEvents = function()
 			ctx.stroke();
 			ctx.save();
 
-				ctx.translate( canvas.width / 2, canvas.height / 2);
-			var initialRotate = ( i * 3.3 ) * Math.PI / 180;
-				ctx.rotate( initialRotate + tickrotate );
-				ctx.save();
+			ctx.translate( canvas.width / 2, canvas.height / 2);
+			var initialRotate = ( i * 1 ) * Math.PI / 180;
+			ctx.rotate( initialRotate + tickrotate );
+			ctx.save();
+			if(1+(freqFloatData[ i ] / 100) < 1 )
+			{
+				ctx.globalAlpha = 1+(freqFloatData[ i ] / 100);
+			}
 
-					ctx.fillRect( -(freqByteData[i]) / 4, 0, freqByteData[i] * 2, width + 2 );
+			ctx.fillRect( 100-(freqByteData[i]) / 4, 0, freqByteData[i], width + 2 );
 
-				ctx.restore();
 			ctx.restore();
+			ctx.restore();
+			ctx.fillRect( i * ( 1 ), 200, 1, freqFloatData[i] );
 		}
-		tickrotate += 0.005;
+		tickrotate += 0.0024;
 		ctx.restore();
 	}
 
