@@ -39,7 +39,7 @@ class MusicCollectionView extends HtmlView
 		<div id="holder">
 			<div id="titleBar">
 				<marquee id="songTitle"></marquee>
-				<button type="button" id="nextButton" onclick="playNextSong()" >Next song!</button><input id="volume" type="range" min="0" max="100" onchange="changeVolume( this.value )">
+				<button type="button" id="nextButton" onclick="playNextSong()" >Next song!</button><input id="volume" type="range" min="0" max="100">
 			</div>
 			<div id="bars">
 				<canvas id="barCanvas" height="1000"></canvas>

@@ -157,7 +157,6 @@ bridge.prototype.attachEvents = function()
 
 			ctx.restore();
 			ctx.restore();
-			ctx.fillRect( i * ( 1 ), 200, 1, freqFloatData[i] );
 		}
 		tickrotate += 0.0024;
 		ctx.restore();
@@ -306,6 +305,11 @@ bridge.prototype.attachEvents = function()
 
 	$( document ).ready( function()
 	{
+
+		$( "#volume" ).change(function() {
+			changeVolume( $( this ).val() );
+		});
+
 		self.raiseServerEvent( "GetNewSong", true, function( song )
 		{
 			init( JSON.parse( song ) );
