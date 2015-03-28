@@ -66,9 +66,9 @@ class MusicCollectionView extends HtmlView
 			<img class="visualizer-artwork" src="" id="img"/>
 			<div class="visualizer-center-split">
 				<div class="visualizer-center-top">
-					<img src="/static/image/songButtonPrev.jpg" id="prevButton" />
+					<img src="/static/image/songButtonPrev.png" id="prevButton" />
 					<marquee id="songTitle"></marquee>
-					<img src="/static/image/songButtonNex.jpg" id="nextButton" />
+					<img src="/static/image/songButtonNex.png" id="nextButton" />
 				</div>
 				<input id="volume" type="range" min="0" max="100">
 			</div>
