@@ -22,8 +22,6 @@ bridge.prototype.attachEvents = function()
 	var volume = 1;
 	var songList = [];
 	var currentSong;
-	canvas.style.width = "100%";
-	canvas.style.height = "100%";
 	canvas.width  = canvas.offsetWidth;
 	canvas.height = canvas.offsetHeight;
 

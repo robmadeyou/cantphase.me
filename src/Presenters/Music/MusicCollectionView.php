@@ -75,9 +75,7 @@ class MusicCollectionView extends HtmlView
 			<div class="visualizer-content visualizer-menu-dropdown">
 			</div>
 		</div>
-		<div id="bars">
-			<canvas id="barCanvas" height="1000"></canvas>
-		</div>
+		<canvas id="barCanvas"></canvas>
 		<?php
 	}
 
