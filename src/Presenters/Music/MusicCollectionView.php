@@ -72,8 +72,7 @@ class MusicCollectionView extends HtmlView
 				</div>
 				<input id="volume" type="range" min="0" max="100">
 			</div>
-			<div class="visualizer-menu-dropdown">
-
+			<div class="visualizer-content visualizer-menu-dropdown">
 			</div>
 		</div>
 		<div id="bars">
