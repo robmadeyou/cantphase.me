@@ -145,7 +145,7 @@ bridge.prototype.attachEvents = function()
 			ctx.save();
 
 			ctx.translate( canvas.width / 2, canvas.height / 2);
-			var initialRotate = ( i * 1 ) * Math.PI / 180;
+			var initialRotate = ( i * 3.5 ) * Math.PI / 180;
 			ctx.rotate( initialRotate + tickrotate );
 			ctx.save();
 			if(1+(freqFloatData[ i ] / 100) < 1 )
@@ -313,6 +313,8 @@ bridge.prototype.attachEvents = function()
 		self.raiseServerEvent( "GetNewSong", true, function( song )
 		{
 			init( JSON.parse( song ) );
+			changeVolume( 0.5 );
+
 		} );
 
 		$( "#pull" ).click( function( event )
