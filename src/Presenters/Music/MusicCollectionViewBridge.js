@@ -387,7 +387,7 @@ bridge.prototype.attachEvents = function()
 
 	function getRandomSong()
 	{
-		self.raiseServerEvent( "GetNewSong", "", function( data )
+		self.raiseServerEvent( "GetNewSong", false, function( data )
 		{
 			data = JSON.parse( data );
 			console.log( data );
@@ -442,6 +442,11 @@ bridge.prototype.attachEvents = function()
 	$( document ).ready( function()
 	{
 		dropdown.initialize();
+
+		$( "#nextButton" ).click( function()
+		{
+			playNextSong();
+		} );
 
 		$( "#volume" ).change(function() {
 			var val = $( this ).val();

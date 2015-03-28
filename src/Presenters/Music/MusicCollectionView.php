@@ -13,6 +13,11 @@ class MusicCollectionView extends HtmlView
 {
 	use WithJqueryViewBridgeTrait;
 
+	protected function getAdditionalResourceUrls()
+	{
+		return  [ "http://code.createjs.com/easeljs-0.7.1.min.js", "http://code.createjs.com/soundjs-0.5.2.min.js" ];
+	}
+
 	protected function printViewContent()
 	{
 		/*
@@ -89,6 +94,9 @@ class MusicCollectionView extends HtmlView
 					</div>
 				</div>
 				<div class="_vdo visualizer-dropdown-overlay-inner visualizer-dropdown-items" id="visualizer-add-song">
+					<div class="_vdo">
+						<img class="_vdo visualizer-dropdown-back-button" src="/static/image/songBackButton.png">
+					</div>
 					<p class="_vdo visualizer-dropdown-item visualizer-title">Add a new song</p>
 					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Song/Playlist" type="text" id="pullUrl">
 					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Custom Prefix" type="text" id="pullPrefix">

@@ -14,7 +14,6 @@ class MusicCollectionPresenter extends Form
 {
 	protected function createView()
 	{
-		ResourceLoader::loadResource( [ "http://code.createjs.com/easeljs-0.7.1.min.js", "http://code.createjs.com/soundjs-0.5.2.min.js" ] );
 		return new MusicCollectionView();
 	}
 
@@ -43,7 +42,7 @@ class MusicCollectionPresenter extends Form
 
 				}
 			}
-			else if( $filter !== true )
+			else if( $filter !== true  && intval( $filter ) )
 			{
 				try
 				{
