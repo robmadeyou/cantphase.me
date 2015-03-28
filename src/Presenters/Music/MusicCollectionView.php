@@ -89,7 +89,7 @@ class MusicCollectionView extends HtmlView
 					</div>
 				</div>
 				<div class="_vdo visualizer-dropdown-overlay-inner visualizer-dropdown-items" id="visualizer-add-song">
-					<p class="_vdo visualizer-dropdown-item">Add a new song</p>
+					<p class="_vdo visualizer-dropdown-item visualizer-title">Add a new song</p>
 					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Song/Playlist" type="text" id="pullUrl">
 					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Custom Prefix" type="text" id="pullPrefix">
 					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Tags" type="text" id="pullTags">

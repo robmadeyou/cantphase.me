@@ -63,6 +63,7 @@ input[type=range]#volume {
 {
     margin-top: 5%;
     margin-bottom: 2%;
+    margin-left: 0.08%;
     width: 100%;
     float:left;
 }
@@ -152,6 +153,11 @@ input[type=range]#volume {
 
 #visualizer-main-selection
 {
+}
+
+.visualizer-title
+{
+    text-align: center;
 }
 
 #visualizer-add-song
