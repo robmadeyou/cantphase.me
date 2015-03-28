@@ -83,6 +83,13 @@ input[type=range]#volume {
     border: #ffffff solid 3px;
 }
 
+.visualizer-slider-percentage
+{
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
 #prevButton
 {
     float:left;
@@ -104,6 +111,8 @@ input[type=range]#volume {
 #volume
 {
     width: 100%;
+    box-shadow:none;
+    outline: none;
 }
 
 .visualizer-menu-dropdown

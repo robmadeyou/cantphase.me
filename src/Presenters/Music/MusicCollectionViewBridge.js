@@ -78,7 +78,6 @@ bridge.prototype.attachEvents = function()
 	function startPlayback(evt) {
 		soundInstance = createjs.Sound.play(assetsPath + src, {loop:0});
 		soundInstance.addEventListener( "complete" , createjs.proxy(playNextSong, this));
-		soundInstance.volume = self.volume;
 		// start the tick and point it at the window so we can do some work before updating the stage:
 		createjs.Ticker.addEventListener("tick", tick);
 		createjs.Ticker.setInterval(TICK_FREQ);
@@ -105,6 +104,11 @@ bridge.prototype.attachEvents = function()
 		analyserNode.getByteFrequencyData(freqByteData);  // this gives us the frequency
 		analyserNode.getByteTimeDomainData(timeByteData);  // this gives us the waveform
 		//ctx.clearRect(0,0,canvas.width,canvas.height);
+		if( soundInstance.volume != this.volume )
+		{
+			soundInstance.volume = this.volume;
+		}
+
 		canvas.width = canvas.width;
 		ctx.fillStyle = "#3D2117";
 		var width = Math.ceil(canvas.width / freqByteData.length)
@@ -219,7 +223,6 @@ bridge.prototype.attachEvents = function()
 
 	function changeVolume( volume )
 	{
-		soundInstance.volume = volume / 100;
 		this.volume = volume / 100;
 	}
 
@@ -305,13 +308,16 @@ bridge.prototype.attachEvents = function()
 	{
 
 		$( "#volume" ).change(function() {
-			changeVolume( $( this ).val() );
+			var val = $( this ).val();
+			changeVolume( val );
+			$( '.visualizer-slider-percentage' ).html( val + "%" );
+			$( '.visualizer-slider-percentage' ).show().delay( 400 ).fadeOut();
 		});
 
 		self.raiseServerEvent( "GetNewSong", true, function( song )
 		{
+			changeVolume( 20 );
 			init( JSON.parse( song ) );
-			changeVolume( 0.5 );
 		} );
 
 		$( "#pull" ).click( function( event )

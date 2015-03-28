@@ -70,7 +70,8 @@ class MusicCollectionView extends HtmlView
 					<marquee id="songTitle"></marquee>
 					<img src="/static/image/songButtonNex.png" id="nextButton" />
 				</div>
-				<input id="volume" type="range" min="0" max="100">
+				<input id="volume" type="range" min="0" max="100" value="20">
+				<div class="visualizer-slider-percentage">20%</div>
 			</div>
 			<div class="visualizer-content visualizer-menu-dropdown">
 			</div>
