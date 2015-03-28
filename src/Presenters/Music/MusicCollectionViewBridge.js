@@ -22,10 +22,49 @@ bridge.prototype.attachEvents = function()
 	var volume = 1;
 	var songList = [];
 	var currentSong;
+	var self = this;
+
+
+	var dropdown = {
+		jquery :  $( '.visualizer-dropdown-overlay' ),
+		isOpen : false,
+		isSearching : false,
+		animationSpeed : 'fast',
+		open : function()
+		{
+			this.jquery.show().animate(
+				{
+					width : 200,
+					height : 200
+				}, this.animationSpeed, function(  )
+				{
+					dropdown.isOpen = true;
+				});
+		},
+		close : function()
+		{
+			this.jquery.animate(
+				{
+					width : 0,
+					height : 0
+				}, this.animationSpeed,function()
+				{
+					dropdown.jquery.hide();
+				});
+			this.isOpen = false;
+		}
+	};
+
+	var mouse = {x: 0, y: 0};
+
+	document.addEventListener('mousemove', function(e){
+		mouse.x = e.clientX || e.pageX;
+		mouse.y = e.clientY || e.pageY
+	}, false);
+
 	canvas.width  = canvas.offsetWidth;
 	canvas.height = canvas.offsetHeight;
 
-	var self = this;
 
 	function init( song ) {
 		currentSong = song.name;
@@ -164,7 +203,7 @@ bridge.prototype.attachEvents = function()
 		ctx.restore();
 	}
 
-	$( "#searchIn" ).keypress(function()
+	$( "#searchIn" ).keyup(function()
 	{
 		var text = $(this).val();
 
@@ -176,9 +215,25 @@ bridge.prototype.attachEvents = function()
 			songList = data;
 			for( var i = 0; i < data.length; i++)
 			{
-				search.append( '<p class="songLink" song="' + data[ i ].id + '" >' + data[ i ].name + '</p>' );
+				var link = $( '<span id="song-select-' + data[i].id + '" class="_vdo songLink" song="' + data[ i ].id + '" >' + data[ i ].name + '</span>' );
+				search.append( link );
+				link.hover(
+					function() {
+						var self = this;
+						onHover = setInterval( function()
+						{
+							$( self ).css( { "margin-left" : '-=1' } )
+						}, 10 );
+					},
+					function() {
+						clearInterval( onHover );
+						$( this ).animate( { "margin-left" : 0 }, 400 )
+					} );
 			}
-			$( ".songLink" ).click( function()
+
+			var songLink = $( ".songLink" );
+			var onHover;
+			songLink.click( function()
 			{
 				ajaxGetSong( $( this ).attr( "song" ) );
 			});
@@ -336,9 +391,29 @@ bridge.prototype.attachEvents = function()
 			return false;
 		});
 
+		$( "#content" ).click( function( e )
+		{
+			for( var i = 0; i < e.target.classList.length; i++ )
+			{
+				if( e.target.classList[ i ] == "_vdo" )
+				{
+					return false;
+				}
+			}
+			if( dropdown.isOpen && e.target != dropdown.jquery[0] )
+			{
+				dropdown.close();
+				return false;
+			}
+		});
+
 		$( "#visualizer-dropdown" ).click( function()
 		{
-
+			console.log( mouse );
+			dropdown.jquery.css( { top: mouse.y, left : mouse.x} );
+			dropdown.open();
+			dropdown.jquery.height( 400 );
+			return false;
 		} );
 	});
 };

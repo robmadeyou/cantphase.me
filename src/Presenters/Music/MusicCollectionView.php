@@ -76,11 +76,13 @@ class MusicCollectionView extends HtmlView
 			<div class="visualizer-content visualizer-menu-dropdown">
 				<img id="visualizer-dropdown" src="/static/image/songDropdownMenu.png" width="20px" height="20px"/>
 			</div>
-			<div class="visualizer-dropdown-overlay">
-
-			</div>
 		</div>
 		<canvas id="barCanvas"></canvas>
+		<div class="_vdo visualizer-dropdown-overlay">
+			<input class="_vdo" type="text" id="searchIn" placeholder="search" >
+			<div class="_vdo" id="search">
+			</div>
+		</div>
 		<?php
 	}
 

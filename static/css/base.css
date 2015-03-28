@@ -125,7 +125,8 @@ input[type=range]#volume {
 
 .visualizer-dropdown-overlay
 {
-
+    position: absolute;
+    background-color: grey;
 }
 
 #visualizer-overlay
@@ -352,8 +353,32 @@ input[type=range]#volume {
 
 #search
 {
-    height: 450px;
+    float:left;
+    width:100%;
+    overflow-x: hidden;
     overflow-y: scroll;
+}
+
+#search span
+{
+    width:initial;
+    white-space: nowrap;
+    text-overflow: clip;
+    overflow:hidden;
+    cursor: pointer;
+}
+
+#searchIn
+{
+    width: 100%;
+}
+
+.songLink
+{
+    width: 100%;
+    float:left;
+    height: auto;
+    text-align: left;
 }
 
 .box
