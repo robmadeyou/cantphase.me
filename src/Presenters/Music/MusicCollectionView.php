@@ -6,8 +6,10 @@
 namespace Cant\Phase\Me\Presenters\Music;
 
 
+use Cant\Phase\Me\Model\Music\MusicSettings;
 use Rhubarb\Leaf\Views\HtmlView;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
+use Rhubarb\Scaffolds\Authentication\LoginProvider;
 
 class MusicCollectionView extends HtmlView
 {
@@ -20,6 +22,7 @@ class MusicCollectionView extends HtmlView
 
 	protected function printViewContent()
 	{
+		$settings = MusicSettings::GetSettingsForUser( (new LoginProvider())->getLoggedInUser()->UniqueIdentifier );
 		/*
 		 <div id="overlay"></div>
 		<div id="outerPullForm">
@@ -75,7 +78,7 @@ class MusicCollectionView extends HtmlView
 					<marquee id="songTitle"></marquee>
 					<img src="/static/image/songButtonNex.png" id="nextButton" />
 				</div>
-				<input id="volume" type="range" min="0" max="100" value="20">
+				<input id="volume" type="range" min="0" max="100" value="<?= $settings->Volume ?>">
 				<div class="visualizer-slider-percentage">20%</div>
 			</div>
 			<div class="visualizer-content visualizer-menu-dropdown">
@@ -89,7 +92,7 @@ class MusicCollectionView extends HtmlView
 					<div class="_vdo visualizer-dropdown-items">
 						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-new-song">+ Add new Song</span>
 						<span class="_vdo visualizer-dropdown-item">+ Browse Music</span>
-						<span class="_vdo visualizer-dropdown-item">+ Visualizer [ On ]</span>
+						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-visualizer-toggle">+ Visualizer [ <?= $settings->ShowVisualizer ? "On" : "Off" ?> ]</span>
 						<span class="_vdo visualizer-dropdown-item">+ Return to menu</span>
 					</div>
 				</div>
@@ -104,8 +107,11 @@ class MusicCollectionView extends HtmlView
 				</div>
 			</div>
 		</div>
-		<canvas id="barCanvas"></canvas>
 		<?php
+			if( $settings->ShowVisualizer )
+			{
+				print '<canvas id="barCanvas"></canvas>';
+			}
 	}
 
 	/**

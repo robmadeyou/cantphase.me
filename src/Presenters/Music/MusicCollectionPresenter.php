@@ -3,6 +3,7 @@
 namespace Cant\Phase\Me\Presenters\Music;
 
 use Cant\Phase\Me\Model\Music\Music;
+use Cant\Phase\Me\Model\Music\MusicSettings;
 use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Leaf\Presenters\Forms\Form;
 use Rhubarb\Stem\Filters\AndGroup;
@@ -20,6 +21,20 @@ class MusicCollectionPresenter extends Form
 	protected function configureView()
 	{
 		parent::configureView();
+
+		$this->view->attachEventHandler( "VolumeChange", function( $volume )
+		{
+			$setting = MusicSettings::GetSettingsForLoggedInUser();
+			$setting->Volume = $volume;
+			$setting->save();
+		} );
+
+		$this->view->attachEventHandler( "ToggleVisualizer", function()
+		{
+			$setting = MusicSettings::GetSettingsForLoggedInUser();
+			$setting->ShowVisualizer = !$setting->ShowVisualizer;
+			$setting->save();
+		} );
 
 		$this->view->attachEventHandler( "GetNewSong", function( $filter = "" )
 		{

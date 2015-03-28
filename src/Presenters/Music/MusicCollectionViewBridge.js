@@ -18,11 +18,27 @@ bridge.prototype.attachEvents = function()
 	var analyserNode;       // the analyser node that allows us to visualize the audio
 	var freqFloatData, freqByteData, timeByteData;  // arrays to retrieve data from analyserNode
 	var canvas = document.getElementById( "barCanvas" );
-	var ctx = canvas.getContext( "2d" );
+	var hasCanvas = false;
+	var currentlyPlayingAudio;
+	if( canvas )
+	{
+		hasCanvas = true;
+		var ctx = canvas.getContext( "2d" );
+		canvas.width  = canvas.offsetWidth;
+		canvas.height = canvas.offsetHeight;
+	}
 	var volume = 1;
 	var songList = [];
 	var currentSong;
 	var self = this;
+
+	var mouse = {x: 0, y: 0};
+
+	document.addEventListener('mousemove', function(e){
+		mouse.x = e.clientX || e.pageX;
+		mouse.y = e.clientY || e.pageY
+	}, false);
+
 
 
 	var dropdown = {
@@ -31,6 +47,7 @@ bridge.prototype.attachEvents = function()
 		extraItemsJquery : $( "#visualizer-main-selection" ),
 		addSongItemsJquery : $( '#visualizer-add-song' ),
 		addSongButtonJquery : $( '#visualizer-dropdown-new-song' ),
+		visualizerToggleButtonJquery : $( '#visualizer-dropdown-visualizer-toggle' ),
 		isOpen : false,
 		isSearching : false,
 		width : 200,
@@ -141,21 +158,38 @@ bridge.prototype.attachEvents = function()
 					dropdown.close();
 				}
 			} );
+
+			this.visualizerToggleButtonJquery.click( function()
+			{
+				self.raiseServerEvent( "ToggleVisualizer", function()
+				{
+					if( canvas )
+					{
+						canvas.fadeOut();
+					}
+					else
+					{
+						location.reload();
+					}
+				} )
+			})
 		}
 	};
 
-	var mouse = {x: 0, y: 0};
+	function init( data )
+	{
+		if( hasCanvas )
+		{
+			initCanvas( data )
+		}
+		else
+		{
+			initAudio( data )
+		}
+	}
 
-	document.addEventListener('mousemove', function(e){
-		mouse.x = e.clientX || e.pageX;
-		mouse.y = e.clientY || e.pageY
-	}, false);
-
-	canvas.width  = canvas.offsetWidth;
-	canvas.height = canvas.offsetHeight;
-
-
-	function init( song ) {
+	function initCanvas( song )
+	{
 		currentSong = song.name;
 		$( "#img" ).attr( "src", "/static/music/" + song.image );
 		$( "#songTitle" ).html( song.name );
@@ -186,6 +220,28 @@ bridge.prototype.attachEvents = function()
 		createjs.Sound.addEventListener("fileload", createjs.proxy(handleLoad,this)); // add an event listener for when load is completed
 		createjs.Sound.registerSound(assetsPath + src );  // register sound, which preloads by default
 
+	}
+
+	function initAudio( data )
+	{
+		$( "#img" ).attr( "src", "/static/music/" + data.image );
+		$( "#songTitle" ).html( data.name );
+		if( currentlyPlayingAudio )
+		{
+			currentlyPlayingAudio.pause();
+		}
+		else
+		{
+			currentlyPlayingAudio = new Audio();
+		}
+		$( currentlyPlayingAudio ).on( 'ended', function()
+		{
+			playNextSong();
+		});
+		currentlyPlayingAudio.src = assetsPath + data.name;
+		currentlyPlayingAudio.play();
+		currentlyPlayingAudio.volume = volume * 100.0;
+		console.log( currentlyPlayingAudio.volume )
 	}
 
 	function handleLoad(evt) {
@@ -376,13 +432,16 @@ bridge.prototype.attachEvents = function()
 
 	function changeVolume( volume )
 	{
+		self.raiseServerEvent( "VolumeChange", volume );
 		this.volume = volume / 100;
+		if( !hasCanvas )
+		{
+			if( currentlyPlayingAudio )
+			{
+				currentlyPlayingAudio.volume = volume / 100.0;
+			}
+		}
 	}
-
-	$( "#finalizePull" ).click(function( event )
-	{
-
-	});
 
 
 	function getRandomSong()
@@ -457,7 +516,7 @@ bridge.prototype.attachEvents = function()
 
 		self.raiseServerEvent( "GetNewSong", true, function( song )
 		{
-			changeVolume( 20 );
+			changeVolume( $( "#volume" ).val() );
 			init( JSON.parse( song ) );
 		} );
 
