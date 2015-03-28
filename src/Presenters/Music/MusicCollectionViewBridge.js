@@ -335,6 +335,11 @@ bridge.prototype.attachEvents = function()
 			event.preventDefault();
 			return false;
 		});
+
+		$( "#visualizer-dropdown" ).click( function()
+		{
+
+		} );
 	});
 };
 

@@ -74,6 +74,10 @@ class MusicCollectionView extends HtmlView
 				<div class="visualizer-slider-percentage">20%</div>
 			</div>
 			<div class="visualizer-content visualizer-menu-dropdown">
+				<img id="visualizer-dropdown" src="/static/image/songDropdownMenu.png" width="20px" height="20px"/>
+			</div>
+			<div class="visualizer-dropdown-overlay">
+
 			</div>
 		</div>
 		<canvas id="barCanvas"></canvas>
