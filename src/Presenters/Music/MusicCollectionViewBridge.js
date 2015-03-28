@@ -409,8 +409,9 @@ bridge.prototype.attachEvents = function()
 
 		$( "#visualizer-dropdown" ).click( function()
 		{
+			var rect = this.getBoundingClientRect();
 			console.log( mouse );
-			dropdown.jquery.css( { top: mouse.y, left : mouse.x} );
+			dropdown.jquery.css( { top: rect.bottom - rect.height, left : rect.left } );
 			dropdown.open();
 			dropdown.jquery.height( 400 );
 			return false;
