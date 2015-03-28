@@ -15,8 +15,8 @@ class MusicCollectionView extends HtmlView
 
 	protected function printViewContent()
 	{
-		?>
-		<div id="overlay"></div>
+		/*
+		 <div id="overlay"></div>
 		<div id="outerPullForm">
 			<a href="#" id="close"><img src="/static/image/close.png" width="32" height="32" ></a>
 			<div id="innerPullForm">
@@ -59,6 +59,25 @@ class MusicCollectionView extends HtmlView
 					</div>
 				</div>
 			</div>
+		</div>
+		 */
+		?>
+		<div id="visualizer-overlay">
+			<img class="visualizer-artwork" src="" id="img"/>
+			<div class="visualizer-center-split">
+				<div class="visualizer-center-top">
+					<img src="/static/image/songButtonPrev.jpg" id="prevButton" />
+					<marquee id="songTitle"></marquee>
+					<img src="/static/image/songButtonNex.jpg" id="nextButton" />
+				</div>
+				<input id="volume" type="range" min="0" max="100">
+			</div>
+			<div class="visualizer-menu-dropdown">
+
+			</div>
+		</div>
+		<div id="bars">
+			<canvas id="barCanvas" height="1000"></canvas>
 		</div>
 		<?php
 	}

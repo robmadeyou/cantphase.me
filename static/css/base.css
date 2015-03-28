@@ -39,12 +39,79 @@ body
     width: 100%;
 }
 
+.visualizer-artwork
+{
+    height: inherit;
+    width: 30%;
+    float: left;
+}
+
+.visualizer-center-split
+{
+    float:left;
+    height: 100%;
+}
+
+.visualizer-center-top
+{
+    position:relative;
+    width: 100%;
+}
+
+#prevButton
+{
+    position:relative;
+    float:left;
+    width:3.5%;
+}
+
+#nextButton
+{
+    text-align: right;
+    position:relative;
+    float:right;
+    width:3.5%;
+}
+
+.visualizer-menu-dropdown
+{
+    position:relative;
+}
+
+#songTitle
+{
+    position:relative;
+    float: left;
+    width: 93%;
+    color: white;
+    font-family: "Courier New";
+}
+
+#volume
+{
+    position:relative;
+    float: left;
+    width: 100%;
+}
+
+#visualizer-overlay
+{
+    text-align: center;
+    position:absolute;
+    height: 200px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
 
 #content {
-    height:100%;
+    height:70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .overlay
@@ -63,8 +130,6 @@ body
     text-align: center;
     z-index:10;
 }
-
-
 
 #login
 {
@@ -225,36 +290,10 @@ body
     color: blue;
 }
 
-body
-{
-    background: #0d0d0d;
-    margin-left: 0;
-    margin-right: 0;
-}
-
 #loggedInNotifier
 {
     margin-right: 20px;
     color: white;
-}
-
-#songTitle
-{
-    color: white;
-    margin-top: 20px;
-    font-family: "Courier New";
-}
-
-#songTitle
-{
-    float: left;
-    margin-left: 50px;
-}
-
-#volume
-{
-    float: right;
-    margin-right: 50px;
 }
 
 #interactive
@@ -425,12 +464,6 @@ h1
     float: left;
     width: 25%;
     height: auto;
-}
-
-#img
-{
-    width: inherit;
-    height: inherit;
 }
 
 #nextButton

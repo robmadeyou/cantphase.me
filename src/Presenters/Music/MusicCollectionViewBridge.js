@@ -80,7 +80,7 @@ bridge.prototype.attachEvents = function()
 	function startPlayback(evt) {
 		soundInstance = createjs.Sound.play(assetsPath + src, {loop:0});
 		soundInstance.addEventListener( "complete" , createjs.proxy(playNextSong, this));
-		soundInstance.volume = volume;
+		soundInstance.volume = self.volume;
 		// start the tick and point it at the window so we can do some work before updating the stage:
 		createjs.Ticker.addEventListener("tick", tick);
 		createjs.Ticker.setInterval(TICK_FREQ);
@@ -314,7 +314,6 @@ bridge.prototype.attachEvents = function()
 		{
 			init( JSON.parse( song ) );
 			changeVolume( 0.5 );
-
 		} );
 
 		$( "#pull" ).click( function( event )
