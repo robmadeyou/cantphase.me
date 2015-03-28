@@ -76,13 +76,27 @@ class MusicCollectionView extends HtmlView
 			<div class="visualizer-content visualizer-menu-dropdown">
 				<img id="visualizer-dropdown" src="/static/image/songDropdownMenu.png" width="20px" height="20px"/>
 			</div>
-		</div>
-		<canvas id="barCanvas"></canvas>
-		<div class="_vdo visualizer-dropdown-overlay">
-			<input class="_vdo" type="text" id="searchIn" placeholder="search" >
-			<div class="_vdo" id="search">
+			<div class="_vdo visualizer-dropdown-overlay">
+				<div class="_vdo visualizer-dropdown-overlay-inner" id="visualizer-main-selection">
+					<input class="_vdo" type="text" id="searchIn" placeholder="search" >
+					<div class="_vdo" id="search">
+					</div>
+					<div class="_vdo visualizer-dropdown-items">
+						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-new-song">+ Add new Song</span>
+						<span class="_vdo visualizer-dropdown-item">+ Browse Music</span>
+						<span class="_vdo visualizer-dropdown-item">+ Visualizer [ On ]</span>
+						<span class="_vdo visualizer-dropdown-item">+ Return to menu</span>
+					</div>
+				</div>
+				<div class="_vdo visualizer-dropdown-overlay-inner visualizer-dropdown-items" id="visualizer-add-song">
+					<p class="_vdo visualizer-dropdown-item">Add a new song</p>
+					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Song/Playlist" type="text" id="pullUrl">
+					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Custom Prefix" type="text" id="pullPrefix">
+					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Tags" type="text" id="pullTags">
+				</div>
 			</div>
 		</div>
+		<canvas id="barCanvas"></canvas>
 		<?php
 	}
 

@@ -27,19 +27,35 @@ bridge.prototype.attachEvents = function()
 
 	var dropdown = {
 		jquery :  $( '.visualizer-dropdown-overlay' ),
+		searchJquery : $( '.visualizer-dropdown-overlay' ).find( "#search"),
+		extraItemsJquery : $( "#visualizer-main-selection" ),
+		addSongItemsJquery : $( '#visualizer-add-song' ),
+		addSongButtonJquery : $( '#visualizer-dropdown-new-song' ),
 		isOpen : false,
 		isSearching : false,
+		width : 200,
+		height : 200,
+		songSearchWidth : 300,
+		songSearchHeight : '500',
 		animationSpeed : 'fast',
 		open : function()
 		{
-			this.jquery.show().animate(
-				{
-					width : 200,
-					height : 200
-				}, this.animationSpeed, function(  )
-				{
-					dropdown.isOpen = true;
-				});
+			if( this.isSearching )
+			{
+				this.searchActivate();
+				dropdown.isOpen = true;
+			}
+			else
+			{
+				this.jquery.show().animate(
+					{
+						width : this.width,
+						height : this.height
+					}, this.animationSpeed, function( )
+					{
+						dropdown.isOpen = true;
+					});
+			}
 		},
 		close : function()
 		{
@@ -52,6 +68,71 @@ bridge.prototype.attachEvents = function()
 					dropdown.jquery.hide();
 				});
 			this.isOpen = false;
+		},
+		searchActivate : function()
+		{
+			this.jquery.show().animate(
+				{
+					width : this.songSearchWidth,
+					height : this.songSearchHeight
+				}, this.animationSpeed
+			);
+			this.searchJquery.fadeIn();
+
+			this.isSearching = true;
+		},
+		searchDeactivate : function()
+		{
+			this.jquery.animate(
+				{
+					width : this.width,
+					height : this.height
+				}, this.animationSpeed
+			);
+			this.searchJquery.fadeOut();
+			this.isSearching = false;
+		},
+		openAddSong : function()
+		{
+			this.extraItemsJquery.fadeOut();
+			this.addSongItemsJquery.fadeIn();
+		},
+		closeAddSong : function()
+		{
+			this.extraItemsJquery.fadeIn();
+			this.addSongItemsJquery.fadeOut();
+		},
+		initialize : function()
+		{
+			this.addSongButtonJquery.click( function()
+			{
+				dropdown.openAddSong();
+			} );
+
+			$( '.song-upload' ).keyup( function( event )
+			{
+				if( event.which == 13 )
+				{
+					var url = $( "#pullUrl" ).val();
+					var tags = $( "#pullTags" ).val();
+					var prefix = $( "#pullPrefix" ).val();
+					var notes = $( "#pullNotes" ).val();
+					var usePrefix = $( "#pullSmartTitle" ).is( ":checked" );
+
+					if( url == "" )
+					{
+						alert( "Sorry; URL was left empty" );
+						return;
+					}
+					event.preventDefault();
+
+					self.raiseServerEvent( "Download", url, notes, tags, usePrefix, prefix, function( message )
+					{
+						alert( message );
+						dropdown.closeAddSong();
+					} );
+				}
+			} );
 		}
 	};
 
@@ -207,6 +288,15 @@ bridge.prototype.attachEvents = function()
 	{
 		var text = $(this).val();
 
+		if( text == "" )
+		{
+			dropdown.searchDeactivate();
+		}
+		else
+		{
+			dropdown.searchActivate();
+		}
+
 		self.raiseServerEvent( "Search", text, function( data )
 		{
 			data = JSON.parse( data );
@@ -283,25 +373,7 @@ bridge.prototype.attachEvents = function()
 
 	$( "#finalizePull" ).click(function( event )
 	{
-		var url = $( "#pullUrl" ).val();
-		var tags = $( "#pullTags" ).val();
-		var prefix = $( "#pullPrefix" ).val();
-		var notes = $( "#pullNotes" ).val();
-		var usePrefix = $( "#pullSmartTitle" ).is( ":checked" );
 
-		if( url == "" )
-		{
-			alert( "Sorry; URL was left empty" );
-			return;
-		}
-		event.preventDefault();
-
-		self.raiseServerEvent( "Download", url, notes, tags, usePrefix, prefix, function( message)
-		{
-			alert( data );
-			$( "#overlay" ).fadeOut();
-			$( "#outerPullForm" ).fadeOut();
-		} );
 	});
 
 
@@ -361,6 +433,7 @@ bridge.prototype.attachEvents = function()
 
 	$( document ).ready( function()
 	{
+		dropdown.initialize();
 
 		$( "#volume" ).change(function() {
 			var val = $( this ).val();
@@ -409,9 +482,10 @@ bridge.prototype.attachEvents = function()
 
 		$( "#visualizer-dropdown" ).click( function()
 		{
+			var parent = $( "#visualizer-overlay" ).offset();
 			var rect = this.getBoundingClientRect();
 			console.log( mouse );
-			dropdown.jquery.css( { top: rect.bottom - rect.height, left : rect.left } );
+			dropdown.jquery.css( { top: rect.bottom - rect.height - parent.top, left : rect.left - parent.left } );
 			dropdown.open();
 			dropdown.jquery.height( 400 );
 			return false;

@@ -126,6 +126,7 @@ input[type=range]#volume {
 .visualizer-dropdown-overlay
 {
     position: absolute;
+    display: none;
     background-color: grey;
     overflow-y: scroll;
 }
@@ -147,6 +148,15 @@ input[type=range]#volume {
 #visualizer-overlay:hover
 {
     opacity: 1;
+}
+
+#visualizer-main-selection
+{
+}
+
+#visualizer-add-song
+{
+    display: none;
 }
 
 ::-webkit-scrollbar {
@@ -357,6 +367,26 @@ input[type=range]#volume {
     float:left;
     width:100%;
     height: 100%;
+    display: none;
+}
+
+.visualizer-dropdown-items
+{
+    float:left;
+    width:100%;
+    height:100%;
+}
+
+.visualizer-dropdown-items .visualizer-dropdown-item
+{
+    float: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.song-upload
+{
+    text-align: center;
 }
 
 #search span
