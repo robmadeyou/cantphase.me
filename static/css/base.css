@@ -127,6 +127,7 @@ input[type=range]#volume {
 {
     position: absolute;
     background-color: grey;
+    overflow-y: scroll;
 }
 
 #visualizer-overlay
@@ -355,8 +356,7 @@ input[type=range]#volume {
 {
     float:left;
     width:100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    height: 100%;
 }
 
 #search span
