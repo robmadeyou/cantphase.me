@@ -15,7 +15,7 @@ class IndexView extends HtmlView
 
 		?>
 			<div style="text-align: center;">
-				<img src="/static/image/title-2.jpg">
+				<img src="/static/image/title-2.png">
 				<div class="underlay">
 					<a href="/music/">
 						<div class="content-box content-box-1x1">
