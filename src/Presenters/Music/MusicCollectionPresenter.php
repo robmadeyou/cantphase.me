@@ -3,6 +3,7 @@
 namespace Cant\Phase\Me\Presenters\Music;
 
 use Cant\Phase\Me\Model\Music\Music;
+use Cant\Phase\Me\Model\Music\MusicFavorite;
 use Cant\Phase\Me\Model\Music\MusicHistory;
 use Cant\Phase\Me\Model\Music\MusicSettings;
 use Rhubarb\Crown\DateTime\RhubarbDateTime;
@@ -12,9 +13,7 @@ use Rhubarb\Stem\Exceptions\RecordNotFoundException;
 use Rhubarb\Stem\Filters\AndGroup;
 use Rhubarb\Stem\Filters\Contains;
 use Rhubarb\Stem\Filters\Equals;
-use Rhubarb\Stem\Filters\GreaterThan;
 use Rhubarb\Stem\Filters\Not;
-use Rhubarb\Stem\Models\Validation\LessThan;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
 class MusicCollectionPresenter extends Form
@@ -27,6 +26,26 @@ class MusicCollectionPresenter extends Form
 	protected function configureView()
 	{
 		parent::configureView();
+
+		$this->view->attachEventHandler( "FavoriteSong", function( $songID )
+		{
+			$userID = (new LoginProvider())->getLoggedInUser()->UserID;
+			try
+			{
+				$isFavorite = MusicFavorite::findFirst( new AndGroup( [ new Equals( "UserID", $userID ), new Equals( "MusicID", $songID ) ] ) );
+				$isFavorite->delete();
+				return false;
+			}
+			catch( RecordNotFoundException $ex )
+			{
+				$favorite = new MusicFavorite();
+				$favorite->UserID = $userID;
+				$favorite->MusicID = $songID;
+				$favorite->save();
+				return true;
+			}
+			return false;
+		} );
 
 		$this->view->attachEventHandler( "VolumeChange", function( $volume )
 		{
@@ -91,6 +110,9 @@ class MusicCollectionPresenter extends Form
 			$history->RequestedAt = new RhubarbDateTime( "now" );
 			$history->save();
 
+			$song->isFavorite = MusicFavorite::IsLoggedInUserFavoriteSong( $song->id );
+
+
 			return json_encode( $song );
 		} );
 
@@ -116,6 +138,7 @@ class MusicCollectionPresenter extends Form
 			$song->historyID = $end[ 0 ];
 			$song->name = $songModel->Name;
 			$song->image = $songModel->Image;
+			$song->isFavorite = MusicFavorite::IsLoggedInUserFavoriteSong( $songModel->MusicID );
 
 			return json_encode( $song );
 		} );

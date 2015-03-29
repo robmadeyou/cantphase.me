@@ -71,7 +71,23 @@ class MusicCollectionView extends HtmlView
 		 */
 		?>
 		<div id="visualizer-overlay">
-			<img class="visualizer-artwork" src="" id="img"/>
+			<div class="visualizer-artwork">
+				<img  src="" id="img"/>
+				<div class="sound-controls">
+					<div class="sound-control" id="favorite-button">
+						<img src="/static/image/songFavouriteUnSelect.png"/>
+					</div>
+					<div class="sound-control" id="stop-button">
+						<img src="/static/image/songButtonStop.png"/>
+					</div>
+					<div class="sound-control" id="play-button">
+						<img src="/static/image/songButtonPlay.png"/>
+					</div>
+					<div class="sound-control" id="pause-button">
+						<img src="/static/image/songButtonPause.png"/>
+					</div>
+				</div>
+			</div>
 			<div class="visualizer-center-split">
 				<div class="visualizer-center-top">
 					<img src="/static/image/songButtonPrev.png" id="prevButton" />

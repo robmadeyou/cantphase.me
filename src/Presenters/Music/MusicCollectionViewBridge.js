@@ -59,6 +59,7 @@ bridge.prototype.attachEvents = function()
 		animationSpeed : 'fast',
 		open : function()
 		{
+			$( ".visualizer-menu-dropdown" ).fadeOut();
 			if( this.isSearching )
 			{
 				this.searchActivate();
@@ -78,6 +79,7 @@ bridge.prototype.attachEvents = function()
 		},
 		close : function()
 		{
+			$( ".visualizer-menu-dropdown" ).fadeIn();
 			this.jquery.animate(
 				{
 					width : 0,
@@ -188,6 +190,14 @@ bridge.prototype.attachEvents = function()
 
 	function init( data )
 	{
+		if( data.isFavorite )
+		{
+			$( "#favorite-button img" ).attr( "src", "/static/image/songFavouriteSelect.png" )
+		}
+		else
+		{
+			$( "#favorite-button img" ).attr( "src", "/static/image/songFavouriteUnSelect.png" )
+		}
 		currentSong =  data;
 		if( hasCanvas )
 		{
@@ -196,6 +206,42 @@ bridge.prototype.attachEvents = function()
 		else
 		{
 			initAudio( data )
+		}
+	}
+
+	function stopAudio()
+	{
+		if( hasCanvas )
+		{
+			soundInstance.stop();
+		}
+		else
+		{
+			currentlyPlayingAudio.pause();
+		}
+	}
+
+	function playAudio()
+	{
+		if( hasCanvas )
+		{
+			soundInstance.play();
+		}
+		else
+		{
+			currentlyPlayingAudio.play();
+		}
+	}
+
+	function pauseAudio()
+	{
+		if( hasCanvas )
+		{
+			soundInstance.pause();
+		}
+		else
+		{
+			currentlyPlayingAudio.pause();
 		}
 	}
 
@@ -522,6 +568,37 @@ bridge.prototype.attachEvents = function()
 	$( document ).ready( function()
 	{
 		dropdown.initialize();
+
+		$( "#favorite-button" ).click( function()
+		{
+			self.raiseServerEvent( "FavoriteSong", currentSong.id, function ( back )
+			{
+				if( back == "1" )
+				{
+					$( "#favorite-button img" ).attr( "src", "/static/image/songFavouriteSelect.png" )
+				}
+				else
+				{
+					$( "#favorite-button img" ).attr( "src", "/static/image/songFavouriteUnSelect.png" )
+				}
+			} )
+		} );
+
+		$( '#stop-button' ).click( function()
+		{
+			stopAudio();
+		} );
+
+		$( '#play-button' ).click( function()
+		{
+			playAudio();
+		} );
+
+		$( '#pause-button' ).click( function()
+		{
+			pauseAudio();
+		} );
+
 
 		$( "#nextButton" ).click( function()
 		{
