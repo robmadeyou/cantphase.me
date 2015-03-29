@@ -201,7 +201,6 @@ bridge.prototype.attachEvents = function()
 
 	function initCanvas( song )
 	{
-		currentSong = song.name;
 		$( "#img" ).attr( "src", "/static/music/" + song.image );
 		$( "#songTitle" ).html( song.name );
 
