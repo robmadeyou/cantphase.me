@@ -95,6 +95,7 @@ bridge.prototype.attachEvents = function()
 				}, this.animationSpeed
 			);
 			this.searchJquery.fadeIn();
+			this.extraItemsJquery.hide();
 
 			this.isSearching = true;
 		},
@@ -106,6 +107,7 @@ bridge.prototype.attachEvents = function()
 					height : this.height
 				}, this.animationSpeed
 			);
+			this.extraItemsJquery.show();
 			this.searchJquery.fadeOut();
 			this.isSearching = false;
 		},
