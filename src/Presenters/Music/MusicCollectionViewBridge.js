@@ -389,21 +389,26 @@ bridge.prototype.attachEvents = function()
 			ctx.save();
 
 			ctx.translate( canvas.width / 2, canvas.height / 2);
-			var initialRotate = ( i * 3.3 ) * Math.PI / 180;
+			var initialRotate = ( i * 12.5 ) * Math.PI / 180;
 			ctx.rotate( initialRotate + tickrotate );
 			ctx.save();
 			if(1+(freqFloatData[ i ] / 100) < 1 )
 			{
-				ctx.globalAlpha = 1+(freqFloatData[ i ] / 100);
+				ctx.globalAlpha = 1.1+(freqFloatData[ i ] / 100);
 			}
+			var grd=ctx.createLinearGradient(0,0,50,0);
+			grd.addColorStop(0,"yellow");
+			grd.addColorStop(1,"red");
+
+			ctx.fillStyle=grd;
 
 			if( i > ( freqByteData.length / 5 ) * 3 )
 			{
-				ctx.fillRect( 100, 0, -freqByteData[i], width + 2 );
+				ctx.fillRect( 100, 360, -freqByteData[i], width + 2 );
 			}
 			else
 			{
-				ctx.fillRect( 100, 0, freqByteData[i], width + 2 );
+				ctx.fillRect( 100, -120, freqByteData[i], width + 2 );
 			}
 
 			ctx.restore();
@@ -415,12 +420,7 @@ bridge.prototype.attachEvents = function()
 		var difference = lastTotal - total;
 		ctx.save();
 
-		ctx.beginPath();
-		ctx.globalAlpha = 0.4;
-		ctx.arc( canvas.width / 2, canvas.height / 2, Math.abs( difference / 100), 0, Math.PI*2, true);
-		ctx.closePath();
-		ctx.fill();
-		ctx.restore();
+
 		lastTotal = total;
 	}
 
