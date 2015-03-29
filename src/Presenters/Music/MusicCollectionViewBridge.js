@@ -44,7 +44,7 @@ bridge.prototype.attachEvents = function()
 	var dropdown = {
 		jquery :  $( '.visualizer-dropdown-overlay' ),
 		searchJquery : $( '.visualizer-dropdown-overlay' ).find( "#search"),
-		extraItemsJquery : $( "#visualizer-main-selection" ),
+		extraItemsJquery : $( "#visualizer-main-selection").find( '.visualizer-dropdown-items' ),
 		addSongItemsJquery : $( '#visualizer-add-song' ),
 		addSongButtonJquery : $( '#visualizer-dropdown-new-song' ),
 		visualizerToggleButtonJquery : $( '#visualizer-dropdown-visualizer-toggle' ),
