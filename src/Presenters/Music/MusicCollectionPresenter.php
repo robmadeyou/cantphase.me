@@ -3,12 +3,18 @@
 namespace Cant\Phase\Me\Presenters\Music;
 
 use Cant\Phase\Me\Model\Music\Music;
+use Cant\Phase\Me\Model\Music\MusicHistory;
 use Cant\Phase\Me\Model\Music\MusicSettings;
-use Rhubarb\Crown\Html\ResourceLoader;
+use Rhubarb\Crown\DateTime\RhubarbDateTime;
 use Rhubarb\Leaf\Presenters\Forms\Form;
+use Rhubarb\Scaffolds\Authentication\LoginProvider;
+use Rhubarb\Stem\Exceptions\RecordNotFoundException;
 use Rhubarb\Stem\Filters\AndGroup;
 use Rhubarb\Stem\Filters\Contains;
+use Rhubarb\Stem\Filters\Equals;
+use Rhubarb\Stem\Filters\GreaterThan;
 use Rhubarb\Stem\Filters\Not;
+use Rhubarb\Stem\Models\Validation\LessThan;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
 class MusicCollectionPresenter extends Form
@@ -38,6 +44,7 @@ class MusicCollectionPresenter extends Form
 
 		$this->view->attachEventHandler( "GetNewSong", function( $filter = "" )
 		{
+			$song = new \stdClass();
 			if( $filter === true && $this->songID )
 			{
 				$filter = $this->songID;
@@ -45,16 +52,12 @@ class MusicCollectionPresenter extends Form
 				try
 				{
 					$songModel = new Music( $filter );
-					$song = new \stdClass();
-
 					$song->name = $songModel->Name;
 					$song->image = $songModel->Image;
-
-					return json_encode( $song );
+					$song->id = $songModel->MusicID;
 				}
 				catch( \Exception $ex )
 				{
-
 				}
 			}
 			else if( $filter !== true  && intval( $filter ) )
@@ -62,16 +65,12 @@ class MusicCollectionPresenter extends Form
 				try
 				{
 					$songModel = new Music( $filter );
-					$song = new \stdClass();
-
 					$song->name = $songModel->Name;
 					$song->image = $songModel->Image;
-
-					return json_encode( $song );
+					$song->id = $songModel->MusicID;
 				}
 				catch( \Exception $ex )
 				{
-
 				}
 			}
 			else
@@ -81,11 +80,44 @@ class MusicCollectionPresenter extends Form
 				$randSong->execute();
 				$data = $randSong->fetchAll( );
 
-				$song = new \stdClass();
 				$song->image = $data[ 0 ][ "Image" ];
 				$song->name = $data[ 0 ][ "Name" ];
-				return json_encode( $song );
+				$song->id = $data[ 0 ][ "MusicID" ];
 			}
+
+			$history = new MusicHistory();
+			$history->MusicID = $song->id;
+			$history->UserID = (new LoginProvider())->getLoggedInUser()->UniqueIdentifier;
+			$history->RequestedAt = new RhubarbDateTime( "now" );
+			$history->save();
+
+			return json_encode( $song );
+		} );
+
+		$this->view->attachEventHandler( "GetHistorySong", function( $historyID )
+		{
+			$userModel = (new LoginProvider())->getLoggedInUser();
+			if( $historyID )
+			{
+				$date = ( new MusicHistory( $historyID ) )->RequestedAt;
+			}
+
+			$connection = MySql::getDefaultConnection();
+			$vals = $connection->prepare( "SELECT * FROM tblMusicHistory WHERE UserID = :UserID" . ( isset( $date ) ? " AND RequestedAt < '" . $date->format( "Y-m-d H:i:s" ) . "'" : "" ) . " ORDER BY RequestedAt DESC LIMIT 1" );
+			$vals->execute( [
+				"UserID" => $userModel->UserID
+			] );
+
+			$end = $vals->fetchAll( \PDO::FETCH_COLUMN );
+
+			$history = new MusicHistory( $end[ 0 ] );
+			$songModel = new Music( $history->MusicID );
+			$song = new \stdClass();
+			$song->historyID = $end[ 0 ];
+			$song->name = $songModel->Name;
+			$song->image = $songModel->Image;
+
+			return json_encode( $song );
 		} );
 
 		$this->view->attachEventHandler( "Search", function( $query )
@@ -204,6 +236,7 @@ class MusicCollectionPresenter extends Form
 						$music->Image = $image;
 						$music->Uploader = $uploader;
 						$music->Source = $songUrl;
+						$music->UserID = (new LoginProvider())->getLoggedInUser()->UniqueIdentifier;
 						$music->save();
 
 						rename( "$dir/tmp/" . $item, "$dir/static/music/" . $songName );

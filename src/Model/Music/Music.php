@@ -8,6 +8,7 @@ namespace Cant\Phase\Me\Model\Music;
 
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\AutoIncrement;
+use Rhubarb\Stem\Repositories\MySql\Schema\Columns\ForeignKey;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\MediumText;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\Varchar;
 use Rhubarb\Stem\Repositories\MySql\Schema\MySqlSchema;
@@ -33,7 +34,8 @@ class Music extends Model
 			new Varchar( "Name", 256 ),
 			new Varchar( "Image", 256 ),
 			new Varchar( "Uploader", 256 ),
-			new Varchar( "Source", 256 )
+			new Varchar( "Source", 256 ),
+			new ForeignKey( "UserID" )
 		);
 
 		$schema->labelColumnName = 'Name';

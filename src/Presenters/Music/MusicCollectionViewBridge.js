@@ -188,6 +188,7 @@ bridge.prototype.attachEvents = function()
 
 	function init( data )
 	{
+		currentSong =  data;
 		if( hasCanvas )
 		{
 			initCanvas( data )
@@ -248,7 +249,6 @@ bridge.prototype.attachEvents = function()
 		{
 			playNextSong();
 		});
-		debugger;
 		currentlyPlayingAudio.src = assetsPath + data.name;
 		currentlyPlayingAudio.play();
 		currentlyPlayingAudio.volume = volume;
@@ -495,6 +495,15 @@ bridge.prototype.attachEvents = function()
 		}
 	}
 
+	function playPreviousSong()
+	{
+		var historyID = currentSong && currentSong.historyID ? currentSong.historyID : 0;
+		self.raiseServerEvent( "GetHistorySong", historyID, function( song )
+		{
+			next( JSON.parse( song ) );
+		} )
+	}
+
 	/**
 	 * Get a random song from an ajax call.
 	 *
@@ -518,6 +527,11 @@ bridge.prototype.attachEvents = function()
 		$( "#nextButton" ).click( function()
 		{
 			playNextSong();
+		} );
+
+		$( "#prevButton" ).click( function()
+		{
+			playPreviousSong();
 		} );
 
 		$( "#volume" ).change(function() {

@@ -118,6 +118,7 @@ input[type=range]#volume {
 {
     float:left;
     width:93%;
+    color:#ffffff;
 }
 
 #volume
@@ -143,7 +144,7 @@ input[type=range]#volume {
     display: none;
     background-color: grey;
     overflow-y: scroll;
-    opacity: 0.95;
+    opacity: 0.90;
 }
 
 #visualizer-overlay
