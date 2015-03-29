@@ -98,7 +98,7 @@ class MusicCollectionView extends HtmlView
 				</div>
 				<div class="_vdo visualizer-dropdown-overlay-inner visualizer-dropdown-items" id="visualizer-add-song">
 					<div class="_vdo">
-						<img class="_vdo visualizer-dropdown-back-button" src="/static/image/songBackButton.png">
+						<img class="_vdo visualizer-dropdown-add-song-back-button" src="/static/image/songBackButton.png">
 					</div>
 					<p class="_vdo visualizer-dropdown-item visualizer-title">Add a new song</p>
 					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Song/Playlist" type="text" id="pullUrl">

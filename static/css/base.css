@@ -74,9 +74,11 @@ input[type=range]#volume {
     width:60%;
 }
 
-.visualizer-dropdown-back-button
+.visualizer-dropdown-add-song-back-button
 {
     position: absolute;
+    top:5px;
+    left: 5px;
     width: 16px;
     height: 16px;
 }
@@ -86,8 +88,8 @@ input[type=range]#volume {
     float:left;
     width: 17%;
     height: 100%;
-    margin-right: 20px;
-    border-radius: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
     border: #ffffff solid 3px;
 }
 
@@ -136,9 +138,12 @@ input[type=range]#volume {
 .visualizer-dropdown-overlay
 {
     position: absolute;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     display: none;
     background-color: grey;
     overflow-y: scroll;
+    opacity: 0.95;
 }
 
 #visualizer-overlay

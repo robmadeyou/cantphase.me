@@ -44,9 +44,11 @@ bridge.prototype.attachEvents = function()
 	var dropdown = {
 		jquery :  $( '.visualizer-dropdown-overlay' ),
 		searchJquery : $( '.visualizer-dropdown-overlay' ).find( "#search"),
+		mainSelectionJquery: $( "#visualizer-main-selection"),
 		extraItemsJquery : $( "#visualizer-main-selection").find( '.visualizer-dropdown-items' ),
 		addSongItemsJquery : $( '#visualizer-add-song' ),
 		addSongButtonJquery : $( '#visualizer-dropdown-new-song' ),
+		addSongBackButtonJquery : $( '.visualizer-dropdown-add-song-back-button' ),
 		visualizerToggleButtonJquery : $( '#visualizer-dropdown-visualizer-toggle' ),
 		isOpen : false,
 		isSearching : false,
@@ -113,12 +115,12 @@ bridge.prototype.attachEvents = function()
 		},
 		openAddSong : function()
 		{
-			this.extraItemsJquery.fadeOut();
+			this.mainSelectionJquery.fadeOut();
 			this.addSongItemsJquery.fadeIn();
 		},
 		closeAddSong : function()
 		{
-			this.extraItemsJquery.fadeIn();
+			this.mainSelectionJquery.fadeIn();
 			this.addSongItemsJquery.fadeOut();
 		},
 		initialize : function()
@@ -126,6 +128,11 @@ bridge.prototype.attachEvents = function()
 			this.addSongButtonJquery.click( function()
 			{
 				dropdown.openAddSong();
+			} );
+
+			this.addSongBackButtonJquery.click( function()
+			{
+				dropdown.closeAddSong();
 			} );
 
 			$( '.song-upload' ).keyup( function( event )
