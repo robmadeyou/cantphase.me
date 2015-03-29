@@ -165,7 +165,8 @@ bridge.prototype.attachEvents = function()
 				{
 					if( canvas )
 					{
-						canvas.fadeOut();
+						$( canvas ).fadeOut();
+						location.reload();
 					}
 					else
 					{
@@ -238,9 +239,11 @@ bridge.prototype.attachEvents = function()
 		{
 			playNextSong();
 		});
+		debugger;
 		currentlyPlayingAudio.src = assetsPath + data.name;
 		currentlyPlayingAudio.play();
-		currentlyPlayingAudio.volume = volume * 100.0;
+		currentlyPlayingAudio.volume = volume;
+		console.log( volume );
 		console.log( currentlyPlayingAudio.volume )
 	}
 
@@ -288,9 +291,9 @@ bridge.prototype.attachEvents = function()
 		analyserNode.getByteFrequencyData(freqByteData);  // this gives us the frequency
 		analyserNode.getByteTimeDomainData(timeByteData);  // this gives us the waveform
 		//ctx.clearRect(0,0,canvas.width,canvas.height);
-		if( soundInstance.volume != this.volume )
+		if( soundInstance.volume != volume )
 		{
-			soundInstance.volume = this.volume;
+			soundInstance.volume = volume;
 		}
 
 		canvas.width = canvas.width;
@@ -430,15 +433,16 @@ bridge.prototype.attachEvents = function()
 		document.cookie = cname + "=" + cvalue + "; " + expires;
 	}
 
-	function changeVolume( volume )
+	function changeVolume( vol )
 	{
-		self.raiseServerEvent( "VolumeChange", volume );
-		this.volume = volume / 100;
+		self.raiseServerEvent( "VolumeChange", vol );
+		volume = vol / 100;
 		if( !hasCanvas )
 		{
 			if( currentlyPlayingAudio )
 			{
-				currentlyPlayingAudio.volume = volume / 100.0;
+
+				currentlyPlayingAudio.volume = vol / 100.0;
 			}
 		}
 	}
