@@ -1,5 +1,5 @@
 # Sup Aliens.
-<img src="/static/image/title-2.jpg">
+<img src="/static/image/title-2.png">
 
 Let's be clear. When I say I, I usually mean we (robmadeyou and Neverlost)
 
