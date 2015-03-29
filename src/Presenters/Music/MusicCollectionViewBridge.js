@@ -339,7 +339,7 @@ bridge.prototype.attachEvents = function()
 	}
 
 	var tickrotate = 0;
-
+	var lastTotal = 0;
 	function tick(evt) {
 		analyserNode.getFloatFrequencyData(freqFloatData);  // this gives us the dBs
 		analyserNode.getByteFrequencyData(freqByteData);  // this gives us the frequency
@@ -359,6 +359,7 @@ bridge.prototype.attachEvents = function()
 
 		ctx.restore();
 		var rotat = 0;
+		var total = 0;
 		for( var i = 0; i < freqByteData.length; i++)
 		{
 			if( i > ( freqByteData.length / 5 ) * 3 )
@@ -396,13 +397,32 @@ bridge.prototype.attachEvents = function()
 				ctx.globalAlpha = 1+(freqFloatData[ i ] / 100);
 			}
 
-			ctx.fillRect( 100, 0, freqByteData[i], width + 2 );
+			if( i > ( freqByteData.length / 5 ) * 3 )
+			{
+				ctx.fillRect( 100, 0, -freqByteData[i], width + 2 );
+			}
+			else
+			{
+				ctx.fillRect( 100, 0, freqByteData[i], width + 2 );
+			}
 
 			ctx.restore();
 			ctx.restore();
+			total += freqByteData[ i ];
 		}
 		tickrotate += 0.0024;
 		ctx.restore();
+		var difference = lastTotal - total;
+		ctx.save();
+
+		ctx.beginPath();
+		ctx.globalAlpha = 0.4;
+		ctx.arc( canvas.width / 2, canvas.height / 2, Math.abs( difference / 100), 0, Math.PI*2, true);
+		console.log( difference );
+		ctx.closePath();
+		ctx.fill();
+		ctx.restore();
+		lastTotal = total;
 	}
 
 	$( "#searchIn" ).keyup(function()
