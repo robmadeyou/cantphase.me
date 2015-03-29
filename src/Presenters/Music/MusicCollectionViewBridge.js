@@ -418,7 +418,6 @@ bridge.prototype.attachEvents = function()
 		ctx.beginPath();
 		ctx.globalAlpha = 0.4;
 		ctx.arc( canvas.width / 2, canvas.height / 2, Math.abs( difference / 100), 0, Math.PI*2, true);
-		console.log( difference );
 		ctx.closePath();
 		ctx.fill();
 		ctx.restore();
