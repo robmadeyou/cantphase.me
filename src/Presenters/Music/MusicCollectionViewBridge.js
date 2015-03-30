@@ -162,14 +162,6 @@ bridge.prototype.attachEvents = function()
 				}
 			} );
 
-			this.jquery.mouseleave( function()
-			{
-				if( dropdown.isOpen )
-				{
-					dropdown.close();
-				}
-			} );
-
 			this.visualizerToggleButtonJquery.click( function()
 			{
 				self.raiseServerEvent( "ToggleVisualizer", function()
