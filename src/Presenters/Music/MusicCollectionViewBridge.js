@@ -439,17 +439,25 @@ bridge.prototype.attachEvents = function()
 			{
 				var link = $( '<span id="song-select-' + data[i].id + '" class="_vdo songLink" song="' + data[ i ].id + '" >' + data[ i ].name + '</span>' );
 				search.append( link );
+				var margin = 0;
 				link.hover(
 					function() {
 						var self = this;
 						onHover = setInterval( function()
 						{
-							$( self ).css( { "margin-left" : '-=1' } )
+							obj = $( self );
+							console.log(  obj.width() + dropdown.songSearchWidth  );
+							if( margin < obj.width() - dropdown.songSearchWidth )
+							{
+								obj.css({"margin-left": '-=1'})
+								margin++;
+							}
 						}, 10 );
 					},
 					function() {
 						clearInterval( onHover );
-						$( this ).animate( { "margin-left" : 0 }, 400 )
+						$( this ).animate( { "margin-left" : 0 }, 400 );
+						margin = 0;
 					} );
 			}
 
