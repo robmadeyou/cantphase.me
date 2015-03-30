@@ -139,7 +139,7 @@ bridge.prototype.attachEvents = function()
 
 			$( '.song-upload' ).keyup( function( event )
 			{
-				if( event.which == 13 )
+				if( event.which == 13 && !$( this ).attr( 'disabled' ) )
 				{
 					var url = $( "#pullUrl" ).val();
 					var tags = $( "#pullTags" ).val();
@@ -154,10 +154,14 @@ bridge.prototype.attachEvents = function()
 					}
 					event.preventDefault();
 
+					$( '.song-upload ' ).attr( "disabled", "disabled" );
 					self.raiseServerEvent( "Download", url, notes, tags, usePrefix, prefix, function( message )
 					{
 						alert( message );
 						dropdown.closeAddSong();
+
+						$( '.song-upload ' ).removeAttr( "disabled" );
+						$( '.song-upload ' ).val( "" );
 					} );
 				}
 			} );
