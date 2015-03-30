@@ -125,7 +125,7 @@ class MusicCollectionPresenter extends Form
 			}
 
 			$connection = MySql::getDefaultConnection();
-			$vals = $connection->prepare( "SELECT * FROM tblMusicHistory WHERE UserID = :UserID" . ( isset( $date ) ? " AND RequestedAt < '" . $date->format( "Y-m-d H:i:s" ) . "'" : "" ) . " ORDER BY RequestedAt DESC LIMIT 1" );
+			$vals = $connection->prepare( "SELECT * FROM tblMusicHistory WHERE UserID = :UserID" . ( isset( $date ) ? " AND RequestedAt < '" . $date->format( "Y-m-d H:i:s" ) . "'" : "" ) . " ORDER BY RequestedAt DESC LIMIT " . ( isset( $date ) ? " 1" : '1, 1' ) );
 			$vals->execute( [
 				"UserID" => $userModel->UserID
 			] );
