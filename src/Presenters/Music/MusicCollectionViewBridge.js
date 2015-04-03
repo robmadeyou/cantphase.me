@@ -213,7 +213,7 @@ bridge.prototype.attachEvents = function()
 		}
 		else
 		{
-			currentlyPlayingAudio.pause();
+			currentlyPlayingAudio = null;//Hopefully fixes
 		}
 	}
 
