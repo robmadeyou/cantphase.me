@@ -6,6 +6,9 @@
 namespace Cant\Phase\Me\Model\Music;
 
 
+use Rhubarb\Stem\Exceptions\RecordNotFoundException;
+use Rhubarb\Stem\Filters\AndGroup;
+use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\AutoIncrement;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\ForeignKey;
@@ -41,5 +44,19 @@ class Music extends Model
 		$schema->labelColumnName = 'Name';
 
 		return $schema;
+	}
+
+	public function IsFavoriteSong( $userID )
+	{
+		try
+		{
+			MusicFavorite::findFirst( new AndGroup( [ new Equals( "MusicID", $this->MusicID ), new Equals( "UserID", $userID ) ] ) );
+			return true;
+		}
+		catch( RecordNotFoundException $ex )
+		{
+			return false;
+		}
+		return false;
 	}
 }

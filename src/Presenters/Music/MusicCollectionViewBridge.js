@@ -181,6 +181,11 @@ bridge.prototype.attachEvents = function()
 					}
 				} )
 			})
+
+			$( '#visualizer-dropdown-browse' ).click( function( )
+			{
+				window.location.href = "/music/browse/";
+			} )
 		}
 	};
 
@@ -451,7 +456,6 @@ bridge.prototype.attachEvents = function()
 						onHover = setInterval( function()
 						{
 							obj = $( self );
-							console.log(  obj.width() + dropdown.songSearchWidth  );
 							if( margin < obj.width() - dropdown.songSearchWidth )
 							{
 								obj.css({"margin-left": '-=1'})

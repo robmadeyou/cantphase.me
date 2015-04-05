@@ -94,7 +94,50 @@ input[type=range]#volume {
     border-radius: 10px;
     border: #ffffff solid 3px;
     z-index: 11;
+}
 
+.table-full-width
+{
+    width: 100%;
+}
+
+.table-full-width thead tr th
+{
+    text-align: left;
+    cursor: pointer;
+}
+
+.table-full-width .sorted
+{
+    text-align: left;
+    cursor: pointer;
+    background-color: blue;
+}
+
+.music-list-logo
+{
+    width: 100%;
+    text-align: center;
+}
+
+.music-list-content
+{
+    background-color: #191919;
+    height: 72%;
+}
+
+.music-list-filter
+{
+    width: 29%;
+    height: 100%;
+    float:left;
+    border-right: dashed 2px;
+}
+
+.music-list-table
+{
+    width: 70%;
+    float:left;
 }
 
 #img

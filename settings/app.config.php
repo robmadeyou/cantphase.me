@@ -34,7 +34,9 @@ class CantPhaseMeModule extends Module
 			[
 				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter',
 					[
-						'music/' => new CrudUrlHandler( 'Music', 'Cant\Phase\Me\Presenters\Music' )
+						'music/' => new CrudUrlHandler( 'Music', 'Cant\Phase\Me\Presenters\Music', [], [
+							'browse/' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Music\Browse\BrowsePresenter' )
+						] )
 					]),
 				"/login/" => $login
 			]

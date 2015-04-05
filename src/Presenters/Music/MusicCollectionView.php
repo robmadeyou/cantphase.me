@@ -107,7 +107,7 @@ class MusicCollectionView extends HtmlView
 					</div>
 					<div class="_vdo visualizer-dropdown-items">
 						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-new-song">+ Add new Song</span>
-						<span class="_vdo visualizer-dropdown-item">+ Browse Music</span>
+						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-browse">+ Browse Music</span>
 						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-visualizer-toggle">+ Visualizer [ <?= $settings->ShowVisualizer ? "On" : "Off" ?> ]</span>
 						<span class="_vdo visualizer-dropdown-item">+ Return to menu</span>
 					</div>
