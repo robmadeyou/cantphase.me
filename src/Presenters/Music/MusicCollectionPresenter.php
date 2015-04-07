@@ -125,7 +125,7 @@ class MusicCollectionPresenter extends Form
 			}
 
 			$connection = MySql::getDefaultConnection();
-			$vals = $connection->prepare( "SELECT * FROM tblMusicHistory WHERE UserID = :UserID" . ( isset( $date ) ? " AND RequestedAt < '" . $date->format( "Y-m-d H:i:s" ) . "'" : "" ) . " ORDER BY RequestedAt DESC LIMIT " . ( isset( $date ) ? " 1" : '1, 1' ) );
+			$vals = $connection->prepare( "SELECT * FROM tblMusicHistory WHERE UserID = :UserID" . ( isset( $date ) ? " AND RequestedAt < '" . $date->format( "Y-m-d H:i:s" ) . "'" : "" ) . " ORDER BY RequestedAt DESC LIMIT 1" );
 			$vals->execute( [
 				"UserID" => $userModel->UserID
 			] );
@@ -225,7 +225,7 @@ class MusicCollectionPresenter extends Form
 			$songList = [];
 			$dir = getcwd();
 			$url = str_replace( ";", "", $url );
-			$output = shell_exec( "youtube-dl -x --audio-quality 0 -i --add-metadata --write-thumbnail --prefer-avconv -o 'tmp/%(id)s !i! %(uploader)s !i! %(title)s.%(ext)s' " . $url );
+			$output = shell_exec( "youtube-dl -x --audio-quality 0 -i --add-metadata --write-thumbnail --prefer-avconv -o 'tmp/%(id)s !i! %(uploader)s !i! %(title)s.%(ext)s' " . escapeshellarg( $url ) );
 			print $output;
 			$directory = scandir( "$dir/tmp/" );
 			foreach( $directory as $item )

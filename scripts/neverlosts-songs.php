@@ -17,7 +17,7 @@ foreach( $bookmarks->DL  as $entry )
 		$songList = [];
 		$dir = __DIR__ . "/../";
 		$url = str_replace( ";", "", $url );
-		$output = shell_exec( "youtube-dl -x --audio-quality 0 -i --add-metadata --write-thumbnail --prefer-avconv -o '" . __DIR__ . "/../tmp/%(id)s !i! %(uploader)s !i! %(title)s.%(ext)s' " . $url );
+		$output = shell_exec( "youtube-dl -x --audio-quality 0 -i --add-metadata --write-thumbnail --prefer-avconv -o '" . __DIR__ . "/../tmp/%(id)s !i! %(uploader)s !i! %(title)s.%(ext)s' " . escapeshellarg( $url ) );
 		print $output;
 		$directory = scandir( "$dir/tmp/" );
 		foreach( $directory as $item )
