@@ -26,6 +26,11 @@ bridge.prototype.attachEvents = function()
 		var ctx = canvas.getContext( "2d" );
 		canvas.width  = canvas.offsetWidth;
 		canvas.height = canvas.offsetHeight;
+		$( window ).resize( function()
+		{
+			canvas.width  = canvas.offsetWidth;
+			canvas.height = canvas.offsetHeight;
+		} );
 	}
 	var volume = 1;
 	var songList = [];
@@ -354,7 +359,7 @@ bridge.prototype.attachEvents = function()
 
 		canvas.width = canvas.width;
 		ctx.fillStyle = "#3D2117";
-		var width = Math.ceil(canvas.width / freqByteData.length)
+		var width = Math.ceil(canvas.width / freqByteData.length);
 
 		var lastX = 0;
 		var lastY = 0;
