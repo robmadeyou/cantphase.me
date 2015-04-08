@@ -122,8 +122,13 @@ input[type=range]#volume {
 
 .music-list-content
 {
+    position: absolute;
     background-color: #191919;
-    height: 72%;
+    overflow-y: auto;
+    max-height: 73%;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .music-list-filter
@@ -137,7 +142,14 @@ input[type=range]#volume {
 .music-list-table
 {
     width: 70%;
+    height: 100%;
     float:left;
+    overflow: scroll;
+}
+
+.music-list-table table
+{
+    overflow: scroll;
 }
 
 #img
