@@ -30,6 +30,11 @@ class BrowseSearch extends SearchPanel
 		return $namedControls;
 	}
 
+	protected function createView()
+	{
+		return new BrowseSearchView();
+	}
+
 	public function populateFilterGroup( Group $filterGroup )
 	{
 		parent::populateFilterGroup( $filterGroup );

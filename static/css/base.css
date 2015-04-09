@@ -122,6 +122,22 @@ input[type=range]#volume {
     height: 30%;
 }
 
+.search-content
+{
+    padding: 40px;
+}
+
+.search-content-control
+{
+    width: 100%;
+    float: left;
+}
+
+.search-content-control input
+{
+    width: 100%;
+}
+
 .music-list-content
 {
     float: left;

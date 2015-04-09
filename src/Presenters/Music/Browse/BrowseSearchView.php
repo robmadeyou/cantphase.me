@@ -14,7 +14,9 @@ class BrowseSearchView extends SearchPanelView
 	{
 		?>
 			<div class="search-content">
-
+				<div class="search-content-control">
+					<?=  $this->controls[ "TextFilter" ] ?>
+				</div>
 			</div>
 		<?php
 	}
