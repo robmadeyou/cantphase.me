@@ -8,14 +8,14 @@ class CantPhaseMeSolutionSchema extends SolutionSchema
 {
 	public function __construct( )
 	{
-		parent::__construct( 0.010 );
+		parent::__construct( 0.011 );
 
-		$this->addModel( "PhasedUser", __NAMESPACE__ . '\PhasedUser\PhasedUser' );
-		$this->addModel( "Music", __NAMESPACE__ . '\Music\Music' );
+		$this->addModel( "PhasedUser",    __NAMESPACE__ . '\PhasedUser\PhasedUser' );
+		$this->addModel( "Music",         __NAMESPACE__ . '\Music\Music' );
 		$this->addModel( "MusicSettings", __NAMESPACE__ . '\Music\MusicSettings' );
-		$this->addModel( "MusicHistory", __NAMESPACE__ . '\Music\MusicHistory' );
+		$this->addModel( "MusicHistory",  __NAMESPACE__ . '\Music\MusicHistory' );
 		$this->addModel( "MusicFavorite", __NAMESPACE__ . '\Music\MusicFavorite' );
-
+		$this->addModel( "PageContainer", __NAMESPACE__ . '\Container\PageContainer' );
 	}
 
 	protected function defineRelationships()
