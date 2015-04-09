@@ -118,17 +118,16 @@ input[type=range]#volume {
 {
     width: 100%;
     text-align: center;
+    float: left;
+    height: 30%;
 }
 
 .music-list-content
 {
-    position: absolute;
+    float: left;
     background-color: #191919;
-    overflow-y: auto;
-    max-height: 73%;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    height: 72%;
+    width: 100%;
 }
 
 .music-list-filter
@@ -145,6 +144,12 @@ input[type=range]#volume {
     height: 100%;
     float:left;
     overflow: scroll;
+}
+
+.browse-content-overlap
+{
+    width: 100%;
+    height: 100%;
 }
 
 .music-list-table table

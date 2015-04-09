@@ -37,15 +37,17 @@ class BrowseView extends HtmlView
 	protected function printViewContent()
 	{
 		?>
-		<div class="music-list-logo">
-			<img src="/static/image/logoMusic.png">
-		</div>
-		<div class="music-list-content">
-			<div class="music-list-filter">
-				<?= $this->presenters[ "SearchPanel" ] ?>
+		<div class="browse-content-overlap">
+			<div class="music-list-logo">
+				<img src="/static/image/logoMusic.png">
 			</div>
-			<div class="music-list-table">
-				<?= $this->presenters[ "MusicTable" ] ?>
+			<div class="music-list-content">
+				<div class="music-list-filter">
+					<?= $this->presenters[ "SearchPanel" ] ?>
+				</div>
+				<div class="music-list-table">
+					<?= $this->presenters[ "MusicTable" ] ?>
+				</div>
 			</div>
 		</div>
 		<?php
