@@ -36,7 +36,7 @@ class Visit extends Model
 	public static function newEntry( $ip, $url )
 	{
 		$a = new Visit();
-		$a->DateTimeVisited = new \Rhubarb\Stem\Schema\Columns\DateTime( "now" );
+		$a->DateTimeVisited = new \DateTime( "now" );
 		$a->IP = $ip;
 		$a->Url = $url;
 		$a->save();
