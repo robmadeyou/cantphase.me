@@ -8,7 +8,7 @@ class CantPhaseMeSolutionSchema extends SolutionSchema
 {
 	public function __construct( )
 	{
-		parent::__construct( 0.011 );
+		parent::__construct( 0.012 );
 
 		$this->addModel( "PhasedUser",    __NAMESPACE__ . '\PhasedUser\PhasedUser' );
 		$this->addModel( "Music",         __NAMESPACE__ . '\Music\Music' );
@@ -16,6 +16,7 @@ class CantPhaseMeSolutionSchema extends SolutionSchema
 		$this->addModel( "MusicHistory",  __NAMESPACE__ . '\Music\MusicHistory' );
 		$this->addModel( "MusicFavorite", __NAMESPACE__ . '\Music\MusicFavorite' );
 		$this->addModel( "PageContainer", __NAMESPACE__ . '\Container\PageContainer' );
+		$this->addModel( "Visit",         __NAMESPACE__ . '\Visit' );
 	}
 
 	protected function defineRelationships()

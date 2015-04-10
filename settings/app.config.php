@@ -1,6 +1,7 @@
 <?php
 namespace Cant\Phase\Me;
 
+use Cant\Phase\Me\Model\Visit;
 use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
@@ -41,6 +42,8 @@ class CantPhaseMeModule extends Module
 				"/login/" => $login
 			]
 		);
+
+		Visit::newEntry( $_SERVER[ "REMOTE_ADDR" ], $_SERVER[ "SCRIPT_URI" ] );
 	}
 	protected function registerDependantModules()
 	{
