@@ -7,9 +7,13 @@ use Cant\Phase\Me\Controls\Music\IsFavoriteColumn;
 use Cant\Phase\Me\Model\Music\Music;
 use Rhubarb\Leaf\Presenters\Application\Table\Table;
 use Rhubarb\Leaf\Views\HtmlView;
+use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 
 class BrowseView extends HtmlView
 {
+
+	use WithJqueryViewBridgeTrait;
+
 	public function createPresenters()
 	{
 
@@ -52,4 +56,15 @@ class BrowseView extends HtmlView
 		</div>
 		<?php
 	}
+
+	/**
+	 * Implement this and return __DIR__ when your ViewBridge.js is in the same folder as your class
+	 *
+	 * @returns string Path to your ViewBridge.js file
+	 */
+	public function getDeploymentPackageDirectory()
+	{
+		return __DIR__;
+	}
+
 }

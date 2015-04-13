@@ -40,7 +40,6 @@ class BrowseSearch extends SearchPanel
 		parent::populateFilterGroup( $filterGroup );
 		if( $this->TextFilter )
 		{
-			echo "hi";
 			$title = "";
 			$noGenres = [];
 			$genres = [];
