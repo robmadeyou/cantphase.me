@@ -10,6 +10,7 @@ use Rhubarb\Stem\Repositories\MySql\Schema\Columns\AutoIncrement;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\Boolean;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\ForeignKey;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\Int;
+use Rhubarb\Stem\Repositories\MySql\Schema\Columns\Varchar;
 use Rhubarb\Stem\Repositories\MySql\Schema\MySqlSchema;
 
 class MusicSettings extends Model
@@ -28,7 +29,9 @@ class MusicSettings extends Model
 			new AutoIncrement( "MusicSettingsID" ),
 			new ForeignKey( "UserID" ),
 			new Boolean( "ShowVisualizer", true ),
-			new Int( "Volume", 20 )
+			new Int( "Volume", 20 ),
+			new Varchar( "PrimaryColor", 6 ),
+			new Varchar( "SecondaryColor", 6 )
 		);
 
 		return $schema;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cant\Phase\Me\Presenters\Music;
+namespace Cant\Phase\Me\Presenters\Container\Music;
 
 use Rhubarb\Crown\Context;
 

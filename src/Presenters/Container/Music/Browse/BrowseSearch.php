@@ -3,7 +3,7 @@
  * How is it going yo
  */
 
-namespace Cant\Phase\Me\Presenters\Music\Browse;
+namespace Cant\Phase\Me\Presenters\Container\Music\Browse;
 
 
 use Rhubarb\Leaf\Presenters\Application\Search\SearchPanel;

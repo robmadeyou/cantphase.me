@@ -8,6 +8,19 @@ bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function()
 {
+	this.populateEvents();
+};
+
+bridge.prototype.onSubPresenterValueChanged = function( name, value )
+{
+	if( name.presenterName == 1 )
+	{
+		this.populateEvents();
+	}
+};
+
+bridge.prototype.populateEvents = function()
+{
 	var self = this;
 	$( '.image-container' ).click( function()
 	{
@@ -24,10 +37,6 @@ bridge.prototype.attachEvents = function()
 			}
 		});
 	} );
-};
-
-bridge.prototype.onSubPresenterValueChanged = function( name, value )
-{
-};
+}
 
 window.gcd.core.mvp.viewBridgeClasses.BrowseViewBridge = bridge;

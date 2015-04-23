@@ -58,9 +58,12 @@ bridge.prototype.attachEvents = function()
 		isOpen : false,
 		isSearching : false,
 		width : 200,
-		height : 200,
+		height : 120,
+		addNewHeight : 120,
 		songSearchWidth : 300,
 		songSearchHeight : '500',
+		settingsWidth : 200,
+		settingsHeight : 400,
 		animationSpeed : 'fast',
 		open : function()
 		{
@@ -122,11 +125,19 @@ bridge.prototype.attachEvents = function()
 		},
 		openAddSong : function()
 		{
+			this.jquery.animate(
+				{
+				height : this.addNewHeight
+			}, this.animationSpeed );
 			this.mainSelectionJquery.fadeOut();
 			this.addSongItemsJquery.fadeIn();
 		},
 		closeAddSong : function()
 		{
+			this.jquery.animate(
+				{
+					height : this.height
+				}, this.animationSpeed );
 			this.mainSelectionJquery.fadeIn();
 			this.addSongItemsJquery.fadeOut();
 		},

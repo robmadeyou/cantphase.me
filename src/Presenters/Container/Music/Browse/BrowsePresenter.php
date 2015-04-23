@@ -1,6 +1,6 @@
 <?php
 
-namespace Cant\Phase\Me\Presenters\Music\Browse;
+namespace Cant\Phase\Me\Presenters\Container\Music\Browse;
 
 use Cant\Phase\Me\Model\Music\MusicFavorite;
 use Rhubarb\Leaf\Presenters\Forms\Form;

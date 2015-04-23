@@ -26,7 +26,7 @@ class Visit extends Model
 		$schema->addColumn(
 			new AutoIncrement( "VisitID" ),
 			new DateTime( "DateTimeVisited" ),
-			new Varchar( "IP", 12 ),
+			new Varchar( "IP", 16 ),
 			new Varchar( "Url", 256 )
 			);
 

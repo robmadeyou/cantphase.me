@@ -1,6 +1,6 @@
 <?php
 
-namespace Cant\Phase\Me\Presenters\Music\Browse;
+namespace Cant\Phase\Me\Presenters\Container\Music\Browse;
 
 
 use Cant\Phase\Me\Controls\Music\IsFavoriteColumn;
@@ -18,7 +18,7 @@ class BrowseView extends HtmlView
 	{
 
 		$this->addPresenters(
-			new Table( Music::find(), 50, "MusicTable" ),
+			new Table( Music::find(), 12, "MusicTable" ),
 			new BrowseSearch( "SearchPanel" )
 		);
 	}

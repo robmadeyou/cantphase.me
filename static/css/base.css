@@ -522,7 +522,15 @@ input[type=range]#volume {
     float: left;
     width: 100%;
     cursor: pointer;
+    padding-left: 10px;
+    transition: background-color .5s;
 }
+
+.visualizer-dropdown-item:hover
+{
+    background-color: green;
+}
+
 
 .song-upload
 {
