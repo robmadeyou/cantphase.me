@@ -21,67 +21,6 @@ class IndexView extends HtmlView
 						<div class="content-box content-box-1x1">
 							Music!
 						</div>
-						<div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div><div class="content-box content-box-1x1">
-							Music!
-						</div>
 					</a>
 				</div>
 			</div>

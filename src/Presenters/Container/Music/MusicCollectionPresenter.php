@@ -7,6 +7,7 @@ use Cant\Phase\Me\Model\Music\MusicFavorite;
 use Cant\Phase\Me\Model\Music\MusicHistory;
 use Cant\Phase\Me\Model\Music\MusicSettings;
 use Rhubarb\Crown\DateTime\RhubarbDateTime;
+use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Leaf\Presenters\Forms\Form;
 use Rhubarb\Scaffolds\Authentication\LoginProvider;
 use Rhubarb\Stem\Exceptions\RecordNotFoundException;
@@ -25,6 +26,8 @@ class MusicCollectionPresenter extends Form
 
 	protected function configureView()
 	{
+		ResourceLoader::loadResource( "/static/css/music/music.css" );
+
 		parent::configureView();
 
 		$this->view->attachEventHandler( "FavoriteSong", function( $songID )
