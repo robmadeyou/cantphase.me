@@ -3,6 +3,7 @@
 namespace Cant\Phase\Me\Presenters\Login;
 
 use Cant\Phase\Me\Model\PhasedUser\PhasedUser;
+use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Crown\LoginProviders\Exceptions\LoginDisabledException;
 use Rhubarb\Crown\LoginProviders\Exceptions\LoginFailedException;
 use Rhubarb\Scaffolds\Authentication\LoginProvider;
@@ -20,6 +21,7 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 
 	protected function configureView()
 	{
+		ResourceLoader::loadResource( '/static/css/login/login.css' );
 		parent::configureView();
 		$this->view->hasOverlay = true;
 
