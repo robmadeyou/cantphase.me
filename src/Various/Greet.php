@@ -3,29 +3,37 @@
 	namespace Cant\Phase\Me\Various;
 
 
+use Rhubarb\Crown\LoginProviders\Exceptions\NotLoggedInException;
 use Rhubarb\Scaffolds\Authentication\LoginProvider;
 
 class Greet
 {
 	public static function GetMessage()
 	{
-		$loggedIn = (new LoginProvider())->getLoggedInUser();
+		try
+		{
+			$loggedIn = (new LoginProvider())->getLoggedInUser();
+		}
+		catch( NotLoggedInException $ex )
+		{}
+
 		$messages = [
 			new TimeOfDayGreet(),
 			"Hey",
 			"Hi",
 			"Hello",
 			"Yo",
+			"Sup"
 		];
 
-		$execute = $messages[ rand( 0, sizeof( $messages ) ) ];
+		$execute = $messages[ rand( 0, sizeof( $messages ) - 1 ) ];
 		if( $execute instanceof LogicalGreet )
 		{
-			return $execute->GetMessage();
+			return $execute->GetMessage() . ( isset( $loggedIn ) ? ' ' . $loggedIn->Username : '' ) . '.';
 		}
 		else
 		{
-			return $execute;
+			return $execute . ( isset( $loggedIn ) ? ' ' . $loggedIn->Username : '' ) . '.';
 		}
 	}
 }
@@ -48,15 +56,15 @@ class TimeOfDayGreet extends LogicalGreet
 		$timeHours = date( 'G' );
 		if( $timeHours >= 5 && $timeHours <= 11 )
 		{
-			return "Good morning.";
+			return "Good morning";
 		}
 		else if( $timeHours >= 12 && $timeHours <= 18 )
 		{
-			return "Good afternoon.";
+			return "Good afternoon";
 		}
 		else if( $timeHours >= 19 || $timeHours <= 4 )
 		{
-			return "Good evening.";
+			return "Good evening";
 		}
 	}
 }
