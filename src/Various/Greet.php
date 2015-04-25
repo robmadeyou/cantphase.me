@@ -19,6 +19,8 @@ class Greet
 
 		$messages = [
 			new TimeOfDayGreet(),
+			new TimeOfDayGreet(),
+			new TimeOfDayGreet(),
 			"Hey",
 			"Hi",
 			"Hello",
