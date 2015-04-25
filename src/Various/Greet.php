@@ -58,15 +58,15 @@ class TimeOfDayGreet extends LogicalGreet
 		$timeHours = date( 'G' );
 		if( $timeHours >= 5 && $timeHours <= 11 )
 		{
-			return "Good morning";
+			return "Morning";
 		}
 		else if( $timeHours >= 12 && $timeHours <= 18 )
 		{
-			return "Good afternoon";
+			return "Afternoon";
 		}
 		else if( $timeHours >= 19 || $timeHours <= 4 )
 		{
-			return "Good evening";
+			return "Evening";
 		}
 	}
 }
