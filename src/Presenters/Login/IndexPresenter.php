@@ -23,7 +23,6 @@ class IndexPresenter extends \Cant\Phase\Me\Presenters\IndexPresenter
 	{
 		ResourceLoader::loadResource( '/static/css/login/login.css' );
 		parent::configureView();
-		$this->view->hasOverlay = true;
 
 		$this->view->attachEventHandler( 'login', function( $user, $pass, $info = "", $email = "" )
 		{

@@ -12,6 +12,17 @@
     100% {opacity: 1}
 }
 
+.login
+{
+    text-align: center;
+}
+
+.login .greet
+{
+    font-size: 15vw;
+    margin-bottom: 5vh;
+}
+
 .welcome-text
 {
     opacity: 0;
@@ -20,4 +31,30 @@
     -webkit-animation-duration: 0.4s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
+}
+
+.login-base
+{
+    display: none;
+}
+
+.login-click
+{
+    cursor: pointer;
+}
+
+.login-input
+{
+    width: 350px;
+    min-height: 70px;
+    height: 3.5vh;
+    font-size: 46px;
+    box-shadow:none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.clear-hidden
+{
+    display: block;
 }

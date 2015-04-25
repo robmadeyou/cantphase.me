@@ -19,13 +19,13 @@ bridge.prototype.attachEvents = function()
 	} );
 
 	var onLoginScreen = false;
-	$( "#login-button" ).click( function()
+	$( ".login-click" ).click( function()
 	{
-		$( "#login-base" ).fadeOut( 300 );
+		$( ".login-click").parent().fadeOut( 300 );
 		setTimeout( function()
 		{
 			onLoginScreen = true;
-			$( "#actual-login" ).slideDown();
+			$( ".login-base" ).slideDown();
 		}, 300 );
 	} );
 
@@ -42,6 +42,10 @@ bridge.prototype.attachEvents = function()
 					{
 						window.location.href = "/";
 					}, 500 )
+				}
+				else
+				{
+					$( '.greet' ).html( "Try again." );
 				}
 			} );
 		}
