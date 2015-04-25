@@ -45,7 +45,8 @@ class IndexView extends HtmlView
 					{
 						echo '<div><span class="login-click">Login</span><span> / </span><span><a href="signup">Signup</a></span></div>';
 					}
-				?>
+                ?>
+                <div class="login-message"></div>
 				<div class="login-base <?= isset( $this->hasOverlay ) ? 'clear-hidden' : ''?>">
 					<?= $this->printInputs() ?>
 				</div>

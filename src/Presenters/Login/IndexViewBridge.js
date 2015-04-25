@@ -33,10 +33,13 @@ bridge.prototype.attachEvents = function()
 	{
 		if( event.which == 13 )
 		{
+            var message = $( '.login-message' );
+            message.html( 'loading... please wait.' );
 			self.raiseServerEvent( "login", self.user.val(), self.pass.val(), function ( out )
 			{
 				if( out == 1 )
 				{
+                    message.html( 'Welcome back.' );
 					$( ".overlay" ).fadeOut();
 					setTimeout( function()
 					{
@@ -45,7 +48,7 @@ bridge.prototype.attachEvents = function()
 				}
 				else
 				{
-					$( '.greet' ).html( "Try again." );
+					message.html( "Try again." );
 				}
 			} );
 		}

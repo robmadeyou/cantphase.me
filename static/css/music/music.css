@@ -182,6 +182,7 @@ input[type=range]#volume {
 {
     float:left;
     width:3.3%;
+    height:2.8vh;
     cursor: pointer;
 }
 
@@ -189,6 +190,7 @@ input[type=range]#volume {
 {
     float:left;
     width:3.3%;
+    height:2.8vh;
     cursor: pointer;
 }
 
