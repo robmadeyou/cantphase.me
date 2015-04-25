@@ -1,0 +1,23 @@
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fadeIn
+{
+    0% {opacity: 0;}
+    100% {opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes fadeIn
+{
+    0% {opacity: 0;}
+    100% {opacity: 1}
+}
+
+.welcome-text
+{
+    opacity: 0;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+}

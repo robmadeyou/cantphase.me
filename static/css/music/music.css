@@ -1,0 +1,638 @@
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-image: url( '/static/image/songVolumeButton.png');
+    height: 16px;
+    width: 16px;
+    background-size:cover;
+}
+
+input[type=range]#volume {
+    -webkit-appearance: none;
+    background-color: white;
+    border-radius: 10px;
+    height: 5px;
+}
+
+.visualizer-content
+{
+    float:left;
+}
+
+.visualizer-center-top
+{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 0.08%;
+    width: 100%;
+    float:left;
+}
+
+.visualizer-center-split
+{
+    float:left;
+    width:60%;
+}
+
+.visualizer-dropdown-add-song-back-button
+{
+    position: absolute;
+    top:5px;
+    left: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+.visualizer-artwork
+{
+    position:relative;
+
+    float:left;
+    width: 17%;
+    height: 100%;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: #ffffff solid 3px;
+    z-index: 11;
+}
+
+.table-full-width
+{
+    width: 100%;
+}
+
+.table-full-width thead tr th
+{
+    text-align: left;
+    cursor: pointer;
+}
+
+.table-full-width .sorted
+{
+    text-align: left;
+    cursor: pointer;
+    background-color: blue;
+}
+
+.music-list-logo
+{
+    width: 100%;
+    text-align: center;
+    float: left;
+    height: 30%;
+}
+
+.search-content
+{
+    padding: 40px;
+}
+
+.search-content-control
+{
+    width: 100%;
+    float: left;
+}
+
+.search-content-control input
+{
+    width: 100%;
+}
+
+.music-list-content
+{
+    float: left;
+    background-color: #191919;
+    height: 72%;
+    width: 100%;
+}
+
+.music-list-filter
+{
+    width: 29%;
+    height: 100%;
+    float:left;
+    border-right: dashed 2px;
+}
+
+.music-list-table
+{
+    width: 70%;
+    height: 100%;
+    float:left;
+    overflow: scroll;
+}
+
+.browse-content-overlap
+{
+    width: 100%;
+    height: 100%;
+}
+
+.music-list-table table
+{
+    overflow: scroll;
+}
+
+#img
+{
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 6px;
+}
+
+.sound-controls
+{
+    border-radius: 20px;
+    background-color: #000000;
+    position:relative;
+    text-align: center;
+    margin-top: -14%;
+    height: 30px;
+    width: 70%;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px;
+    padding-top: 7%;
+    z-index: 20;
+}
+
+.sound-control
+{
+    position:relative;
+    float:left;
+    width:25%;
+    height: 80%;
+}
+
+.sound-control img
+{
+    width: 70%;
+    height: 70%;
+}
+
+.visualizer-slider-percentage
+{
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+#prevButton
+{
+    float:left;
+    width:3.3%;
+    cursor: pointer;
+}
+
+#nextButton
+{
+    float:left;
+    width:3.3%;
+    cursor: pointer;
+}
+
+#songTitle
+{
+    float:left;
+    width:93%;
+    color:#ffffff;
+}
+
+#volume
+{
+    width: 100%;
+    box-shadow:none;
+    outline: none;
+}
+
+.visualizer-menu-dropdown
+{
+    float:left;
+    margin-left: 20px;
+    margin-top:5.4%;
+    width:5%;
+}
+
+.visualizer-dropdown-overlay
+{
+    position: absolute;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: none;
+    background-color: grey;
+    overflow-y: scroll;
+    opacity: 0.90;
+}
+
+#visualizer-overlay
+{
+    position:absolute;
+    top: 3%;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    height: 15%;
+    width: 50%;
+    opacity: 0.5;
+    transition: opacity 1s;
+}
+
+#visualizer-overlay:hover
+{
+    opacity: 1;
+}
+
+#visualizer-main-selection
+{
+}
+
+.visualizer-title
+{
+    text-align: center;
+}
+
+#visualizer-add-song
+{
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#content {
+    height:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.overlay
+{
+    font-size: 120%;
+    top: 180px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    background-color: #191919;
+    overflow: auto;
+    padding-top: 40px;
+    padding-left: 40px;
+    position:absolute;
+    text-align: center;
+}
+
+#login
+{
+    border: solid white;
+    border-width:2px 0;
+    max-height: 100%;
+    width:100%;
+}
+
+#login-base
+{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#login-base:hover
+{
+    cursor: pointer;
+}
+
+#barCanvas
+{
+    width: 100%;
+    height: 100%;
+}
+
+#actual-login
+{
+    display: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#login-button
+{
+    font-size: 400%;
+}
+
+.login-input
+{
+    width: 350px;
+    height: 50px;
+    font-size: 46px;
+    box-shadow:none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.underlay
+{
+    margin-top: 120px;
+    margin-left: 130px;
+    border-radius: 5px;
+    border-color: #003147;
+    position: relative;
+}
+
+.content-box
+{
+    display: block;
+    vertical-align: middle;
+    float: left;
+    margin-right: 15px;
+    margin-top: 15px;
+    position: relative;
+    min-width: 150px;
+    min-height: 150px;
+    background-color: #007fff;
+    opacity: 0.2;
+    transition: opacity 0.5s;
+    text-align: center;
+
+}
+
+.content-box-1x1
+{
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.content-box-2x2
+{
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.content-box-3x3
+{
+    min-width: 450px;
+    min-height: 450px;
+}
+
+.content-box-4x4
+{
+    min-width: 600px;
+    min-height: 600px;
+}
+
+.content-box-1x2
+{
+    min-width: 150px;
+    min-height: 300px;
+}
+
+.content-box-1x3
+{
+    min-width: 150px;
+    min-height: 450px;
+}
+
+.content-box-1x4
+{
+    min-width: 150px;
+    min-height: 600px;
+}
+
+.content-box-2x1
+{
+    min-width: 300px;
+    min-height: 150px;
+}
+
+.content-box-3x1
+{
+    min-width: 450px;
+    min-height: 150px;
+}
+
+.content-box-4x1
+{
+    min-width: 600px;
+    min-height: 150px;
+}
+
+.content-box:hover
+{
+    opacity: 1;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-name: glow;
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.input-center
+{
+    text-align: center;
+}
+
+.submit-button
+{
+    background-color: grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.submit-button:link
+{
+    text-decoration: none;
+}
+
+.submit-button:visited
+{
+    color: blue;
+}
+
+#loggedInNotifier
+{
+    margin-right: 20px;
+    color: white;
+}
+
+#interactive
+{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#search
+{
+    float:left;
+    width:100%;
+    height: 100%;
+    display: none;
+}
+
+.visualizer-dropdown-items
+{
+    float:left;
+    width:100%;
+    height:100%;
+}
+
+.visualizer-dropdown-items .visualizer-dropdown-item
+{
+    float: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.song-upload
+{
+    text-align: center;
+}
+
+#search span
+{
+    width:initial;
+    white-space: nowrap;
+    text-overflow: clip;
+    overflow:hidden;
+    cursor: pointer;
+}
+
+#searchIn
+{
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.songLink
+{
+    width: 100%;
+    float:left;
+    height: auto;
+    text-align: left;
+}
+
+.box
+{
+    width: 32%;
+    float: left;
+    border-color: gray;
+    border-style: dashed;
+    border-width: 3px;
+    border-radius: 20px;
+}
+
+#pullResults
+{
+    color:white;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+#title
+{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.floatingImages
+{
+    float: left;
+    width: 25%;
+    height: auto;
+}
+
+#nextButton
+{
+    float: right;
+}
+
+#overlay
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: gray;
+    opacity: 0.7;
+}
+
+#left
+{
+    border: solid black;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#right
+{
+    border: solid black;
+    -webkit-border-top-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#innerPullForm
+{
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 99%;
+}
+
+#innerPullForm div
+{
+    float: left;
+    padding: 24px;
+    width: 40%;
+    min-height: 400px;
+}
+
+#innerPullForm div .textbox
+{
+    width: 100%;
+}
+
+#innerPullForm div textarea
+{
+    width: 100%;
+    resize: none;
+    height: 200px;
+}
+
+#outerPullForm
+{
+    display: none;
+    position: fixed;
+    background-color: whitesmoke;
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-radius: 10px;
+    padding: 40px;
+    min-width: 600px;
+}
+
+#outerPullForm #close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+#finalizePull
+{
+    margin-left: 40%;
+    margin-bottom: 0;
+}
