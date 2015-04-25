@@ -2,6 +2,7 @@
 
 namespace Cant\Phase\Me\Presenters\Login;
 
+use Cant\Phase\Me\Various\Greet;
 use Rhubarb\Crown\Context;
 use Rhubarb\Leaf\Presenters\Controls\Text\Password\Password;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
@@ -35,7 +36,7 @@ class IndexView extends HtmlView
 	{
 		?>
 		<div class="welcome-text">
-			<h1>Hi.</h1>
+			<h1><?= Greet::GetMessage() ?></h1>
 			<h3>You're on <?= (new Context())->SiteName?>.</h3>
 			<div class="login-section">
 
