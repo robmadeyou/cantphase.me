@@ -31,11 +31,11 @@ class Greet
 		$execute = $messages[ rand( 0, sizeof( $messages ) - 1 ) ];
 		if( $execute instanceof LogicalGreet )
 		{
-			return $execute->GetMessage() . ( isset( $loggedIn ) ? ' ' . $loggedIn->Username : '' ) . '.';
+			return $execute->GetMessage() . ( isset( $loggedIn ) ? '<br>' . $loggedIn->Username : '' ) . '.';
 		}
 		else
 		{
-			return $execute . ( isset( $loggedIn ) ? ' ' . $loggedIn->Username : '' ) . '.';
+			return $execute . ( isset( $loggedIn ) ? '<br>' . $loggedIn->Username : '' ) . '.';
 		}
 	}
 }

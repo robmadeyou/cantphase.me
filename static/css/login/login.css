@@ -12,6 +12,11 @@
     100% {opacity: 1}
 }
 
+h3
+{
+    font-size: 4vh;
+}
+
 .login
 {
     text-align: center;
@@ -36,6 +41,7 @@
     -webkit-animation-duration: 0.4s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
+    margin-top: 100px;
 }
 
 .login-base

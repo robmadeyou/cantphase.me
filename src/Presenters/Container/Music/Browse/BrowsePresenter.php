@@ -3,6 +3,7 @@
 namespace Cant\Phase\Me\Presenters\Container\Music\Browse;
 
 use Cant\Phase\Me\Model\Music\MusicFavorite;
+use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Leaf\Presenters\Forms\Form;
 use Rhubarb\Scaffolds\Authentication\LoginProvider;
 use Rhubarb\Stem\Exceptions\RecordNotFoundException;
@@ -18,6 +19,7 @@ class BrowsePresenter extends Form
 
 	protected function configureView()
 	{
+		ResourceLoader::loadResource( "/static/css/music/browse/browse.css" );
 		parent::configureView();
 
 		$this->view->attachEventHandler( "FavoriteSong", function( $songID )

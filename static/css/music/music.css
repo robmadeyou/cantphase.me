@@ -260,10 +260,6 @@ input[type=range]#volume {
     display: none;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 #content {
     height:100%;
     margin-left: auto;

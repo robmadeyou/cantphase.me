@@ -1,10 +1,6 @@
 <?php
-/**
- * How is it going yo
- */
 
 namespace Cant\Phase\Me\Model;
-
 
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\AutoIncrement;

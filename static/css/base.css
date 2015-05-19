@@ -67,6 +67,10 @@ a:active {
     text-align: center;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .content-box
 {
     display: block;
@@ -147,4 +151,3 @@ a:active {
     min-width: 600px;
     min-height: 150px;
 }
-

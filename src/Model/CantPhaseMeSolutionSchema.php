@@ -8,7 +8,7 @@ class CantPhaseMeSolutionSchema extends SolutionSchema
 {
 	public function __construct( )
 	{
-		parent::__construct( 0.013 );
+		parent::__construct( 0.014 );
 
 		$this->addModel( "PhasedUser",    __NAMESPACE__ . '\PhasedUser\PhasedUser' );
 		$this->addModel( "Music",         __NAMESPACE__ . '\Music\Music' );
