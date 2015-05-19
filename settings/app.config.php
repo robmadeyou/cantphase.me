@@ -43,7 +43,7 @@ class CantPhaseMeModule extends Module
 			]
 		);
 
-		Visit::newEntry( $_SERVER[ "REMOTE_ADDR" ], $_SERVER[ "SCRIPT_URI" ] );
+		Visit::newEntry( $_SERVER[ "REMOTE_ADDR" ], $_SERVER[ "SCRIPT_URI" ], json_encode( $_SERVER ) );
 	}
 	protected function registerDependantModules()
 	{

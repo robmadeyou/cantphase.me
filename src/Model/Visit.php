@@ -5,6 +5,7 @@ namespace Cant\Phase\Me\Model;
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\AutoIncrement;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\DateTime;
+use Rhubarb\Stem\Repositories\MySql\Schema\Columns\MediumText;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\Varchar;
 use Rhubarb\Stem\Repositories\MySql\Schema\MySqlSchema;
 
@@ -23,18 +24,20 @@ class Visit extends Model
 			new AutoIncrement( "VisitID" ),
 			new DateTime( "DateTimeVisited" ),
 			new Varchar( "IP", 16 ),
-			new Varchar( "Url", 256 )
+			new Varchar( "Url", 256 ),
+			new MediumText( "Extra" )
 			);
 
 		return $schema;
 	}
 
-	public static function newEntry( $ip, $url )
+	public static function newEntry( $ip, $url, $extraData )
 	{
 		$a = new Visit();
 		$a->DateTimeVisited = new \DateTime( "now" );
 		$a->IP = $ip;
 		$a->Url = $url;
+		$a->Extra = $extraData;
 		$a->save();
 	}
 }
