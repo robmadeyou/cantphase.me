@@ -21,21 +21,23 @@ class DefaultLayout extends BaseLayout
 	protected function printPageHeading()
 	{
 		?>
-		<div id="top">
+
+		<div id="content" class="wrapper">
+		<div class="top"></div>
+		<div class="top-bottom">
 			<?php
 				parent::printPageHeading();
 			?>
 		</div>
-		<div id="content">
 	<?php
 	}
 	protected function printTail()
 	{
 		parent::printTail();
 		?>
+		<div class="push"></div>
 		</div>
-		<div id="tail">
-
+		<div class="footer">
 		</div>
 		<?php
 	}

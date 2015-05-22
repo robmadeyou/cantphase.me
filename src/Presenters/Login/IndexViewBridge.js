@@ -21,7 +21,7 @@ bridge.prototype.attachEvents = function()
 	var onLoginScreen = false;
 	$( ".login-click" ).click( function()
 	{
-		$( ".login-click").parent().fadeOut( 300 );
+		$( this ).slideUp();
 		setTimeout( function()
 		{
 			onLoginScreen = true;
@@ -33,13 +33,13 @@ bridge.prototype.attachEvents = function()
 	{
 		if( event.which == 13 )
 		{
-            var message = $( '.login-message' );
-            message.html( 'loading... please wait.' );
+			var message = $( '.login-message' );
+			message.html( 'loading... please wait.' );
 			self.raiseServerEvent( "login", self.user.val(), self.pass.val(), function ( out )
 			{
 				if( out == 1 )
 				{
-                    message.html( 'Welcome back.' );
+					message.html( 'Welcome back.' );
 					$( ".overlay" ).fadeOut();
 					setTimeout( function()
 					{

@@ -38,18 +38,24 @@ class IndexView extends HtmlView
 		?>
 		<div class="login">
 			<div class="welcome-text">
-				<h1 class="greet"><?= Greet::GetMessage() ?></h1>
-				<h3>You're on <?= (new Context())->SiteName?>.</h3>
+				<h1 class="greet">The Flow</h1>
+				<img src="/static/image/waveyLines.png">
 				<?php
 					if( !isset( $this->hasOverlay ) )
 					{
-						echo '<div><span class="login-click">Login</span><span> / </span><span><a href="signup">Signup</a></span></div>';
+						?>
+						<h3 class="login-click">~ Join us ~</h3>
+						<div class="login-base">
+							<?= $this->printInputs() ?><br>
+							<span class="login-functions"><a href="/login/signup">Register</a> | <span title="I forgot my password"><a href="/login/forgot/">I am silly</a></span></span>
+						</div>
+						<?php
 					}
-                ?>
-                <div class="login-message"></div>
-				<div class="login-base <?= isset( $this->hasOverlay ) ? 'clear-hidden' : ''?>">
-					<?= $this->printInputs() ?>
-				</div>
+					else
+					{
+						print $this->printInputs();
+					}
+				?>
 			</div>
 		</div>
 		<?php

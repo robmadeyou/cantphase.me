@@ -15,6 +15,7 @@
 h3
 {
     font-size: 4vh;
+    color: #447294;
 }
 
 .login
@@ -25,7 +26,6 @@ h3
 .login .greet
 {
     font-size: 15vw;
-    margin-bottom: 5vh;
 }
 
 .welcome-text
@@ -42,6 +42,14 @@ h3
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
     margin-top: 100px;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+
+.welcome-text img
+{
+    width: 100%;
+    margin-bottom:2vh;
 }
 
 .login-base
@@ -68,4 +76,12 @@ h3
 .clear-hidden
 {
     display: block;
+}
+
+.greet
+{
+    font-family: BlackJack;
+    color: #5DB1E2;
+    text-shadow: 4px 4px #5A7689;
+    margin-bottom: -2vh;
 }
