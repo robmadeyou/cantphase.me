@@ -148,6 +148,15 @@ input[type="range"]::-webkit-slider-thumb {
     pointer-events: all;
 }
 
+.main-button
+{
+    transition: -webkit-filter 0.2s;
+}
+.main-button:hover
+{
+    -webkit-filter: saturate(5);
+}
+
 marquee
 {
     width: 20%;
