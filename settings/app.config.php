@@ -27,7 +27,8 @@ class CantPhaseMeModule extends Module
 		parent::registerUrlHandlers();
 
 		$login =  new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Login\IndexPresenter', [
-			"signup" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Login\Signup\IndexPresenter')
+			"signup" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Login\Signup\IndexPresenter'),
+			"logout" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Login\Logout\IndexPresenter' )
 		] );
 		$login->setPriority( 11 );
 

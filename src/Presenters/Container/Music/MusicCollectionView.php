@@ -27,7 +27,7 @@ class MusicCollectionView extends HtmlView
 					<img class="main-button left" src="/static/image/topmenuHome.png">
 					<img class="main-button left" src="/static/image/topmenuProfile.png">
 					<img class="main-button left" src="/static/image/topmenuMusic.png">
-					<img class="main-button right" src="/static/image/topmenuLogout.png">
+					<a href="/login/logout"><img title="logout" class="main-button right" src="/static/image/topmenuLogout.png"></a>
 					<img class="main-button right volume" id="volumeDown" src="/static/image/topmenumaxVolume.png">
 					<input class="main-button volume-slider right" id="volume" type="range" min="0" max="100" value="<?= $settings->Volume ?>">
 					<img class="main-button right volume" id="volumeUp" src="/static/image/topmenuminVolume.png">
