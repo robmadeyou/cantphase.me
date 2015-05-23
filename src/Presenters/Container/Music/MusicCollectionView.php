@@ -1,10 +1,6 @@
 <?php
-/**
- * How is it going yo
- */
 
 namespace Cant\Phase\Me\Presenters\Container\Music;
-
 
 use Cant\Phase\Me\Model\Music\MusicSettings;
 use Rhubarb\Crown\Layout\LayoutModule;
@@ -32,9 +28,9 @@ class MusicCollectionView extends HtmlView
 					<img class="main-button left" src="/static/image/topmenuProfile.png">
 					<img class="main-button left" src="/static/image/topmenuMusic.png">
 					<img class="main-button right" src="/static/image/topmenuLogout.png">
-					<img class="main-button right volume" src="/static/image/topmenumaxVolume.png">
+					<img class="main-button right volume" id="volumeDown" src="/static/image/topmenumaxVolume.png">
 					<input class="main-button volume-slider right" id="volume" type="range" min="0" max="100" value="<?= $settings->Volume ?>">
-					<img class="main-button right volume" src="/static/image/topmenuminVolume.png">
+					<img class="main-button right volume" id="volumeUp" src="/static/image/topmenuminVolume.png">
 				</div>
 			</div>
 			<div class="top-bottom">&nbsp;&nbsp;&nbsp;&nbsp
@@ -45,8 +41,13 @@ class MusicCollectionView extends HtmlView
 			</div>
 			<img id="toolbar-selected" src="/static/image/selectedToolbar.png">
 			<div id="pages">
-				<div class="page hidden">
-					This is Visualizer
+				<div class="page" id="visualizer" >
+					<img  src="" id="img"/>
+					<div class="visualizer-center-top">
+						<img class="music-controls" src="/static/image/musicnextandbackButton.png" id="prevButton" />
+						<marquee class="music-controls" id="songTitle"></marquee>
+						<img class="music-controls flip" src="/static/image/musicnextandbackButton.png" id="nextButton"/>
+					</div>
 				</div>
 				<div class="page hidden">
 					This is Song list
