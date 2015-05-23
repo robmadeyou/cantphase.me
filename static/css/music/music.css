@@ -15,6 +15,7 @@
 
 .top-bar-link
 {
+    font-size: 90%;
     cursor: pointer;
     margin-top: 5px;
 }
