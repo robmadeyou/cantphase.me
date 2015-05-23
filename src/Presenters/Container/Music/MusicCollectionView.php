@@ -25,6 +25,37 @@ class MusicCollectionView extends HtmlView
 	{
 		$settings = MusicSettings::GetSettingsForUser( ( new LoginProvider() )->getLoggedInUser()->UniqueIdentifier );
 		?>
+		<div id="content" class="wrapper">
+			<div class="top">
+				<div>
+
+				</div>
+			</div>
+			<div class="top-bottom">&nbsp;&nbsp;&nbsp;&nbsp
+				<span class="top-bar-link unselectable bar-selected">Visualizer</span><span class="unselectable"> | </span>
+				<span class="top-bar-link unselectable">Song list</span><span class="unselectable"> | </span>
+				<span class="top-bar-link unselectable">Favorites</span><span class="unselectable"> | </span>
+				<span class="top-bar-link unselectable">Playlists</span>
+			</div>
+			<img id="toolbar-selected" src="/static/image/selectedToolbar.png">
+			<div id="pages">
+				<div class="page hidden">
+					This is Visualizer
+				</div>
+				<div class="page hidden">
+					This is Song list
+				</div>
+				<div class="page hidden">
+					This is Favorites
+				</div>
+				<div class="page hidden">
+					This is Playlists
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer">
+		</div>
 		<!--<div id="visualizer-overlay">
 			<div class="visualizer-artwork">
 				<img  src="" id="img"/>

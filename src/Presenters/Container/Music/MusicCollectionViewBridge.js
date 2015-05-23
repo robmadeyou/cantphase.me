@@ -8,6 +8,48 @@ bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function()
 {
+
+	$( '.top-bar-link' ).click( function()
+	{
+		var toolbarHint = $( '#toolbar-selected' );
+
+		toolbarHint.finish().animate(
+			{
+				"margin-left" : $( this).position().left + $( this ).width() / 2 - 20
+			}
+		);
+		SelectOption( $( this ) );
+	});
+
+	function SelectOption( option )
+	{
+		$( '.top-bar-link' ).each( function()
+		{
+			$( this ).removeClass( 'bar-selected' );
+		});
+		option.addClass( 'bar-selected' );
+
+		var pages = $( '.page' );
+		pages.each( function()
+		{
+			$( this ).addClass( 'hidden' );
+		});
+
+		$( pages[ FindSelectedPageIndex( option )] ).removeClass( 'hidden' )
+	}
+
+	function FindSelectedPageIndex( selectedPage )
+	{
+		var pageList = $( '.top-bottom' ).find( '.top-bar-link' );
+		for( var i = 0; i < pageList.length; i++ )
+		{
+			if( pageList[ i ] == selectedPage[ 0 ] )
+			{
+				return i;
+			}
+		}
+	}
+
 	var self = this;
 	var FFTSIZE = 1024;      // number of samples for the analyser node FFT, min 32
 	var TICK_FREQ = 20;     // how often to run the tick function, in milliseconds
