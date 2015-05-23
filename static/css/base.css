@@ -35,8 +35,9 @@ html, body {
 
 .top
 {
-    padding-bottom: 50px;
+    height: 40px;
     background: #294052;
+    padding: 20px;
 }
 .top-bottom
 {

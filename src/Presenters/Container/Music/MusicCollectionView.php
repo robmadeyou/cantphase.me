@@ -27,8 +27,14 @@ class MusicCollectionView extends HtmlView
 		?>
 		<div id="content" class="wrapper">
 			<div class="top">
-				<div>
-
+				<div class="main-buttons">
+					<img class="main-button left" src="/static/image/topmenuHome.png">
+					<img class="main-button left" src="/static/image/topmenuProfile.png">
+					<img class="main-button left" src="/static/image/topmenuMusic.png">
+					<img class="main-button right" src="/static/image/topmenuLogout.png">
+					<img class="main-button right volume" src="/static/image/topmenumaxVolume.png">
+					<input class="main-button volume-slider right" id="volume" type="range" min="0" max="100" value="<?/*= $settings->Volume */?>">
+					<img class="main-button right volume" src="/static/image/topmenuminVolume.png">
 				</div>
 			</div>
 			<div class="top-bottom">&nbsp;&nbsp;&nbsp;&nbsp
