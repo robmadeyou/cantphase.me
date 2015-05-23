@@ -431,7 +431,7 @@ bridge.prototype.attachEvents = function()
 			}
 			else
 			{
-				ctx.fillStyle = "#4DA6A6";
+				ctx.fillStyle = "#FF6600";
 			}
 
 
@@ -442,7 +442,7 @@ bridge.prototype.attachEvents = function()
 			}
 
 			ctx.beginPath();
-			ctx.strokeStyle =  "#4DA6A6";
+			ctx.strokeStyle =  "#FF6600";
 			ctx.lineWidth = 6;
 			ctx.moveTo( lastX, lastY);
 			ctx.lineTo( i * width, canvas.height - timeByteData[i]);
@@ -460,8 +460,8 @@ bridge.prototype.attachEvents = function()
 				ctx.globalAlpha = 1.1+(freqFloatData[ i ] / 100);
 			}
 			var grd=ctx.createLinearGradient(0,0,50,0);
-			grd.addColorStop(0,"yellow");
-			grd.addColorStop(1,"red");
+			grd.addColorStop(0,"#FFCC00");
+			grd.addColorStop(1,"#FFCC00");
 
 			ctx.fillStyle=grd;
 
