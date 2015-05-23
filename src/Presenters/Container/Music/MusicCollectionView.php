@@ -7,6 +7,7 @@ namespace Cant\Phase\Me\Presenters\Container\Music;
 
 
 use Cant\Phase\Me\Model\Music\MusicSettings;
+use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Leaf\Views\HtmlView;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 use Rhubarb\Scaffolds\Authentication\LoginProvider;
@@ -22,9 +23,9 @@ class MusicCollectionView extends HtmlView
 
 	protected function printViewContent()
 	{
-		$settings = MusicSettings::GetSettingsForUser( (new LoginProvider())->getLoggedInUser()->UniqueIdentifier );
+		$settings = MusicSettings::GetSettingsForUser( ( new LoginProvider() )->getLoggedInUser()->UniqueIdentifier );
 		?>
-		<div id="visualizer-overlay">
+		<!--<div id="visualizer-overlay">
 			<div class="visualizer-artwork">
 				<img  src="" id="img"/>
 				<div class="sound-controls">
@@ -48,7 +49,7 @@ class MusicCollectionView extends HtmlView
 					<marquee id="songTitle"></marquee>
 					<img src="/static/image/songButtonNex.png" id="nextButton" />
 				</div>
-				<input id="volume" type="range" min="0" max="100" value="<?= $settings->Volume ?>">
+				<input id="volume" type="range" min="0" max="100" value="<?/*= $settings->Volume */?>">
 				<div class="visualizer-slider-percentage">20%</div>
 			</div>
 			<div class="visualizer-content visualizer-menu-dropdown">
@@ -62,8 +63,8 @@ class MusicCollectionView extends HtmlView
 					<div class="_vdo visualizer-dropdown-items">
 						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-new-song">+ Add new Song</span>
 						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-browse">+ Browse Music</span>
-						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-visualizer-toggle">+ Visualizer [ <?= $settings->ShowVisualizer ? "On" : "Off" ?> ]</span>
-						<?= $settings->ShowVisualizer ? '<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-settings">+ Visualizer Settings</span>' : '' ?>
+						<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-visualizer-toggle">+ Visualizer [ <?/*= $settings->ShowVisualizer ? "On" : "Off" */?> ]</span>
+						<?/*= $settings->ShowVisualizer ? '<span class="_vdo visualizer-dropdown-item" id="visualizer-dropdown-settings">+ Visualizer Settings</span>' : '' */?>
 						<span class="_vdo visualizer-dropdown-item">+ Return to menu</span>
 					</div>
 				</div>
@@ -77,7 +78,7 @@ class MusicCollectionView extends HtmlView
 					<input class="_vdo visualizer-dropdown-item song-upload" placeholder="Tags" type="text" id="pullTags">
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<?php
 			if( $settings->ShowVisualizer )
 			{
