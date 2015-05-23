@@ -30,6 +30,7 @@
 #pages .page
 {
     display: block;
+    position: relative;
 }
 
 #pages .page.hidden
@@ -115,6 +116,48 @@ input[type="range"]::-webkit-slider-thumb {
 
 .main-button.volume
 {
+}
+
+#visualizer
+{
+    text-align: center;
+    position: absolute;
+    margin-top: -90px;
+    pointer-events: none;
+}
+
+.visualizer-center-top
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#prevButton
+{
+    width: 15%;
+    max-width: 32px;
+    pointer-events: all;
+}
+
+marquee
+{
+    width: 30%;
+}
+
+#nextButton
+{
+    width:15%;
+    max-width: 32px;
+    pointer-events: all;
+}
+
+#img
+{
+    width: 13vw;
+    height: 13vw;
+    border-radius: 6px;
+    border-color: #003147;
 }
 
 .main-button.left
