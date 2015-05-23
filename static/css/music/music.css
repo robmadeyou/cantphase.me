@@ -126,10 +126,10 @@ input[type="range"]::-webkit-slider-thumb {
 {
 }
 
-#visualizer
+#mainMusicControls
 {
+    display: block;
     text-align: center;
-    position: absolute;
     margin-top: -90px;
     pointer-events: none;
 }

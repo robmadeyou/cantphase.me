@@ -41,13 +41,15 @@ class MusicCollectionView extends HtmlView
 			</div>
 			<img id="toolbar-selected" src="/static/image/selectedToolbar.png">
 			<div id="pages">
-				<div class="page" id="visualizer">
+				<div id="mainMusicControls">
 					<img  src="" id="img"/>
 					<div class="visualizer-center-top">
 						<img class="music-controls" src="/static/image/musicnextandbackButton.png" id="prevButton" />
 						<marquee class="music-controls" id="songTitle"></marquee>
 						<img class="music-controls flip" src="/static/image/musicnextandbackButton.png" id="nextButton"/>
 					</div>
+				</div>
+				<div class="page" id="visualizer">
 					<canvas id="barCanvas"></canvas>
 				</div>
 				<div class="page hidden">
