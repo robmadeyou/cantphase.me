@@ -8,12 +8,12 @@ class DefaultLayout extends BaseLayout
 	function __construct()
 	{
 		ResourceLoader::loadResource( "/static/css/base.css" );
-		ResourceLoader::loadJquery( '1.9.1' );
 	}
 
 	protected function printHead()
 	{
 		?>
+			<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 			<link rel="shortcut icon" href="/static/image/spider.ico">
 		<?php
 	}
@@ -21,15 +21,11 @@ class DefaultLayout extends BaseLayout
 	protected function printPageHeading()
 	{
 		?>
-
-		<div id="content" class="wrapper">
-		<div class="top"></div>
-		<div class="top-bottom">
-			<?php
-				parent::printPageHeading();
-			?>
-		</div>
-	<?php
+			<div id="content" class="wrapper">
+				<div class="top"></div>
+				<div class="top-bottom">
+				</div>
+		<?php
 	}
 	protected function printTail()
 	{
