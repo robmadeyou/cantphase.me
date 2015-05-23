@@ -19,6 +19,15 @@ html, body {
     height: 30px; /* .push must be the same height as .footer */
 }
 
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .footer
 {
     background: #243746;
