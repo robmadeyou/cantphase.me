@@ -36,3 +36,33 @@
 {
     display: none;
 }
+
+.main-button
+{
+    max-height: 40px;
+    width: 5%;
+    max-width: 50px;
+    height:100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.main-button.volume
+{
+}
+
+.main-button.left
+{
+    float: left;
+}
+
+.main-button.right
+{
+    float:right;
+}
+
+.main-button.volume-slider
+{
+    width: 13%;
+    max-width: 100%;
+}
