@@ -154,7 +154,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .main-button:hover
 {
-    -webkit-filter: brightness(2);
+    -webkit-filter: brightness(0.6);
 }
 
 marquee
