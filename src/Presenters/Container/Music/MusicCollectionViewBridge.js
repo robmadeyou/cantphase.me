@@ -32,10 +32,13 @@ bridge.prototype.attachEvents = function()
 		var pages = $( '.page' );
 		pages.each( function()
 		{
+			$( this ).fadeOut();
 			$( this ).addClass( 'hidden' );
 		});
 
-		$( pages[ FindSelectedPageIndex( option )] ).removeClass( 'hidden' )
+		var pageNum = pages[ FindSelectedPageIndex( option )];
+		$( pageNum ).removeClass( 'hidden' )
+		$( pageNum ).fadeIn();
 	}
 
 	function FindSelectedPageIndex( selectedPage )
