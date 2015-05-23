@@ -27,7 +27,17 @@ class MusicLayout extends DefaultLayout
 							"margin-left" : $( this).position().left + $( this ).width() / 2 - 20
 						}
 					);
+					SelectOption( $( this ) )
 				});
+
+				function SelectOption( option )
+				{
+					$( '.top-bar-link' ).each( function()
+					{
+						$( this ).removeClass( 'bar-selected' );
+					});
+					option.addClass( 'bar-selected' )
+				}
 			</script>
 		<?php
 	}
