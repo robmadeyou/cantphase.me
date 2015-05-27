@@ -3,7 +3,6 @@
 namespace Cant\Phase\Me\Presenters\Container\Music;
 
 use Cant\Phase\Me\Model\Music\MusicSettings;
-use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Leaf\Views\HtmlView;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 use Rhubarb\Scaffolds\Authentication\LoginProvider;
