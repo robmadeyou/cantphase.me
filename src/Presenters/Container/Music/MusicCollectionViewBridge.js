@@ -8,7 +8,6 @@ bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function()
 {
-
 	$( '.top-bar-link' ).click( function()
 	{
 		var toolbarHint = $( '#toolbar-selected' );
@@ -32,13 +31,16 @@ bridge.prototype.attachEvents = function()
 		var pages = $( '.page' );
 		pages.each( function()
 		{
-			$( this ).fadeOut();
+			$( this).finish().fadeOut();
 			$( this ).addClass( 'hidden' );
 		});
 
 		var pageNum = pages[ FindSelectedPageIndex( option )];
-		$( pageNum ).removeClass( 'hidden' )
-		$( pageNum ).fadeIn();
+		$( pageNum ).removeClass( 'hidden' );
+		setTimeout( function()
+		{
+			$( pageNum ).finish().fadeIn();
+		}, 200 );
 	}
 
 	function FindSelectedPageIndex( selectedPage )

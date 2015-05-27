@@ -43,6 +43,6 @@ class Playlist extends Model
 
 	public function GetAllMusic()
 	{
-		
+
 	}
 }
