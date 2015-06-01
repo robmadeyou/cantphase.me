@@ -2,6 +2,7 @@
 namespace Cant\Phase\Me\Model\PhasedUser;
 
 use Rhubarb\Scaffolds\AuthenticationWithRoles\User;
+use Rhubarb\Stem\Repositories\MySql\Schema\Columns\Int;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\MediumText;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\Varchar;
 use Rhubarb\Stem\Schema\ModelSchema;
@@ -14,7 +15,8 @@ class PhasedUser extends User
 
 		$schema->addColumn(
 			new Varchar( "Username", 150 ),
-			new MediumText( "Info" )
+			new MediumText( "Info" ),
+			new Int( "Authority", 0 )
 		);
 	}
 
