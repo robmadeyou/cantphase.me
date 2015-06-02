@@ -24,14 +24,5 @@ class CantPhaseMeSolutionSchema extends SolutionSchema
 	protected function defineRelationships()
 	{
 		parent::defineRelationships();
-
-		$this->declareManyToManyRelationships(
-			[
-				"Playlist" =>
-				[
-					"Songs" => "PlaylistSongs.PlaylistID_Music.MusicID:Playlists"
-				]
-			]
-		);
 	}
 }

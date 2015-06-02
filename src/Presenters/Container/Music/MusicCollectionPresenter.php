@@ -2,6 +2,7 @@
 
 namespace Cant\Phase\Me\Presenters\Container\Music;
 
+use Cant\Phase\Me\Controls\UserPermissionTrait;
 use Cant\Phase\Me\Model\Music\Music;
 use Cant\Phase\Me\Model\Music\MusicFavorite;
 use Cant\Phase\Me\Model\Music\MusicHistory;
@@ -20,6 +21,7 @@ use Rhubarb\Stem\Repositories\MySql\MySql;
 
 class MusicCollectionPresenter extends Form
 {
+
 	protected function createView()
 	{
 		return new MusicCollectionView();
