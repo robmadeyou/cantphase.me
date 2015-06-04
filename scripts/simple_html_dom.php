@@ -38,6 +38,10 @@
  * @subpackage simple_html_dom
  */
 
+/*
+ * http://simplehtmldom.sourceforge.net/
+ */
+
 /**
  * All of the Defines for the classes below.
  * @author S.C. Chen <me578022@gmail.com>
