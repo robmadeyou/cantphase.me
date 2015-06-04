@@ -1,10 +1,16 @@
 <?php
 include( __DIR__ . '/simple_html_dom.php' );
 
-$Songs = [ ];
+$mix = 'https://youtu.be/OvWKklczcsk';
 
+$Songs = [];
+exec( 'youtube-dl --get-description ' . $mix, $Songs );
 foreach( $Songs as $song )
 {
+	if( !preg_match( '/((.)+ - (?!http)(.)+)|((dub plate)|(dubplate))/', $song ) )
+	{
+		continue;
+	}
 	var_dump( $song );
 	$page = file_get_html( "https://duckduckgo.com/html/?q=" . urlencode( $song ) );
 
