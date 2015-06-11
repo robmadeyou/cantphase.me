@@ -19,6 +19,8 @@ class CantPhaseMeSolutionSchema extends SolutionSchema
 		$this->addModel( "Visit",         __NAMESPACE__ . '\Visit' );
 		$this->addModel( "Playlist",      __NAMESPACE__ . '\Music\Playlist' );
 		$this->addModel( "PlaylistSongs", __NAMESPACE__ . '\Music\PlaylistSongs' );
+		$this->addModel( "Song",          __NAMESPACE__ . '\Music\SongModels\Song' );
+		$this->addModel( "Artist",        __NAMESPACE__ . '\Music\SongModels\Artist' );
 	}
 
 	protected function defineRelationships()
