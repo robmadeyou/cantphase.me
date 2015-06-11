@@ -17,7 +17,7 @@ class BigSpiderView extends HtmlView
 			{
 				$status = [];
 				exec( 'git pull', $status );
-			} )
+			}, true )
 		);
 	}
 
