@@ -19,6 +19,7 @@ class BigSpiderView extends View
 
 	protected function printViewContent()
 	{
+		exec( 'git fetch' );
 		$behind = [];
 		$ahead = [];
 		exec( 'git rev-list HEAD..origin', $behind );
