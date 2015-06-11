@@ -13,7 +13,7 @@ class BigSpiderView extends View
 			{
 				$status = [];
 				exec( 'git pull', $status );
-			}, true )
+			} )
 		);
 	}
 
@@ -38,6 +38,10 @@ class BigSpiderView extends View
 		else if( sizeof( $behind ) && sizeof( $ahead ) )
 		{
 			echo 'Server is ' . sizeof( $behind ) . ' commits behind and ' . sizeof( $ahead ) . ' commits ahead of MASTER ';
+		}
+		if( sizeof( $behind ) || sizeof( $ahead ) )
+		{
+			print $this->presenters[ 'GitStatus' ];
 		}
 	}
 }
