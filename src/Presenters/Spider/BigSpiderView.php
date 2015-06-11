@@ -44,10 +44,10 @@ class BigSpiderView extends HtmlView
 		{
 			echo 'Server is ' . sizeof( $behind ) . ' commits behind and ' . sizeof( $ahead ) . ' commits ahead of MASTER ';
 		}
-		if( sizeof( $behind ) || sizeof( $ahead ) )
-		{
+		//if( sizeof( $behind ) || sizeof( $ahead ) )
+		//{
 			print $this->presenters[ 'GitStatus' ];
-		}
+		//}
 	}
 
 	/**
