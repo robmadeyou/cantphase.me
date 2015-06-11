@@ -2,10 +2,14 @@
 namespace Cant\Phase\Me\Presenters\Spider;
 
 use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
+use Rhubarb\Leaf\Views\HtmlView;
 use Rhubarb\Leaf\Views\View;
+use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 
-class BigSpiderView extends View
+class BigSpiderView extends HtmlView
 {
+	use WithJqueryViewBridgeTrait;
+
 	public function createPresenters()
 	{
 		$this->addPresenters(
@@ -44,5 +48,15 @@ class BigSpiderView extends View
 		{
 			print $this->presenters[ 'GitStatus' ];
 		}
+	}
+
+	/**
+	 * Implement this and return __DIR__ when your ViewBridge.js is in the same folder as your class
+	 *
+	 * @returns string Path to your ViewBridge.js file
+	 */
+	public function getDeploymentPackageDirectory()
+	{
+		return __DIR__;
 	}
 }
