@@ -16,7 +16,7 @@ class BigSpiderView extends HtmlView
 			$gitStatus = new Button( 'GitStatus', 'Update Repository', function()
 			{
 				$status = [];
-				exec( 'git pull', $status );
+				print exec( 'git pull', $status );
 				var_dump( $status );
 			}, true )
 		);

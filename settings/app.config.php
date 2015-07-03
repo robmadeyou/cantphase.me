@@ -41,7 +41,8 @@ class CantPhaseMeModule extends Module
 						] ),
 						'spider/' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Spider\BigSpiderPresenter' )
 					]),
-				"/login/" => $login
+				"/login/" => $login,
+                '/keybase.txt' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Keybase' )
 			]
 		);
 
