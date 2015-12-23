@@ -26,33 +26,16 @@ class CantPhaseMeModule extends Module
 	{
 		parent::registerUrlHandlers();
 
-		$login =  new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Login\IndexPresenter', [
-			"signup" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Login\Signup\IndexPresenter'),
-			"logout" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Login\Logout\IndexPresenter' )
-		] );
-		$login->setPriority( 11 );
-
 		$this->addUrlHandlers(
 			[
-				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter',
-					[
-						'music/' => new CrudUrlHandler( 'Music', 'Cant\Phase\Me\Presenters\Container\Music', [], [
-							'browse/' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Container\Music\Browse\BrowsePresenter' )
-						] ),
-						'spider/' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Spider\BigSpiderPresenter' )
-					]),
-				"/login/" => $login,
-                '/keybase.txt' => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\Keybase' )
+				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter' ),
 			]
 		);
-
-		Visit::newEntry( $_SERVER[ "REMOTE_ADDR" ], $_SERVER[ "SCRIPT_URI" ], json_encode( $_SERVER ) );
 	}
 	protected function registerDependantModules()
 	{
 		HashProvider::setHashProviderClassName( 'Rhubarb\Crown\Encryption\Sha512HashProvider' );
 		Module::registerModule( new LayoutModule( 'Cant\Phase\Me\Layouts\DefaultLayout' ) );
-		Module::registerModule( new AuthenticationWithRolesModule( 'Rhubarb\Scaffolds\Authentication\LoginProvider') );
 	}
 }
 Module::registerModule(new CantPhaseMeModule());
