@@ -37,11 +37,15 @@ class IndexView extends HtmlView
 
 					<div class="mastfoot">
 						<div class="inner">
-							<p>cantphase.me</p>
+							<p><a href="cantphase.me">cantphase.me</a></p>
 						</div>
 					</div>
 				</div>
+
 			</div>
+		</div>
+		<div>
+
 		</div>
 		<?php
 	}

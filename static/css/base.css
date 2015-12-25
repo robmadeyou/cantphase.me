@@ -39,14 +39,23 @@ body {
     width: 100%;
     height: 100%; /* For at least Firefox */
     min-height: 100%;
-    -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
     color: #fff9e5;
-    box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-    background: #1e1e1e;
-    background: -webkit-linear-gradient(#1e1e1e, #252f33);
-    background: -o-linear-gradient(#1e1e1e, #252f33);
-    background: -moz-linear-gradient(#1e1e1e, #252f33);
-    background: linear-gradient(#1e1e1e, #252f33);
+    position: relative;
+}
+
+.site-wrapper:after
+{
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url( '/static/images/background.png' );
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity : 0.2;
 }
 .site-wrapper-inner {
     display: table-cell;
@@ -112,7 +121,6 @@ body {
         float: right;
     }
 }
-
 
 /*
  * Cover
