@@ -7,14 +7,23 @@ class DefaultLayout extends BaseLayout
 {
 	function __construct()
 	{
+		ResourceLoader::loadResource( "/static/css/bootstrap.min.css" );
 		ResourceLoader::loadResource( "/static/css/base.css" );
 	}
 
 	protected function printHead()
 	{
 		?>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 			<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 			<link rel="shortcut icon" href="/static/image/spider.ico">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
 		<?php
 	}
 
@@ -35,6 +44,9 @@ class DefaultLayout extends BaseLayout
 		</div>
 		<div class="footer">
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<?php
 	}
 }

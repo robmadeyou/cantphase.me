@@ -7,34 +7,43 @@ use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 
 class IndexView extends HtmlView
 {
-	use WithJqueryViewBridgeTrait;
 	public $hasOverlay = false;
 
 	protected function PrintViewContent()
 	{
-
 		?>
-			<div style="text-align: center;">
-				<img src="/static/image/title-2.png">
-				<div class="underlay">
-					<a href="/music/">
-						<div class="content-box content-box-1x1">
-							Music!
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="masthead clearfix">
+						<div class="inner">
+							<nav>
+								<ul class="nav masthead-nav">
+									<li class="active"><a href="#">Home</a></li>
+									<li><a href="#">Features</a></li>
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</nav>
 						</div>
-					</a>
+					</div>
+
+					<div class="inner cover">
+						<h1 class="cover-heading">Cantphase.me</h1>
+						<p class="lead">A great server with an active developer and a friendly community</p>
+						<p class="lead">
+							<a href="#" class="btn btn-lg btn-default">Learn more</a>
+						</p>
+					</div>
+
+					<div class="mastfoot">
+						<div class="inner">
+							<p>cantphase.me</p>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
 		<?php
-
-		if( $this->hasOverlay )
-		{
-			?>
-			<div class="overlay">
-				<?= $this->printOverlay() ?>
-			</div>
-		<?php
-		}
-
 	}
 
 	/**
@@ -42,14 +51,4 @@ class IndexView extends HtmlView
 	 */
 	public function printOverlay()
 	{}
-
-	/**
-	 * Implement this and return __DIR__ when your ViewBridge.js is in the same folder as your class
-	 *
-	 * @returns string Path to your ViewBridge.js file
-	 */
-	public function getDeploymentPackageDirectory()
-	{
-		return __DIR__;
-	}
 }
