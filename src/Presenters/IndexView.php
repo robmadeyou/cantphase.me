@@ -15,12 +15,12 @@ class IndexView extends HtmlView
 		<div class="site-wrapper">
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
-					<div class="masthead clearfix">
+					<div class="top-nav">
 						<div class="inner">
 							<nav>
 								<ul class="nav masthead-nav">
 									<li class="active"><a href="#">Home</a></li>
-									<li><a href="#">Features</a></li>
+									<li><a href="#features">Features</a></li>
 									<li><a href="#">Contact</a></li>
 								</ul>
 							</nav>
@@ -31,21 +31,20 @@ class IndexView extends HtmlView
 						<h1 class="cover-heading">Cantphase.me</h1>
 						<p class="lead">A great server with an active developer and a friendly community</p>
 						<p class="lead">
-							<a href="#" class="btn btn-lg btn-default">Learn more</a>
+							<a href="http://canthpase.me" class="btn btn-lg btn-default">Learn more</a>
 						</p>
 					</div>
 
-					<div class="mastfoot">
+					<div class="bottom-nav">
 						<div class="inner">
 							<p><a href="cantphase.me">cantphase.me</a></p>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
-		<div>
-
+		<div id="features-container">
+				<h1 id="features">Features</h1>
 		</div>
 		<?php
 	}
