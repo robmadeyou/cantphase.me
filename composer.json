@@ -7,13 +7,12 @@
   ],
   "require":
   {
-    "rhubarbphp/rhubarb": "dev-master",
-    "rhubarbphp/module-stem": "*",
-    "rhubarbphp/module-leaf": "*",
-    "rhubarbphp/module-patterns": "*",
-    "rhubarbphp/scaffold-authentication": "*",
-    "rhubarbphp/scaffold-authentication-with-roles": "*",
-    "rhubarbphp/module-restapi": "*"
+    "rhubarbphp/rhubarb": "dev-develop",
+    "rhubarbphp/module-stem": "dev-develop",
+    "rhubarbphp/module-leaf": "dev-develop",
+    "rhubarbphp/module-patterns": "dev-develop",
+    "rhubarbphp/scaffold-authentication": "dev-develop",
+    "rhubarbphp/scaffold-authentication-with-roles": "dev-develop"
   },
   "autoload":
   {

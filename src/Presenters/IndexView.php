@@ -9,6 +9,8 @@ class IndexView extends HtmlView
 {
 	public $hasOverlay = false;
 
+	use WithJqueryViewBridgeTrait;
+
 	protected function PrintViewContent()
 	{
 		?>
@@ -40,11 +42,36 @@ class IndexView extends HtmlView
 							<p><a href="cantphase.me">cantphase.me</a></p>
 						</div>
 					</div>
+					<div class="bottom-border"></div>
 				</div>
 			</div>
 		</div>
 		<div id="features-container">
-				<h1 id="features">Features</h1>
+			<h1 id="features"></h1>
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">Hosted on a dedicated server</h2><h2> <span class="text-muted">Smoother than your babies bum</span></h2>
+				</div>
+				<div class="col-md-5">
+					<img src="/static/images/torva.png">
+				</div>
+			</div>
+			<div class="row featurette">
+				<div class="col-md-5">
+					<img src="/static/images/pernix.png">
+				</div>
+				<div class="col-md-7">
+					<h2>Many items! Any many more to be added</h2>
+				</div>
+			</div>
+			<div class="row featurette">
+				<div class="col-md-7">
+
+				</div>
+				<div class="col-md-5">
+					<img src="/static/images/virtus.png">
+				</div>
+			</div>
 		</div>
 		<?php
 	}
@@ -54,4 +81,9 @@ class IndexView extends HtmlView
 	 */
 	public function printOverlay()
 	{}
+
+	public function getDeploymentPackageDirectory()
+	{
+		return __DIR__;
+	}
 }
