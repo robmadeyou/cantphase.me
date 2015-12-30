@@ -23,7 +23,8 @@ class IndexView extends HtmlView
                                 <ul class="nav masthead-nav">
                                     <li class="active"><a href="#">Home</a></li>
                                     <li><a href="#features">Features</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#download">Download</a></li>
+                                    <li><a href="http://forum.cantphase.me">Forums</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -48,15 +49,10 @@ class IndexView extends HtmlView
                 </div>
             </div>
         </div>
-        <div>
-            <h1 class="featurette-heading center-title">
-                Features yo
-            </h1>
-        </div>
+        <img src="/static/images/spacer.png">
         <div class="container marketing">
             <div id="features-container">
                 <h1 id="features"></h1>
-
                 <div class="row featurette">
                     <div class="col-md-7">
                         <h2 class="featurette-heading">Hosted on a dedicated server. <span class="text-muted">It's super fast!</span></h2>
@@ -71,7 +67,7 @@ class IndexView extends HtmlView
                         <img class="featurette-image img-responsive center-block" src="/static/images/pernix.png">
                     </div>
                     <div class="col-md-6">
-                        <h2 class="featurette-heading"><span class="text-muted">Loads of items!</span> And many more to be added.</h2>
+                        <h2 class="featurette-heading">Loads of items! <span class="text-muted">And many more to be added.</span></h2>
                         <p class="lead">With an active developer, and a creative community - the items will keep on coming!</p>
                     </div>
                 </div>
@@ -83,6 +79,26 @@ class IndexView extends HtmlView
                     <div class="col-md-5">
                         <img class="featurette-image img-responsive center-block" src="/static/images/virtus.png">
                     </div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/images/spacer.png">
+        <div class="container marketing">
+            <div class="row featurette">
+                <div class="col-md-3">
+                    <img class="featurette-image img-responsive center-block" src="/static/images/bandos.png">
+                </div>
+                <div class="col-md-6">
+                    <h1 id="download" class="featurette-heading center-title">
+                        Download me
+                    </h1>
+                    <p class="lead">
+                        Download the launcher, always stay up to date with the latest features
+                    </p>
+                    <a target="_blank" class="btn btn-lg btn-default" href="/static/PhasedClient.jar">Download now</a>
+                </div>
+                <div class="col-md-3">
+                    <img class="featurette-image img-responsive center-block" src="/static/images/armadyl.png">
                 </div>
             </div>
         </div>

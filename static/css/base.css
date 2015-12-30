@@ -39,11 +39,11 @@ a:hover {
     right: 0;
     bottom: 0;
     position: absolute;
-    border: 12px double orange;
+    border: 12px solid orange;
     -webkit-border-image: url("/static/images/bodyback.png");
     -moz-border-image: url("/static/images/bodyback.png");
     -o-border-image: url("/static/images/bodyback.png");
-    border-image: url("/static/images/bodyback.png") 25 30 10 20 repeat;
+    border-image: url("/static/images/bodyback.png") 6 6 stretch;
     content: "";
     display: block;
     opacity: 0.4;
@@ -414,6 +414,11 @@ body {
 
 .center-title
 {
-    font-size: 10vw;
+    font-size: 4vw;
     max-font-size: 60px;
+}
+
+.container.marketing
+{
+    margin-top: 64px;
 }
