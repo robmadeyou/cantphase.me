@@ -19,18 +19,37 @@ a:hover {
     border: 1px solid #fff;
 }
 
-.frames-container
-{
+.frames-container {
     padding: 0;
 }
 
-.featurette
-{
+.featurette {
     padding-bottom: 12px;
+    background-color: #1D1D1D;
+    margin-bottom: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
+    position: relative;
 }
 
-.top-nav
+.featurette:before
 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    border: 12px double orange;
+    -webkit-border-image: url("/static/images/bodyback.png");
+    -moz-border-image: url("/static/images/bodyback.png");
+    -o-border-image: url("/static/images/bodyback.png");
+    border-image: url("/static/images/bodyback.png") 25 30 10 20 repeat;
+    content: "";
+    display: block;
+    opacity: 0.4;
+}
+
+.top-nav {
     position: absolute;
     top: 20px;
     right: 50px;
@@ -46,7 +65,26 @@ body {
     background-color: #0A0A0A;
     color: #fff;
     text-align: center;
-    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    position: relative;
+}
+
+#content
+{
+    position: relative;
+}
+
+#content:before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    opacity: 0.2;
+    background: url(" /static/images/zwartevilt.png");
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -58,47 +96,47 @@ body {
     -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
     color: #fff9e5;
     position: relative;
-    background: -moz-linear-gradient(top,  rgba(10,10,10,1) 0%, rgba(103,151,189,0) 80%, rgba(109,160,200,0) 85%, rgba(125,185,232,0) 99%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  rgba(10,10,10,1) 0%,rgba(103,151,189,0) 80%,rgba(109,160,200,0) 85%,rgba(125,185,232,0) 99%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  rgba(10,10,10,1) 0%,rgba(103,151,189,0) 80%,rgba(109,160,200,0) 85%,rgba(125,185,232,0) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0a0a', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(top, rgba(10, 10, 10, 1) 0%, rgba(103, 151, 189, 0) 80%, rgba(109, 160, 200, 0) 85%, rgba(125, 185, 232, 0) 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(10, 10, 10, 1) 0%, rgba(103, 151, 189, 0) 80%, rgba(109, 160, 200, 0) 85%, rgba(125, 185, 232, 0) 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 1) 0%, rgba(103, 151, 189, 0) 80%, rgba(109, 160, 200, 0) 85%, rgba(125, 185, 232, 0) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0a0a0a', endColorstr='#007db9e8', GradientType=0); /* IE6-9 */
 }
 
-.site-wrapper:before
-{
-    content : "";
+.site-wrapper:before {
+    content: "";
     display: block;
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url( '/static/images/background.png' );
+    background-image: url('/static/images/background.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 100%;
-    opacity : 0.2;
+    opacity: 0.2;
 }
 
-.bottom-border
-{
+.bottom-border {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 65vh;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+1,0a0a0a+100&0+15,0+20,0+20,1+100 */
-    background: -moz-linear-gradient(top,  rgba(125,185,232,0) 1%, rgba(109,160,201,0) 15%, rgba(103,151,190,0) 20%, rgba(10,10,10,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  rgba(125,185,232,0) 1%,rgba(109,160,201,0) 15%,rgba(103,151,190,0) 20%,rgba(10,10,10,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  rgba(125,185,232,0) 1%,rgba(109,160,201,0) 15%,rgba(103,151,190,0) 20%,rgba(10,10,10,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#0a0a0a',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(top, rgba(125, 185, 232, 0) 1%, rgba(109, 160, 201, 0) 15%, rgba(103, 151, 190, 0) 20%, rgba(10, 10, 10, 1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(125, 185, 232, 0) 1%, rgba(109, 160, 201, 0) 15%, rgba(103, 151, 190, 0) 20%, rgba(10, 10, 10, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(125, 185, 232, 0) 1%, rgba(109, 160, 201, 0) 15%, rgba(103, 151, 190, 0) 20%, rgba(10, 10, 10, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007db9e8', endColorstr='#0a0a0a', GradientType=0); /* IE6-9 */
 
 }
 
 .site-wrapper-inner {
     display: table-cell;
-    vertical-align: top;
+    vertical-align: middle;
+
 }
+
 .cover-container {
     margin-right: auto;
     margin-left: auto;
@@ -108,7 +146,6 @@ body {
 .inner {
     padding: 30px;
 }
-
 
 /*
  * Header
@@ -121,6 +158,7 @@ body {
 .masthead-nav > li {
     display: inline-block;
 }
+
 .masthead-nav > li + li {
     margin-left: 20px;
 }
@@ -135,15 +173,17 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: #fff; /* IE8 proofing */
-    color: rgba(255,255,255,.75);
+    color: rgba(255, 255, 255, .75);
     border-bottom: 2px solid transparent;
 }
+
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
     background-color: transparent;
     border-bottom-color: #a9a9a9;
-    border-bottom-color: rgba(255,255,255,.25);
+    border-bottom-color: rgba(255, 255, 255, .25);
 }
+
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
@@ -155,6 +195,7 @@ body {
     .masthead-brand {
         float: left;
     }
+
     .masthead-nav {
         float: right;
     }
@@ -167,11 +208,11 @@ body {
 .cover {
     padding: 0 20px;
 }
+
 .cover .btn-lg {
     padding: 10px 20px;
     font-weight: bold;
 }
-
 
 /*
  * Footer
@@ -179,9 +220,8 @@ body {
 
 .mastfoot {
     color: #999; /* IE8 proofing */
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, .5);
 }
-
 
 /*
  * Affix and center
@@ -193,14 +233,12 @@ body {
         position: fixed;
         top: 0;
     }
+
     .mastfoot {
         position: fixed;
         bottom: 0;
     }
-    /* Start the vertical centering */
-    .site-wrapper-inner {
-        vertical-align: middle;
-    }
+
     /* Handle the widths */
     .masthead,
     .mastfoot,
@@ -209,10 +247,173 @@ body {
     }
 }
 
+.lead {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #b6b6b6;
+}
+
 @media (min-width: 992px) {
     .masthead,
     .mastfoot,
     .cover-container {
         width: 700px;
     }
+}
+
+@media (min-width: 768px) {
+    .lead {
+        font-size: 21px;
+    }
+}
+
+.marketing h2 {
+    font-weight: normal;
+}
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-bottom: 40px;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-wrapper .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+    width: auto;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+    height: 500px;
+    margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+    height: 500px;
+    background-color: #777;
+}
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: normal;
+}
+.marketing .col-lg-4 p {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.featurette-image
+{
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+        margin-top: 20px;
+    }
+    .navbar-wrapper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .navbar-wrapper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+        border-radius: 4px;
+    }
+
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+    .featurette-heading {
+        margin-top: 120px;
+    }
+}
+
+.center-title
+{
+    font-size: 10vw;
+    max-font-size: 60px;
 }
