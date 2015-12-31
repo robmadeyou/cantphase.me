@@ -34,10 +34,6 @@ class IndexView extends HtmlView
                         <h1 class="cover-heading">Cantphase.me</h1>
 
                         <p class="lead">A great server with an active developer and a friendly community</p>
-
-                        <p class="lead">
-                            <a href="http://canthpase.me" class="btn btn-lg btn-default">Learn more</a>
-                        </p>
                     </div>
 
                     <div class="bottom-nav">
@@ -49,10 +45,10 @@ class IndexView extends HtmlView
                 </div>
             </div>
         </div>
+        <h1 id="features"></h1>
         <img src="/static/images/spacer.png">
         <div class="container marketing">
             <div id="features-container">
-                <h1 id="features"></h1>
                 <div class="row featurette">
                     <div class="col-md-7">
                         <h2 class="featurette-heading">Hosted on a dedicated server. <span class="text-muted">It's super fast!</span></h2>

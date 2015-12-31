@@ -414,11 +414,16 @@ body {
 
 .center-title
 {
-    font-size: 4vw;
+    font-size: 3vw;
     max-font-size: 60px;
 }
 
 .container.marketing
 {
     margin-top: 64px;
+}
+
+.cover-heading
+{
+    font-size: 4vw;
 }
