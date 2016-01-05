@@ -2,10 +2,13 @@
 
 namespace Cant\Phase\Me\Presenters\Admin;
 
+use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 use Rhubarb\Patterns\Mvp\Crud\CrudView;
 
 class AdminIndexView extends CrudView
 {
+    use WithJqueryViewBridgeTrait;
+
     protected function printViewContent()
     {
         ?>
@@ -211,5 +214,10 @@ class AdminIndexView extends CrudView
             </div>
         </div>
         <?php
+    }
+
+    public function getDeploymentPackageDirectory()
+    {
+        return __DIR__;
     }
 }
