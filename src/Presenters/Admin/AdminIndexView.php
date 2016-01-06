@@ -2,8 +2,8 @@
 
 namespace Cant\Phase\Me\Presenters\Admin;
 
+use Cant\Phase\Me\Handler\Server;
 use Cant\Phase\Me\Models\Item;
-use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Leaf\Presenters\Application\Table\Table;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 use Rhubarb\Patterns\Mvp\Crud\CrudView;
@@ -11,6 +11,16 @@ use Rhubarb\Patterns\Mvp\Crud\CrudView;
 class AdminIndexView extends CrudView
 {
     use WithJqueryViewBridgeTrait;
+
+    /**
+     * @var Server $server
+     */
+    public $server;
+
+    function __construct()
+    {
+        $this->server = new Server();
+    }
 
     public function createPresenters()
     {
@@ -92,13 +102,14 @@ class AdminIndexView extends CrudView
 
     public function getServerOverview()
     {
+        $serverUptime = $this->server->getServerUptime();
         return <<<HTML
         <div id="server-overview" class="main-page">
             <div class="row placeholders">
                 <div class="col-xs-6 col-sm-3 placeholder">
                     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>Server status</h4>
-                    <span class="text-muted">Something else</span>
+                    <span class="text-muted">Up: {$serverUptime}</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
                     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
