@@ -19,8 +19,7 @@ class AdminIndexPresenter extends ModelFormPresenter
     {
         $this->view->attachEventHandler( 'LoadItemsIntoSLQ', function()
         {
-            $a = Server::LoadCFG( 'item.cfg' );
-            return $a;
+            Server::LoadItemsIntoSQL();
         });
 
         $this->view->attachEventHandler( 'GetPage', function( $name )

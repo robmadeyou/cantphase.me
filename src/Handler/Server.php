@@ -9,6 +9,8 @@ class Server
     public static $dataDir = './Server/Data/';
     public static $jarPath = './Server/ServerManager.jar';
 
+    private static $uptime;
+
     function __construct()
     {
 
@@ -16,14 +18,27 @@ class Server
 
     public function getServerUptime()
     {
-        return $this->execute( 'uptime' );
+        if( !isset( self::$uptime ) )
+        {
+            self::$uptime = $this->execute( 'uptime' );
+        }
+        return self::$uptime;
     }
 
     private function execute( $command )
     {
         $return = exec( 'java -jar ' . self::$jarPath . ' '. escapeshellarg( $command ) );
-        var_dump( $return );
         return $return;
+    }
+
+    public static function LoadItemsIntoSQL()
+    {
+        $array = self::LoadCFG( 'item.cfg' );
+
+        foreach( $array as $d )
+        {
+            Item::createFromCfgLine( $d );
+        }
     }
 
     public static function LoadCFG( $name )
@@ -38,7 +53,7 @@ class Server
                 if( strpos( $line, '//' ) !== 0 )
                 {
                     $line = preg_replace( '/(.)+\ =\ /', '', $line );
-                    Item::createFromCfgLine( explode( "\t", $line ) );
+                    $values[] = explode( "\t", $line );
                 }
             }
             return $values;

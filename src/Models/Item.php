@@ -13,7 +13,7 @@ use Rhubarb\Stem\Schema\ModelSchema;
  *
  * @package Cant\Phase\Me\Models
  */
-class Item extends Model
+class Item extends ConfigModel
 {
 	protected function createSchema()
 	{
@@ -44,27 +44,4 @@ class Item extends Model
 		return $schema;
 	}
 
-	public static function createFromCfgLine( $array )
-	{
-		$obj = new Item();
-		$obj->ItemID = $array[ 0 ];
-		$obj->Name = $array[ 1 ];
-		$obj->Examine = $array[ 2 ];
-		$obj->Price = $array[ 3 ];
-		$obj->LowAlch = $array[ 4 ];
-		$obj->HighAlch = $array[ 5 ];
-		$obj->AStab = $array[ 6 ];
-		$obj->ASlash = $array[ 7 ];
-		$obj->ACrush = $array[ 8 ];
-		$obj->AMagic = $array[ 9 ];
-		$obj->ARange = $array[ 10 ];
-		$obj->DStab = $array[ 11 ];
-		$obj->DSlash = $array[ 12 ];
-		$obj->DCrush = $array[ 13 ];
-		$obj->DMagic = $array[ 14 ];
-		$obj->DRange = $array[ 15 ];
-		$obj->OStrength = $array[ 16 ];
-		$obj->OPrayer = $array[ 17 ];
-		$obj->save();
-	}
 }

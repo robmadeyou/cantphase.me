@@ -5,6 +5,7 @@ namespace Cant\Phase\Me\Presenters\Admin;
 use Cant\Phase\Me\Handler\Server;
 use Cant\Phase\Me\Models\Item;
 use Rhubarb\Leaf\Presenters\Application\Table\Table;
+use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
 use Rhubarb\Patterns\Mvp\Crud\CrudView;
 
@@ -36,7 +37,11 @@ class AdminIndexView extends CrudView
         ];
 
         $this->addPresenters(
-            $itemTable
+            $itemTable,
+            new Button( 'LoadItemsSQL', 'Load Items into SQL', function()
+            {
+                Server::LoadItemsIntoSQL();
+            }, true )
         );
     }
 
@@ -78,6 +83,9 @@ class AdminIndexView extends CrudView
                         <li><a href="#" class="toPage" to="shop-edit">Shop Editor</a></li>
                         <li><a href="#" class="toPage" to="npc-edit">NPC Editor</a></li>
                     </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="#" class="toPage" to="config">Configuration</a></li>
+                    </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <div id="page-container">
@@ -92,6 +100,11 @@ class AdminIndexView extends CrudView
                         </div>
                         <div id="item-edit" class="paged">
                             <?= $this->getItemEditor() ?>
+                        </div>
+
+
+                        <div id="config" class="paged">
+                            <?= $this->getConfig() ?>
                         </div>
                     </div>
                 </div>
@@ -149,6 +162,14 @@ HTML;
     {
         return <<<HTML
         {$this->presenters[ 'ItemTable' ]}
+HTML;
+
+    }
+
+    public function getConfig()
+    {
+        return <<<HTML
+        {$this->presenters['LoadItemsSQL']}
 HTML;
 
     }
