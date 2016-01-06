@@ -20,8 +20,20 @@ class AdminIndexPresenter extends ModelFormPresenter
         $this->view->attachEventHandler( 'LoadItemsIntoSLQ', function()
         {
             $a = Server::LoadCFG( 'item.cfg' );
-            //print $a;
             return $a;
+        });
+
+        $this->view->attachEventHandler( 'GetPage', function( $name )
+        {
+            switch( $name )
+            {
+                case 'server-overview':
+                    return $this->view->getServerOverview();
+                case 'reports':
+                    return $this->view->getReports();
+                case 'item-edit':
+                    return $this->view->getItemEditor();
+            }
         });
         return parent::configureView();
     }
