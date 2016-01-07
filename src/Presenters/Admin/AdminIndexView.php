@@ -4,6 +4,7 @@ namespace Cant\Phase\Me\Presenters\Admin;
 
 use Cant\Phase\Me\Handler\Server;
 use Cant\Phase\Me\Models\Item;
+use Rhubarb\Leaf\Presenters\Application\Search\SearchPanel;
 use Rhubarb\Leaf\Presenters\Application\Table\Table;
 use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
@@ -36,13 +37,18 @@ class AdminIndexView extends CrudView
             'Price'
         ];
 
+        $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
+
         $this->addPresenters(
             $itemTable,
+            $itemSearch,
             new Button( 'LoadItemsSQL', 'Load Items into SQL', function()
             {
                 Server::LoadItemsIntoSQL();
             }, true )
         );
+
+        $itemSearch->bindEventsWith( $itemTable );
     }
 
     protected function printViewContent()
@@ -178,6 +184,7 @@ HTML;
     public function getItemEditor()
     {
         return <<<HTML
+        {$this->presenters[ 'ItemSearch' ]}
         {$this->presenters[ 'ItemTable' ]}
 HTML;
 
