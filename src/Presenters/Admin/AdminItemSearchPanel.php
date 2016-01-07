@@ -5,7 +5,6 @@ namespace Cant\Phase\Me\Presenters\Admin;
 use Rhubarb\Leaf\Presenters\Application\Search\SearchPanel;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
 use Rhubarb\Stem\Filters\Contains;
-use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Filters\Group;
 use Rhubarb\Stem\Filters\OneOf;
 
