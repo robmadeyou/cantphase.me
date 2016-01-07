@@ -25,6 +25,11 @@ class Server
         return self::$uptime;
     }
 
+    public function getPlayerList()
+    {
+        return explode( ',', self::execute( 'player-list' ) );
+    }
+
     private function execute( $command )
     {
         $return = exec( 'java -jar ' . self::$jarPath . ' '. escapeshellarg( $command ) );

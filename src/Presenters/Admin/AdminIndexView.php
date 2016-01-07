@@ -116,6 +116,18 @@ class AdminIndexView extends CrudView
     public function getServerOverview()
     {
         $serverUptime = $this->server->getServerUptime();
+
+        $playerRows = "";
+        foreach( $this->server->getPlayerList() as $player )
+        {
+            $playerRows .= <<<HTML
+            <tr>
+                <td>{$player}</td>
+                <td><a href="">Manage</a></td>
+            </tr>
+HTML;
+        }
+
         return <<<HTML
         <div id="server-overview" class="main-page">
             <div class="row placeholders">
@@ -139,6 +151,11 @@ class AdminIndexView extends CrudView
                     <h4>Label</h4>
                     <span class="text-muted">Something else</span>
                 </div>
+            </div>
+            <div class="online-players">
+                <table class="table table-striped">
+                    {$playerRows}
+                </table>
             </div>
         </div>
 HTML;
