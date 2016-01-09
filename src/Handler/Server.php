@@ -27,7 +27,8 @@ class Server
 
     public function getPlayerList()
     {
-        return explode( ',', self::execute( 'player-list' ) );
+        $list = self::execute( 'players' );
+        return $list ? explode( ',', $list ) : false;
     }
 
     private function execute( $command )

@@ -123,14 +123,25 @@ class AdminIndexView extends CrudView
     {
         $serverUptime = $this->server->getServerUptime();
 
+        $playerList = $this->server->getPlayerList();
         $playerRows = "";
-        foreach( $this->server->getPlayerList() as $player )
-        {
+        if( $playerList ) {
+
             $playerRows .= <<<HTML
+        <div class="online-players">
+                <table class="table table-striped">
+HTML;
+            foreach ($playerList as $player) {
+                $playerRows .= <<<HTML
             <tr>
                 <td>{$player}</td>
                 <td><a href="">Manage</a></td>
             </tr>
+HTML;
+            }
+            $playerRows .= <<<HTML
+            </table>
+        </div>
 HTML;
         }
 
@@ -158,11 +169,7 @@ HTML;
                     <span class="text-muted">Something else</span>
                 </div>
             </div>
-            <div class="online-players">
-                <table class="table table-striped">
-                    {$playerRows}
-                </table>
-            </div>
+            {$playerRows}
         </div>
 HTML;
     }
