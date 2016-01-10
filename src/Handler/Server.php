@@ -47,6 +47,11 @@ class Server
         }
     }
 
+    public static function LoadNpcDropsIntoSQL()
+    {
+        $array = self::LoadCFG( 'NPCDrops.TSM' );
+    }
+
     public static function LoadCFG( $name )
     {
         $file = @fopen( self::$dataDir . 'cfg/' . $name, 'r' );
