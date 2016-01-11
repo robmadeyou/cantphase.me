@@ -50,6 +50,15 @@ class Server
     public static function LoadNpcDropsIntoSQL()
     {
         $array = self::LoadCFG( 'NPCDrops.TSM' );
+
+        $temp = [];
+        foreach( $array as $a )
+        {
+            if( strpos( $a[0], '#' ) === 0 )
+            {
+                $temp = [];
+            }
+        }
     }
 
     public static function LoadCFG( $name )
