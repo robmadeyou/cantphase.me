@@ -45,6 +45,15 @@ class AdminIndexView extends CrudView
             new Button( 'LoadItemsSQL', 'Load Items into SQL', function()
             {
                 Server::LoadItemsIntoSQL();
+            }, true ),
+            new Button( 'DumpItems', 'Dump items to Json', function()
+            {
+                ini_set('memory_limit', '512M');
+                file_put_contents( './Server/items.json', Server::GetItemJson() );
+            }, true ),
+            new Button( 'LoadItemCost', 'Load item cost into SQL', function()
+            {
+                Server::LoadItemCostIntoSQL();
             }, true )
         );
 
@@ -201,6 +210,8 @@ HTML;
     {
         return <<<HTML
         {$this->presenters['LoadItemsSQL']}
+        {$this->presenters['DumpItems']}
+        {$this->presenters['LoadItemCost']}
 HTML;
 
     }

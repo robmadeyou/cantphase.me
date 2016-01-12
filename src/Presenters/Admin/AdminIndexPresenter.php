@@ -22,6 +22,10 @@ class AdminIndexPresenter extends ModelFormPresenter
             Server::LoadItemsIntoSQL();
         });
 
+        $this->view->attachEventHandler( 'DumpItemsToJson', function()
+        {
+        });
+
         $this->view->attachEventHandler( 'GetPage', function( $name )
         {
             switch( $name )

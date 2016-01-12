@@ -3,6 +3,7 @@
 namespace Cant\Phase\Me\Handler;
 
 use Cant\Phase\Me\Models\Item;
+use Rhubarb\Stem\Filters\Equals;
 
 class Server
 {
@@ -47,11 +48,41 @@ class Server
         }
     }
 
+    public static function LoadItemCostIntoSQL()
+    {
+        $prices = self::LoadCFG( 'prices.txt' );
+
+        foreach( $prices as $price )
+        {
+            try
+            {
+                $price = explode( ' ', $price[ 0 ] );
+                $item = Item::findFirst( new Equals( 'ItemID', $price[ 0 ] ) );
+                $item->Price = [ 1 ];
+                $item->save();
+            }
+            catch( \Exception $ex ){}
+        }
+    }
+
+    public static function GetItemJson()
+    {
+        $items = Item::find();
+        $builder = [];
+        foreach( $items as $item )
+        {
+            $builder[] = $item->returnSerializableObject();
+        }
+
+        return json_encode( $builder, JSON_PRETTY_PRINT );
+    }
+
     public static function LoadNpcDropsIntoSQL()
     {
         $array = self::LoadCFG( 'NPCDrops.TSM' );
 
         $temp = [];
+        $npcId = 0;
         foreach( $array as $a )
         {
             if( strpos( $a[0], '#' ) === 0 )

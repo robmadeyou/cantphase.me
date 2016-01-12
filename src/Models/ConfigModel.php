@@ -27,7 +27,7 @@ abstract class ConfigModel extends Model
 	 * Returns a glued single line for the cfg
 	 * @return string
 	 */
-	public function createToCfgLine()
+	public function returnSerializableObject()
 	{
 		$array = [];
 		foreach( $this->getSchema()->getColumns() as $column )
@@ -35,10 +35,10 @@ abstract class ConfigModel extends Model
 			$name = $column->columnName;
 			if( $name != $this->getSchema()->uniqueIdentifierColumnName )
 			{
-				$array[] = $this->$name;
+				$array[ $column->columnName ] = $this->$name;
 			}
 		}
 
-		return "item = " . implode( "\t", $array );
+		return $array;
 	}
 }
