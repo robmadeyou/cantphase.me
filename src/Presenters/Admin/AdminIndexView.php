@@ -107,18 +107,18 @@ class AdminIndexView extends CrudView
                         <div id="server-overview" class="paged">
                             <?= $this->getServerOverview() ?>
                         </div>
-                        <div id="reports" class="paged">
+                        <div id="reports" class="paged" style="display:none">
                             <?= $this->getReports() ?>
                         </div>
-                        <div id="statistics" class="paged">
+                        <div id="statistics" class="paged" style="display:none">
                             <?= $this->getStatistics() ?>
                         </div>
-                        <div id="item-edit" class="paged">
+                        <div id="item-edit" class="paged" style="display:none">
                             <?= $this->getItemEditor() ?>
                         </div>
 
 
-                        <div id="config" class="paged">
+                        <div id="config" class="paged" style="display:none">
                             <?= $this->getConfig() ?>
                         </div>
                     </div>
