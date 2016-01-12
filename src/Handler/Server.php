@@ -4,6 +4,7 @@ namespace Cant\Phase\Me\Handler;
 
 use Cant\Phase\Me\Models\Item;
 use Rhubarb\Stem\Filters\Equals;
+use Rhubarb\Stem\Repositories\MySql\MySql;
 
 class Server
 {
@@ -54,14 +55,8 @@ class Server
 
         foreach( $prices as $price )
         {
-            try
-            {
-                $price = explode( ' ', $price[ 0 ] );
-                $item = Item::findFirst( new Equals( 'ItemID', $price[ 0 ] ) );
-                $item->Price = [ 1 ];
-                $item->save();
-            }
-            catch( \Exception $ex ){}
+            $price = explode( ' ', $price[ 0 ] );
+            MySql::returnSingleValue( "UPDATE tblItem SET Price = " . $price[ 1 ] . " WHERE ItemID = " . $price[ 0 ] );
         }
     }
 
