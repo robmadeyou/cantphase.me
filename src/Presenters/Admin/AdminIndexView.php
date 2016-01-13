@@ -44,11 +44,14 @@ class AdminIndexView extends CrudView
             $itemSearch,
             new Button( 'LoadItemsSQL', 'Load Items into SQL', function()
             {
+                ini_set('memory_limit', '512M');
+                set_time_limit( 0 );
                 Server::LoadItemsIntoSQL();
             }, true ),
             new Button( 'DumpItems', 'Dump items to Json', function()
             {
                 ini_set('memory_limit', '512M');
+                set_time_limit( 0 );
                 file_put_contents( './Server/items.json', Server::GetItemJson() );
             }, true ),
             new Button( 'LoadItemCost', 'Load item cost into SQL', function()
