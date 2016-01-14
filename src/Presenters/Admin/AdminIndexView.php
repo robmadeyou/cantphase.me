@@ -57,6 +57,10 @@ class AdminIndexView extends CrudView
             new Button( 'LoadItemCost', 'Load item cost into SQL', function()
             {
                 Server::LoadItemCostIntoSQL();
+            }, true ),
+            new Button( 'LoadNpcs', 'Load NPCs into SQL', function()
+            {
+                Server::LoadNpcsIntoSQL();
             }, true )
         );
 
@@ -215,6 +219,7 @@ HTML;
         {$this->presenters['LoadItemsSQL']}
         {$this->presenters['DumpItems']}
         {$this->presenters['LoadItemCost']}
+        {$this->presenters['LoadNpcs']}
 HTML;
 
     }

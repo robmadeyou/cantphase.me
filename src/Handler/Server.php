@@ -3,6 +3,7 @@
 namespace Cant\Phase\Me\Handler;
 
 use Cant\Phase\Me\Models\Item;
+use Cant\Phase\Me\Models\Npc;
 use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
@@ -45,7 +46,7 @@ class Server
 
         foreach( $array as $d )
         {
-            Item::createFromCfgLine( $d );
+            Item::createFromCfgLine( null, $d );
         }
     }
 
@@ -72,6 +73,25 @@ class Server
         return json_encode( $builder, JSON_PRETTY_PRINT );
     }
 
+    public static function LoadNpcsIntoSQL()
+    {
+        $array = self::LoadCFG( 'npc.cfg' );
+        foreach( $array as $a )
+        {
+            Npc::createFromCfgLine( null, $a );
+        }
+        return ;
+    }
+
+    public static function LoadNpcDetailsIntoSQL()
+    {
+        $array = self::LoadCFG( 'spawn-config.cfg' );
+        foreach( $array as $a )
+        {
+            Mysql::returnSingleValue( "UPDATE tblNpc SET SpawnX = " . $a[1] . ", SpawnY = " . $a[2] . ", Height = " . $a[ 3 ] . ", Walk = " . $a[ 4 ] . ", MaxHit = " . $a[ 5 ] . ", Attack = " . $a[ 6 ] . ", Defence = " . $a[7] . " WHERE NpcID = " . $a[ 0 ] );
+        }
+    }
+
     public static function LoadNpcDropsIntoSQL()
     {
         $array = self::LoadCFG( 'NPCDrops.TSM' );
@@ -96,7 +116,7 @@ class Server
             $values = [];
             while ( $line = fgets( $file ) )
             {
-                if( strpos( $line, '//' ) !== 0 )
+                if( $line && strpos( $line, '//' ) !== 0 && $line !== "" )
                 {
                     $line = preg_replace( '/(.)+\ =\ /', '', $line );
                     $values[] = explode( "\t", $line );

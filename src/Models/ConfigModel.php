@@ -6,21 +6,26 @@ use Rhubarb\Stem\Models\Model;
 
 abstract class ConfigModel extends Model
 {
-	public static function createFromCfgLine( $array )
+	/**
+	 * @param $class Model
+	 * @param $array
+	 *
+	 * @throws \Exception
+	 * @throws \Rhubarb\Stem\Exceptions\ModelConsistencyValidationException
+	 */
+	public static function createFromCfgLine( $class, $array )
 	{
-		$obj = new Item();
-
 		$i = 0;
-		foreach( $obj->getSchema()->getColumns() as $column )
+		foreach( $class->getSchema()->getColumns() as $column )
 		{
 			$name = $column->columnName;
-			if( $name != $obj->getSchema()->uniqueIdentifierColumnName )
+			if( $name != $class->getSchema()->uniqueIdentifierColumnName )
 			{
-				$obj->$name = $array[ $i ];
+				$class->$name = $array[ $i ];
 				$i++;
 			}
 		}
-		$obj->save();
+		$class->save();
 	}
 
 	/**

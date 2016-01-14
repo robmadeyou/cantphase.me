@@ -44,4 +44,9 @@ class Item extends ConfigModel
 		return $schema;
 	}
 
+	public static function createFromCfgLine( $class, $array )
+	{
+		parent::createFromCfgLine( new self(), $array );
+	}
+
 }
