@@ -104,6 +104,12 @@ class Server
             if( strpos( $a[0], '#' ) === 0 )
             {
                 $temp = [];
+                $npcId = 0;
+                continue;
+            }
+            if( $npcId == 0 )
+            {
+
             }
         }
     }

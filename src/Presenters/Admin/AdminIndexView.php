@@ -65,7 +65,7 @@ class AdminIndexView extends CrudView
             }, true ),
             new Button( 'LoadNpcDrops', 'Load npc drops', function()
             {
-
+                Server::LoadNpcDropsIntoSQL();
             }, true ),
             new Button( 'DumpNpcs', 'Dump npc list' , function()
             {
