@@ -88,7 +88,8 @@ class Server
         $array = self::LoadCFG( 'spawn-config.cfg' );
         foreach( $array as $a )
         {
-            Mysql::returnSingleValue( "UPDATE tblNpc SET SpawnX = " . $a[1] . ", SpawnY = " . $a[2] . ", Height = " . $a[ 3 ] . ", Walk = " . $a[ 4 ] . ", MaxHit = " . $a[ 5 ] . ", Attack = " . $a[ 6 ] . ", Defence = " . $a[7] . " WHERE NpcID = " . $a[ 0 ] );
+            $description = isset( $a[ 8 ] ) ? ", Description=" . $a[ 8 ] : "";
+            Mysql::returnSingleValue( "UPDATE tblNpc SET SpawnX=" . $a[1] . ", SpawnY=" . $a[2] . ", Height=" . $a[ 3 ] . ", Walk=" . $a[ 4 ] . ", MaxHit=" . $a[ 5 ] . ", Attack = " . $a[ 6 ] . ", Defence = " . $a[7] . $description . " WHERE NpcID = " . $a[ 0 ] );
         }
     }
 

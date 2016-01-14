@@ -44,14 +44,11 @@ class AdminIndexView extends CrudView
             $itemSearch,
             new Button( 'LoadItemsSQL', 'Load Items into SQL', function()
             {
-                ini_set('memory_limit', '512M');
-                set_time_limit( 0 );
                 Server::LoadItemsIntoSQL();
             }, true ),
             new Button( 'DumpItems', 'Dump items to Json', function()
             {
                 ini_set('memory_limit', '512M');
-                set_time_limit( 0 );
                 file_put_contents( './Server/items.json', Server::GetItemJson() );
             }, true ),
             new Button( 'LoadItemCost', 'Load item cost into SQL', function()
@@ -61,6 +58,19 @@ class AdminIndexView extends CrudView
             new Button( 'LoadNpcs', 'Load NPCs into SQL', function()
             {
                 Server::LoadNpcsIntoSQL();
+            }, true ),
+            new Button( 'LoadNpcSpawn', 'Load npc spawn points', function()
+            {
+                Server::LoadNpcDetailsIntoSQL();
+            }, true ),
+            new Button( 'LoadNpcDrops', 'Load npc drops', function()
+            {
+
+            }, true ),
+            new Button( 'DumpNpcs', 'Dump npc list' , function()
+            {
+                ini_set('memory_limit', '512M');
+                file_put_contents( './Server/npcs.json', Server::GetItemJson() );
             }, true )
         );
 
@@ -220,6 +230,7 @@ HTML;
         {$this->presenters['DumpItems']}
         {$this->presenters['LoadItemCost']}
         {$this->presenters['LoadNpcs']}
+        {$this->presenters['LoadNpcSpawn']}
 HTML;
 
     }

@@ -13,11 +13,16 @@ In the future my plans are to ( take this as a sorts of TODO, I'm going to try a
   * Vote area
   * Download button actually working
   * Admin area
-   * Possibly a set-up screen so people looking to deploy servers can do so easily??? 
+   * Finish config modeling and make _ALL_ configs into Json
+   * Live player management ( add items, remove items, change item statistics.. and so on )
    * Actual authentication for admin(s)
    * Item editor complete ( with item costs, and statistics )
    * Shop editor that takes inputs from items
    * NPC editor ( with spawn locations, health etc )
-   * Live player management ( add items, remove items, change item statistics.. and so on )
-   * Some sort of deploment mechanism that gets latest versions from git and updates in a "S.M.A.R.T" way
    * And more...
+
+In the distant nice to have future:
+  * Possibly a set-up screen so people looking to deploy servers can do so easily???
+  * Some sort of deploment mechanism that gets latest versions from git and updates in a "S.M.A.R.T" way
+
+
