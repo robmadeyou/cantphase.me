@@ -99,17 +99,23 @@ class Server
 
         $temp = [];
         $npcId = 0;
+        $rarity = 0;
         foreach( $array as $a )
         {
             if( strpos( $a[0], '#' ) === 0 )
             {
                 $temp = [];
                 $npcId = 0;
+                $rarity = 0;
                 continue;
             }
-            if( $npcId == 0 )
+            foreach( $a as $e )
             {
-
+                $expl = explode( ':', $e );
+                if( $npcId == 0 )
+                {
+                    $npcId = $expl[ 0 ];
+                }
             }
         }
     }
