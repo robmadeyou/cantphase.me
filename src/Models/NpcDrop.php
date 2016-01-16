@@ -16,7 +16,8 @@ class NpcDrop extends Model
 			new AutoIncrement( 'NpcDropAutoID' ),
 			new Integer( 'NpcID' ),
 			new Integer( 'ItemID' ),
-			new Integer( '' )
+			new Integer( 'Amount' ),
+			new Integer( 'Rarity' )
 		);
 
 		return $schema;

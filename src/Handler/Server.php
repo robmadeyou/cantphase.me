@@ -109,6 +109,7 @@ class Server
                 $rarity = 0;
                 continue;
             }
+            $rarity = 1000;
             foreach( $a as $e )
             {
                 $expl = explode( ':', $e );
@@ -116,6 +117,10 @@ class Server
                 {
                     $npcId = $expl[ 0 ];
                 }
+            }
+            if( $rarity = 1000 )
+            {
+                $rarity = 500;
             }
         }
     }
