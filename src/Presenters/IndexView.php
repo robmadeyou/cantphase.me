@@ -89,7 +89,7 @@ class IndexView extends HtmlView
                         Download me
                     </h1>
                     <p class="lead">
-                        Download the launcher, always stay up to date with the latest features
+                        Download the launcher, and always stay up to date with the latest features
                     </p>
                     <a target="_blank" class="btn btn-lg btn-default" href="/static/PhasedClient.jar">Download now</a>
                 </div>
