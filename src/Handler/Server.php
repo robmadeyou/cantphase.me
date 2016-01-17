@@ -4,6 +4,7 @@ namespace Cant\Phase\Me\Handler;
 
 use Cant\Phase\Me\Models\Item;
 use Cant\Phase\Me\Models\Npc;
+use Cant\Phase\Me\Models\NpcDrop;
 use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
@@ -97,31 +98,43 @@ class Server
     {
         $array = self::LoadCFG( 'NPCDrops.TSM' );
 
-        $temp = [];
         $npcId = 0;
         $rarity = 0;
         foreach( $array as $a )
         {
             if( strpos( $a[0], '#' ) === 0 )
             {
-                $temp = [];
                 $npcId = 0;
-                $rarity = 0;
+                $rarity = 1000;
                 continue;
             }
-            $rarity = 1000;
             foreach( $a as $e )
             {
                 $expl = explode( ':', $e );
                 if( $npcId == 0 )
                 {
                     $npcId = $expl[ 0 ];
+                    continue;
                 }
+                $drop = new NpcDrop();
+                $drop->NpcID = $npcId;
+                $drop->ItemID = $expl[ 0 ];
+                $drop->Amount = $expl[ 1 ];
+                $drop->Rarity = $rarity;
+                $drop->save();
+
             }
-            if( $rarity = 1000 )
-            {
-                $rarity = 500;
-            }
+            $rarity = 500;
+        }
+    }
+
+    public static function GetNpcJson()
+    {
+        $npc = Npc::find();
+        $tmp = [];
+        foreach( $npc as $n )
+        {
+
         }
     }
 

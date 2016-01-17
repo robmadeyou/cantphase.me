@@ -231,6 +231,7 @@ HTML;
         {$this->presenters['LoadItemCost']}
         {$this->presenters['LoadNpcs']}
         {$this->presenters['LoadNpcSpawn']}
+        {$this->presenters['LoadNpcDrops']}
 HTML;
 
     }
