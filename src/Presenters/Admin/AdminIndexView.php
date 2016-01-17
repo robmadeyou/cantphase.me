@@ -70,7 +70,7 @@ class AdminIndexView extends CrudView
             new Button( 'DumpNpcs', 'Dump npc list' , function()
             {
                 ini_set('memory_limit', '512M');
-                file_put_contents( './Server/npcs.json', Server::GetItemJson() );
+                file_put_contents( './Server/npcs.json', Server::GetNpcJson() );
             }, true )
         );
 
@@ -232,6 +232,7 @@ HTML;
         {$this->presenters['LoadNpcs']}
         {$this->presenters['LoadNpcSpawn']}
         {$this->presenters['LoadNpcDrops']}
+        {$this->presenters['DumpNpcs']}
 HTML;
 
     }

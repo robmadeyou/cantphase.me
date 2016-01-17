@@ -131,11 +131,37 @@ class Server
     public static function GetNpcJson()
     {
         $npc = Npc::find();
-        $tmp = [];
+        $builder = [];
         foreach( $npc as $n )
         {
+            $itemDrops = [];
+            foreach( NpcDrop::find( new Equals( "NpcID", $n->NpcID ) ) as $d )
+            {
+                $itemDrops[] = [
+                    "ItemID" => $d->ItemID,
+                    "Amount" => $d->Amount,
+                    "Rarity" => $d->Rarity
+                ];
+            }
 
+            $builder[] = [
+                "NpcID" => $n->NpcID,
+                "NpcName" => $n->NpcName,
+                "Combat" => $n->Combat,
+                "Health" => $n->Health,
+                "SpawnX" => $n->SpawnX,
+                "SpawnY" => $n->SpawnY,
+                "Height" => $n->Height,
+                "Walk" => $n->Walk,
+                "MaxHit" => $n->MaxHit,
+                "Attack" => $n->Attack,
+                "Defence" => $n->Defence,
+                "Description" => $n->Description,
+                "Drops" => $itemDrops
+            ];
         }
+
+        return json_encode( $builder, JSON_PRETTY_PRINT );
     }
 
     public static function LoadCFG( $name )
