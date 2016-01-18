@@ -21,6 +21,10 @@ abstract class ConfigModel extends Model
 			$name = $column->columnName;
 			if( $name != $class->getSchema()->uniqueIdentifierColumnName )
 			{
+				if( !isset( $array[ $i ] ))
+				{
+					continue;
+				}
 				$class->$name = $array[ $i ];
 				$i++;
 			}
