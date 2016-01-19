@@ -5,6 +5,7 @@ namespace Cant\Phase\Me\Handler;
 use Cant\Phase\Me\Models\Item;
 use Cant\Phase\Me\Models\Npc;
 use Cant\Phase\Me\Models\NpcDrop;
+use Rhubarb\Crown\Context;
 use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
@@ -37,7 +38,8 @@ class Server
 
     private function execute( $command )
     {
-        $return = exec( 'java -jar ' . self::$jarPath . ' '. escapeshellarg( $command ) );
+        $c = new Context();
+        $return = exec( 'java -jar ' . self::$jarPath . ' ' . $c->ServerManagerIP . ' ' . $c->ServerManagerPort . ' '. escapeshellarg( $command ) );
         return $return;
     }
 
