@@ -3,10 +3,12 @@ namespace Cant\Phase\Me;
 
 use Cant\Phase\Me\Models\PhasedSolutionSchema;
 use Cant\Phase\Me\Presenters\Admin\AdminIndexPresenter;
+use Cant\Phase\Me\Presenters\Admin\Item\ItemEditPresenter;
 use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
+use Rhubarb\Patterns\Mvp\Crud\CrudUrlHandler;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
@@ -30,7 +32,9 @@ class CantPhaseMeModule extends Module
 		$this->addUrlHandlers(
 			[
 				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter', [
-					'admin' => new ClassMappedUrlHandler( AdminIndexPresenter::class )
+					'admin/' => new ClassMappedUrlHandler( AdminIndexPresenter::class, [
+						'item/' => new CrudUrlHandler( 'Item', 'Cant\Phase\Me\Presenters\Admin\Item' )
+					] )
 				] ),
 			]
 		);

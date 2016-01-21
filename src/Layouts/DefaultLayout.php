@@ -3,12 +3,11 @@ namespace Cant\Phase\Me\Layouts;
 
 use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Patterns\Layouts\BaseLayout;
-class DefaultLayout extends BaseLayout
+class DefaultLayout extends PhasedBaseLayout
 {
 	function __construct()
 	{
-		ResourceLoader::loadResource( "/static/css/bootstrap.min.css" );
-		ResourceLoader::loadResource( "/static/css/base.css" );
+		parent::__construct();
 	}
 
 	protected function printHead()

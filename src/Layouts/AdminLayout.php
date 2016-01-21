@@ -5,13 +5,12 @@ namespace Cant\Phase\Me\Layouts;
 use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Patterns\Layouts\BaseLayout;
 
-class AdminLayout extends BaseLayout
+class AdminLayout extends PhasedBaseLayout
 {
     function __construct()
     {
-        ResourceLoader::loadResource( '/static/css/base.css' );
-        ResourceLoader::loadResource( "/static/css/bootstrap.min.css" );
-        ResourceLoader::loadResource( 'http://getbootstrap.com/examples/dashboard/dashboard.css' );
+        parent::__construct();
+        ResourceLoader::loadResource( '/static/css/dashboard.css' );
     }
 
     protected function printHead()
