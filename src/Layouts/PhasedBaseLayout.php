@@ -9,9 +9,9 @@ class PhasedBaseLayout extends BaseLayout
 {
 	function __construct()
 	{
+		ResourceLoader::loadResource( "/static/css/bootstrap.min.css" );
 		ResourceLoader::loadResource( '/static/css/base.css' );
 		ResourceLoader::loadResource( '/static/css/general.css' );
-		ResourceLoader::loadResource( "/static/css/bootstrap.min.css" );
 	}
 
 }
