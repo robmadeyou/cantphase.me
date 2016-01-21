@@ -29,12 +29,15 @@ class AdminIndexView extends CrudView
         parent::createPresenters();
 
         $itemTable = new Table( Item::find(), 50, 'ItemTable' );
-        $itemTable->addTableCssClass( [ 'table', 'table-striped' ] );
+        $itemTable->addTableCssClass( [ 'table' ] );
         $itemTable->Columns = [
             'ItemID',
             'Name',
             'Examine',
-            'Price'
+            'Price',
+            'LowAlch',
+            'HighAlch',
+            '' => '<a href="item/{ItemID}/edit/" class="btn button">Edit</a>'
         ];
 
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
@@ -145,10 +148,8 @@ class AdminIndexView extends CrudView
         <?php
     }
 
-    public function getServerOverview()
+    public function GetPlayerRowsHTML()
     {
-        $serverUptime = $this->server->getServerUptime();
-
         $playerList = $this->server->getPlayerList();
         $playerRows = "";
         if( $playerList ) {
@@ -170,6 +171,14 @@ HTML;
         </div>
 HTML;
         }
+        return $playerRows;
+    }
+
+    public function getServerOverview()
+    {
+        $serverUptime = $this->server->getServerUptime();
+
+        $playerRows = $this->GetPlayerRowsHTML();
 
         return <<<HTML
         <div id="server-overview" class="main-page">

@@ -11,6 +11,7 @@ class AdminLayout extends PhasedBaseLayout
     {
         parent::__construct();
         ResourceLoader::loadResource( '/static/css/dashboard.css' );
+        ResourceLoader::loadResource( '/static/css/admin.css' );
     }
 
     protected function printHead()

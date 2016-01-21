@@ -464,7 +464,10 @@ body {
 
 .loading.up.stopped.left
 {
-    border-left-color: darkred;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 6px solid darkred;
+    border-right: 1px;
 }
 
 .loading.up.stopped.top

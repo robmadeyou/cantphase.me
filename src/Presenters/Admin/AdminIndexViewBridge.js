@@ -6,6 +6,8 @@ var bridge = function( presenterPath )
 bridge.prototype = new window.rhubarb.viewBridgeClasses.JqueryHtmlViewBridge();
 bridge.prototype.constructor = bridge;
 
+var running = false;
+
 bridge.prototype.attachEvents = function()
 {
 
@@ -18,21 +20,21 @@ bridge.prototype.attachEvents = function()
 		var page = $( '#' + $( this ).attr( 'to' ) );
 		page.finish();
 		page.fadeIn();
-		self.registerPresenter();
 		event.preventDefault();
 		return false;
 	} );
 
 
-	Heartbeat();
-	function Heartbeat()
+	if( !running )
 	{
-		self.raiseServerEvent( 'Heartbeat', function( data )
-		{
-			var parsed = JSON.parse( data );
-			$( '#server-uptime' ).html( parsed.Uptime );
-		});
-		setTimeout( Heartbeat, 1000 );
+		Heartbeat();
+		function Heartbeat() {
+			self.raiseServerEvent('Heartbeat', function (parsed) {
+				$('#server-uptime').html(parsed.Uptime);
+			});
+			setTimeout(Heartbeat, 1000);
+		}
+		running = true;
 	}
 };
 

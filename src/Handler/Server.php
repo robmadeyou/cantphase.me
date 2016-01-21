@@ -45,6 +45,7 @@ class Server
 
     public static function LoadItemsIntoSQL()
     {
+        set_time_limit( 0 );
         $array = self::LoadCFG( 'item.cfg' );
 
         foreach( $array as $d )
