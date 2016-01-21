@@ -46,6 +46,54 @@ class AdminLayout extends PhasedBaseLayout
         <?php
     }
 
+    protected function printContent( $content )
+    {
+        ?>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Cantphase.me admin page</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li><a href="#" class="toPage" to="server-overview">Server overview</a></li>
+                        <li><a href="#" class="toPage" to="reports">Reports</a></li>
+                        <li><a href="#" class="toPage" to="statistics">Statistics</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="#" class="toPage" to="item-edit">Item Editor</a></li>
+                        <li><a href="#" class="toPage" to="shop-edit">Shop Editor</a></li>
+                        <li><a href="#" class="toPage" to="npc-edit">NPC Editor</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="#" class="toPage" to="config">Configuration</a></li>
+                    </ul>
+                </div>
+                <?php parent::printContent( $content );?>
+            </div>
+        </div>
+        <?php
+    }
+
+
     protected function printTail()
 	{
 		parent::printTail();
