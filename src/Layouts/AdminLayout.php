@@ -87,7 +87,9 @@ class AdminLayout extends PhasedBaseLayout
                         <li><a href="#" class="toPage" to="config">Configuration</a></li>
                     </ul>
                 </div>
-                <?php parent::printContent( $content );?>
+                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                        <?php parent::printContent( $content );?>
+                    </div>
             </div>
         </div>
         <?php
