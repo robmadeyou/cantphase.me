@@ -74,6 +74,11 @@ body {
     position: relative;
 }
 
+.cover-heading
+{
+    font-size: 40px;
+}
+
 #content:before
 {
     position: absolute;
@@ -376,6 +381,11 @@ body {
 -------------------------------------------------- */
 
 @media (min-width: 768px) {
+
+    .cover-heading
+    {
+        font-size: 4vw;
+    }
     /* Navbar positioning foo */
     .navbar-wrapper {
         margin-top: 20px;
@@ -423,11 +433,6 @@ body {
     margin-top: 64px;
 }
 
-.cover-heading
-{
-    font-size: 4vw;
-}
-
 body {
     background-color: #272727;
     padding: 0;
@@ -471,7 +476,6 @@ body {
 {
     border-right-color: darkred;
 }
-
 
 
 

@@ -46,9 +46,9 @@ class IndexView extends HtmlView
             </div>
         </div>
         <h1 id="features"></h1>
-        <img src="/static/images/spacer.png">
         <div class="container marketing">
             <div id="features-container">
+                <img style="max-width: 100%;" src="/static/images/spacer.png">
                 <div class="row featurette">
                     <div class="col-md-7">
                         <h2 class="featurette-heading">Hosted on a dedicated server. <span class="text-muted">It's super fast!</span></h2>
@@ -78,8 +78,8 @@ class IndexView extends HtmlView
                 </div>
             </div>
         </div>
-        <img src="/static/images/spacer.png">
         <div class="container marketing">
+            <img style="max-width: 100%;" src="/static/images/spacer.png">
             <div class="row featurette">
                 <div class="col-md-3">
                     <img class="featurette-image img-responsive center-block" src="/static/images/bandos.png">
