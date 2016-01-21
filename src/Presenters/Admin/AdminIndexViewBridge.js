@@ -22,6 +22,18 @@ bridge.prototype.attachEvents = function()
 		event.preventDefault();
 		return false;
 	} );
+
+
+	Heartbeat();
+	function Heartbeat()
+	{
+		self.raiseServerEvent( 'Heartbeat', function( data )
+		{
+			var parsed = JSON.parse( data );
+			$( '#server-uptime' ).html( parsed.Uptime );
+		});
+		setTimeout( Heartbeat, 1000 );
+	}
 };
 
 window.rhubarb.viewBridgeClasses.AdminIndexViewBridge = bridge;

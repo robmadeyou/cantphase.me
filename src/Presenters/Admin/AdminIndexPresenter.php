@@ -17,13 +17,12 @@ class AdminIndexPresenter extends ModelFormPresenter
 
     protected function configureView()
     {
-        $this->view->attachEventHandler( 'LoadItemsIntoSLQ', function()
+        $this->view->attachEventHandler( 'Heartbeat', function()
         {
-            Server::LoadItemsIntoSQL();
-        });
-
-        $this->view->attachEventHandler( 'DumpItemsToJson', function()
-        {
+            $server = new Server();
+            $class = new \stdClass();
+            $class->Uptime = "Up: " . $server->getServerUptime();
+            return json_encode( $class );
         });
 
         $this->view->attachEventHandler( 'GetPage', function( $name )

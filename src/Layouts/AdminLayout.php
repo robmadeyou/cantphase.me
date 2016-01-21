@@ -9,9 +9,9 @@ class AdminLayout extends BaseLayout
 {
     function __construct()
     {
+        ResourceLoader::loadResource( '/static/css/base.css' );
         ResourceLoader::loadResource( "/static/css/bootstrap.min.css" );
         ResourceLoader::loadResource( 'http://getbootstrap.com/examples/dashboard/dashboard.css' );
-
     }
 
     protected function printHead()
