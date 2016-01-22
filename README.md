@@ -29,7 +29,7 @@ In the future my plans are to ( take this as a sorts of TODO, I'm going to try a
    * Actual authentication for admin(s)
    * Item editor complete ( with item costs, and statistics )
    * Shop editor that takes inputs from items
-   * NPC editor ( with spawn locations, health etc )
+   * Setting of global configs
    * And more...
 
 In the distant nice to have future:
