@@ -22,7 +22,7 @@ class AdminIndexPresenter extends ModelFormPresenter
             $server = new Server();
             $class = new \stdClass();
             $class->Uptime = "Up: " . $server->getServerUptime();
-            $class->Online = $server->getPlayerList();
+            $class->Online = $this->view->GetPlayerRowsHTML();
             return $class;
         });
 

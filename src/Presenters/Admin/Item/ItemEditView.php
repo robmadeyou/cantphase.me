@@ -2,6 +2,7 @@
 
 namespace Cant\Phase\Me\Presenters\Admin\Item;
 
+use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
 use Rhubarb\Patterns\Mvp\Crud\CrudView;
 
 class ItemEditView extends CrudView
@@ -31,27 +32,64 @@ class ItemEditView extends CrudView
 		);
 	}
 
+	protected function configurePresenters()
+	{
+		parent::configurePresenters();
+
+		foreach( $this->presenters as $presenter )
+		{
+			if( $presenter instanceof TextBox )
+			{
+				$presenter->addCssClassName( 'form-control' );
+			}
+		}
+	}
+
 	protected function printViewContent()
 	{
-		$this->printFieldset( "Editing Items", [
-			"Name",
-			"Examine",
-			"Price",
-			"LowAlch",
-			"HighAlch",
-			"Attack Stab"    => "AStab",
-			"Attack Slash"   => "ASlash",
-			"Attack Crush"   => "ACrush",
-			"Attack Magic"   => "AMagic",
-			"Attack Range"   => "ARange",
-			"Defence Stab"   => "DStab",
-			"Defence Slash"  => "DSlash",
-			"Defence Crush"  => "DCrush",
-			"Defence Magic"  => "DMagic",
-			"Defence Range"  => "DRange",
-			"Strength bonus" => "OStrength",
-			"Prayer bonus"   => "OPrayer",
-			$this->presenters[ "Save" ].$this->presenters[ "Cancel" ]
-		] );
+		?>
+
+		<div class="top-inputs">
+			<?php
+				$this->printFieldset( "Editing Items",
+					[
+						"Name",
+						"Examine",
+						"Price",
+						"LowAlch",
+						"HighAlch",
+			] );
+			?>
+		</div>
+		<div class="item-bonuses">
+			<div class="col-md-6">
+				<?php
+					$this->printFieldset( '',
+					[
+						"Attack Stab"    => "AStab",
+						"Attack Slash"   => "ASlash",
+						"Attack Crush"   => "ACrush",
+						"Attack Magic"   => "AMagic",
+						"Attack Range"   => "ARange",
+						"Strength bonus" => "OStrength",
+						"Prayer bonus"   => "OPrayer",
+					])
+				?>
+			</div>
+			<div class="col-md-6">
+				<?php
+					$this->printFieldset( '',
+					[
+						"Defence Stab"   => "DStab",
+						"Defence Slash"  => "DSlash",
+						"Defence Crush"  => "DCrush",
+						"Defence Magic"  => "DMagic",
+						"Defence Range"  => "DRange",
+					] )
+				?>
+			</div>
+		</div>
+		<?php
+		print $this->presenters[ "Save" ].$this->presenters[ "Cancel" ];
 	}
 }

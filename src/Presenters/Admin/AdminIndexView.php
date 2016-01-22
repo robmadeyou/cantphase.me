@@ -37,7 +37,7 @@ class AdminIndexView extends CrudView
             'Price',
             'LowAlch',
             'HighAlch',
-            '' => '<a href="item/{ItemID}/edit/" class="btn button">Edit</a>'
+            '' => '<a href="item/{ItemID}/edit/" class="btn btn-default">Edit</a>'
         ];
 
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
@@ -159,7 +159,9 @@ HTML;
                     <span class="text-muted">Something else</span>
                 </div>
             </div>
-            {$playerRows}
+            <div id="players-online-holder">
+                {$playerRows}
+            </div>
         </div>
 HTML;
     }

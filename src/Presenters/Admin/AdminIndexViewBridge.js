@@ -31,6 +31,7 @@ bridge.prototype.attachEvents = function()
 		function Heartbeat() {
 			self.raiseServerEvent('Heartbeat', function (parsed) {
 				$('#server-uptime').html(parsed.Uptime);
+				$('#players-online-holder').html(parsed.Online);
 			});
 			setTimeout(Heartbeat, 1000);
 		}

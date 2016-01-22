@@ -104,4 +104,10 @@ class AdminLayout extends PhasedBaseLayout
 		<script src="/static/js/bootstrap.min.js"></script>
 		<?php
 	}
+
+
+    public function printItemsWithContainer( $stuff )
+    {
+
+    }
 }

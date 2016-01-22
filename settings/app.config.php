@@ -1,13 +1,14 @@
 <?php
 namespace Cant\Phase\Me;
 
+use Cant\Phase\Me\Layouts\PhasedLayoutProvider;
 use Cant\Phase\Me\Models\PhasedSolutionSchema;
 use Cant\Phase\Me\Presenters\Admin\AdminIndexPresenter;
-use Cant\Phase\Me\Presenters\Admin\Item\ItemEditPresenter;
 use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
+use Rhubarb\Leaf\LayoutProviders\LayoutProvider;
 use Rhubarb\Patterns\Mvp\Crud\CrudUrlHandler;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
@@ -24,6 +25,7 @@ class CantPhaseMeModule extends Module
 		include_once( "settings/site.config.php" );
 
 		SolutionSchema::RegisterSchema( "home", PhasedSolutionSchema::class );
+		LayoutProvider::setDefaultLayoutProviderClassName( PhasedLayoutProvider::class );
 	}
 	protected function registerUrlHandlers()
 	{
