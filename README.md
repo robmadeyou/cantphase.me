@@ -15,6 +15,17 @@ In the future my plans are to ( take this as a sorts of TODO, I'm going to try a
   * Admin area
    * Finish config modeling and make _ALL_ configs into Json
    * Live player management ( add items, remove items, change item statistics.. and so on )
+    * A list of online players
+     * Giving players items
+     * Modifying user levels / xp
+     * Kicking a player
+     * Banning a player
+     * Unbanning a player
+     * Refreshing player configs to reload changes.
+    * A list of items currently available on the server
+     * Editing item statistics
+     * Refreshing item configs to reload changes.
+    * A list of NPCs currently configured for the server
    * Actual authentication for admin(s)
    * Item editor complete ( with item costs, and statistics )
    * Shop editor that takes inputs from items
