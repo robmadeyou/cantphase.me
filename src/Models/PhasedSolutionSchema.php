@@ -13,5 +13,7 @@ class PhasedSolutionSchema extends SolutionSchema
         $this->addModel( 'Item', Item::class );
         $this->addModel( 'Npc', Npc::class );
         $this->addModel( 'NpcDrop', NpcDrop::class );
+        $this->addModel( 'Settings', Settings::class );
+
     }
 }

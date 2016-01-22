@@ -444,10 +444,7 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 150px;
-    border-top: 6px solid;
-    border-bottom: 1px;
-    border-left: 1px;
-    border-right: 1px;
+    border: 15px solid #777777;
     -webkit-animation: rotation 5s linear infinite;
     -moz-animation: rotation 5s linear infinite;
     -o-animation: rotation 5s linear infinite;
@@ -456,18 +453,12 @@ body {
 
 .loading.up.stopped.bottom
 {
-    border-top: 1px solid;
-    border-bottom: 6px solid darkred;
-    border-left: 1px;
-    border-right: 1px;
+    border-bottom: darkred;
 }
 
 .loading.up.stopped.left
 {
-    border-top: 1px;
-    border-bottom: 1px;
-    border-left: 6px solid darkred;
-    border-right: 1px;
+    border-left: darkred;
 }
 
 .loading.up.stopped.top
@@ -479,8 +470,6 @@ body {
 {
     border-right-color: darkred;
 }
-
-
 
 .loading.up.running.bottom
 {
@@ -501,8 +490,6 @@ body {
 {
     border-right-color: darkgreen;
 }
-
-
 
 @-webkit-keyframes rotation {
     0% {

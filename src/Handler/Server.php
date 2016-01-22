@@ -18,7 +18,6 @@ class Server
 
     function __construct()
     {
-
     }
 
     public function getServerUptime()
