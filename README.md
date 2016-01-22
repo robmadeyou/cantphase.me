@@ -13,6 +13,7 @@ In the future my plans are to ( take this as a sorts of TODO, I'm going to try a
   * Vote area
   * Download button actually working
   * Admin area
+   * Implement a delayed heartbeat when the user is not looking at the page
    * Finish config modeling and make _ALL_ configs into Json
    * Live player management ( add items, remove items, change item statistics.. and so on )
     * A list of online players
