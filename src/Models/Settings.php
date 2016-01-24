@@ -30,6 +30,12 @@ class Settings extends Model
 		return $schema;
 	}
 
+	/**
+	 * @param        $name
+	 * @param string $default
+	 *
+	 * @return mixed|string
+	 */
 	public static function get( $name, $default = "" )
 	{
 		if( isset( self::$cache[ $name ]) )
@@ -52,6 +58,13 @@ class Settings extends Model
 		return $default;
 	}
 
+	/**
+	 * @param $name
+	 * @param $value
+	 *
+	 * @throws \Exception
+	 * @throws \Rhubarb\Stem\Exceptions\ModelConsistencyValidationException
+	 */
 	public static function set( $name, $value )
 	{
 		try
