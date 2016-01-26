@@ -34,8 +34,8 @@ class CantPhaseMeModule extends Module
 		$this->addUrlHandlers(
 			[
 				"/" => new ClassMappedUrlHandler( 'Cant\Phase\Me\Presenters\IndexPresenter', [
-					'admin/' => new ClassMappedUrlHandler( AdminIndexPresenter::class, [
-						'item/' => new CrudUrlHandler( 'Item', 'Cant\Phase\Me\Presenters\Admin\Item' )
+					'admin' => new ClassMappedUrlHandler( AdminIndexPresenter::class, [
+						'/item' => new CrudUrlHandler( 'Item', 'Cant\Phase\Me\Presenters\Admin\Item' )
 					] )
 				] ),
 			]
