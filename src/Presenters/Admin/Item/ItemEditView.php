@@ -2,6 +2,7 @@
 
 namespace Cant\Phase\Me\Presenters\Admin\Item;
 
+use Rhubarb\Crown\Settings\HtmlPageSettings;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
 use Rhubarb\Patterns\Mvp\Crud\CrudView;
 
@@ -47,11 +48,13 @@ class ItemEditView extends CrudView
 
 	protected function printViewContent()
 	{
+		$html = new HtmlPageSettings();
+		$html->PageTitle = "Editing " . str_replace( '_', ' ', $this->getData( 'Name' ) );
 		?>
 
 		<div class="top-inputs">
 			<?php
-				$this->printFieldset( "Editing Items",
+				$this->printFieldset( "",
 					[
 						"Name",
 						"Examine",

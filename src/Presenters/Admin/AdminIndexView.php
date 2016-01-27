@@ -37,7 +37,8 @@ class AdminIndexView extends CrudView
             'Price',
             'LowAlch',
             'HighAlch',
-            '' => '<a href="/admin/item/{ItemID}/edit/" class="btn btn-default">Edit</a>'
+            '' => '<a href="/admin/item/{ItemAutoID}/edit/" class="btn btn-primary">Edit</a>',
+            ' ' => '<img src="{ImagePath}" width="64" height="64">'
         ];
 
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
@@ -74,7 +75,15 @@ class AdminIndexView extends CrudView
             {
                 ini_set('memory_limit', '512M');
                 file_put_contents( './Server/npcs.json', Server::GetItemJson() );
-            }, true )
+            }, true ),
+            new Button( 'GetItemImages', 'Get Item Images', function()
+            {
+                foreach( Item::find() as $item )
+                {
+                    $image = file_get_contents( $item->GetImagePath() );
+                    file_put_contents( 'static/images/items/' . $item->ItemID, $image );
+                }
+            })
         );
 
         $itemSearch->bindEventsWith( $itemTable );
@@ -197,6 +206,7 @@ HTML;
         {$this->presenters['LoadItemCost']}
         {$this->presenters['LoadNpcs']}
         {$this->presenters['LoadNpcSpawn']}
+        {$this->presenters[ 'GetItemImages' ]}
 HTML;
 
     }

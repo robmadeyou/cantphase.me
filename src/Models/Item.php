@@ -49,4 +49,9 @@ class Item extends ConfigModel
 		parent::createFromCfgLine( new self(), $array );
 	}
 
+	public function GetImagePath()
+	{
+		return "http://services.runescape.com/m=itemdb_rs/5081_obj_big.gif?id=" . $this->ItemID;
+	}
+
 }
