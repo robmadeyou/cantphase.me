@@ -1,6 +1,7 @@
 html,body
 {
     background-color: #FFFFFF;
+    color: #777;
 }
 
 .top-inputs
@@ -16,17 +17,20 @@ body
 .sidebar
 {
     background: #222222;
-    box-shadow: 2px 0 5px #101010;
+    -webkit-box-shadow: 2px -1px 5px #101010;
+    -moz-box-shadow: 2px -1px 5px #101010;
+    box-shadow: 2px -1px 5px #101010;
     border-right: none;
     top: 50px;
+    width: 200px;
     z-index: 5 ;
 }
 
 .navbar
 {
-    -webkit-box-shadow: 2px 0 5px #101010;
-    -moz-box-shadow: 2px 0 5px #101010;
-    box-shadow: 2px 0 5px #101010;
+    -webkit-box-shadow: 199px 0 5px #101010;
+    -moz-box-shadow: 199px 0 5px #101010;
+    box-shadow: 199px 0 5px #101010;
 }
 
 .img-responsive.loading

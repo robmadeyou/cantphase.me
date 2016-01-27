@@ -37,7 +37,7 @@ class AdminIndexView extends CrudView
             'Price',
             'LowAlch',
             'HighAlch',
-            '' => '<a href="item/{ItemID}/edit/" class="btn btn-default">Edit</a>'
+            '' => '<a href="/admin/item/{ItemID}/edit/" class="btn btn-default">Edit</a>'
         ];
 
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
