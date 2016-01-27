@@ -58,3 +58,10 @@ table
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+.search-panel table
+{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
