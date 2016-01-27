@@ -23,7 +23,7 @@ In the future my plans are to ( take this as a sorts of TODO, I'm going to try a
      * Banning a player
      * Unbanning a player
      * Refreshing player configs to reload changes.
-    * A list of items currently available on the server
+    * ~~A list of items currently available on the server~~
      * ~~Editing item statistics~~
      * Refreshing item configs to reload changes.
     * A list of NPCs currently configured for the server
