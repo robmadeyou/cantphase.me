@@ -445,10 +445,10 @@ body {
     height: 200px;
     border-radius: 150px;
     border: 15px solid #777777;
-    -webkit-animation: rotation 5s linear infinite;
-    -moz-animation: rotation 5s linear infinite;
-    -o-animation: rotation 5s linear infinite;
-    animation: rotation 5s linear infinite;
+    -webkit-animation: rotation 20s linear infinite;
+    -moz-animation: rotation 20s linear infinite;
+    -o-animation: rotation 20s linear infinite;
+    animation: rotation 20s linear infinite;
 }
 
 .loading.up.stopped.bottom

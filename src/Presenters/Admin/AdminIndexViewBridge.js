@@ -11,6 +11,8 @@ var running = false;
 bridge.prototype.attachEvents = function()
 {
 
+	var updateTimeout = 1000;
+
 	if( window.location.hash )
 	{
 		goToPage( window.location.hash.replace( "#", "" ) );
@@ -43,7 +45,7 @@ bridge.prototype.attachEvents = function()
 				$('#server-uptime').html(parsed.Uptime);
 				$('#players-online-holder').html(parsed.Online);
 			});
-			setTimeout(Heartbeat, 1000);
+			setTimeout(Heartbeat, updateTimeout);
 		}
 		running = true;
 	}
