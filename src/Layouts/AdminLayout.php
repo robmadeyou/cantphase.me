@@ -74,17 +74,17 @@ class AdminLayout extends PhasedBaseLayout
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a href="#" class="toPage" to="server-overview">Server overview</a></li>
-                        <li><a href="#" class="toPage" to="reports">Reports</a></li>
-                        <li><a href="#" class="toPage" to="statistics">Statistics</a></li>
+                        <li><a href="/admin/#server-overview" class="toPage" to="server-overview">Server overview</a></li>
+                        <li><a href="/admin/#reports" class="toPage" to="reports">Reports</a></li>
+                        <li><a href="/admin/#statistics" class="toPage" to="statistics">Statistics</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="#" class="toPage" to="item-edit">Item Editor</a></li>
-                        <li><a href="#" class="toPage" to="shop-edit">Shop Editor</a></li>
-                        <li><a href="#" class="toPage" to="npc-edit">NPC Editor</a></li>
+                        <li><a href="/admin/#item-edit" class="toPage" to="item-edit">Item Editor</a></li>
+                        <li><a href="/admin/#shop-edit" class="toPage" to="shop-edit">Shop Editor</a></li>
+                        <li><a href="/admin/#npc-edit" class="toPage" to="npc-edit">NPC Editor</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="#" class="toPage" to="config">Configuration</a></li>
+                        <li><a href="/admin/#config" class="toPage" to="config">Configuration</a></li>
                     </ul>
                 </div>
                     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

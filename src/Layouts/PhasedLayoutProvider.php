@@ -14,7 +14,7 @@ class PhasedLayoutProvider extends FieldSetWithLabelsLayoutProvider
     {
         $controlName = (is_object($value) && ($value instanceof Presenter)) ? $value->getDisplayIdentifier() : "";
         ?>
-        <div class="form-group">
+        <div class="form-group clearfix">
             <label class="col-sm-2 control-label" for="<?= $controlName; ?>"><?php $this->printLabel($label); ?></label>
 
             <div class="col-sm-10 control-value">

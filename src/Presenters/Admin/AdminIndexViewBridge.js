@@ -11,18 +11,28 @@ var running = false;
 bridge.prototype.attachEvents = function()
 {
 
+	if( window.location.hash )
+	{
+		goToPage( window.location.hash.replace( "#", "" ) );
+	}
+
 	var self = this;
 	$( '.toPage' ).click( function( event )
 	{
-		$( '.active' ).removeClass( 'active' );
+		goToPage( $( this ).attr( 'to' ) );
 		$( this ).parent().addClass( 'active' );
-		$( '.paged' ).hide();
-		var page = $( '#' + $( this ).attr( 'to' ) );
-		page.finish();
-		page.fadeIn();
 		event.preventDefault();
 		return false;
 	} );
+
+	function goToPage( name )
+	{
+		$( '.active' ).removeClass( 'active' );
+		$( '.paged' ).hide();
+		var page = $( '#' + name );
+		page.finish();
+		page.fadeIn();
+	}
 
 
 	if( !running )
