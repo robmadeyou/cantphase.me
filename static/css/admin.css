@@ -1,11 +1,6 @@
-body
+html,body
 {
-    background-color: #0A0A0A;
-}
-
-.sidebar
-{
-    background-color: #000000;
+    background-color: #FFFFFF;
 }
 
 .top-inputs
@@ -37,4 +32,29 @@ body
 .img-responsive.loading
 {
     background: #777777;
+}
+.site-wrapper
+{
+    background: #FFFFFF;
+}
+
+table
+{
+    color: #777;
+}
+
+.pages .pager-item
+{
+    font-size: 20px;
+    margin: 0 0 15px 15px;
+}
+
+.pages .pager-item.selected
+{
+    background-color: #74caff;
+    padding: 2px;
+    padding-bottom: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
