@@ -46,6 +46,10 @@ class AdminIndexView extends CrudView
         $this->addPresenters(
             $itemTable,
             $itemSearch,
+            new Button( 'ReloadItemConfigsForServer', 'Update Server with new configs', function()
+            {
+
+            }, true ),
             new Button( 'LoadItemsSQL', 'Load Items into SQL', function()
             {
                 Server::LoadItemsIntoSQL();

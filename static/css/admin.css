@@ -51,16 +51,26 @@ table
 {
     font-size: 20px;
     margin: 0 0 15px 15px;
+    background: transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 2px;
+    padding-bottom: 4px;
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -ms-transition: background 0.2s;
+    -o-transition: background 0.2s;
+    transition: background 0.2s;
+}
+.pages .pager-item:hover
+{
+    background: #74caff;
 }
 
 .pages .pager-item.selected
 {
-    background-color: #74caff;
-    padding: 2px;
-    padding-bottom: 4px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    background: #74caff;
 }
 
 .search-panel table
