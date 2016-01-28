@@ -56,7 +56,7 @@ class Item extends ConfigModel
 
 	public function GetImagePath()
 	{
-		return "http://www.runelocus.com/items/img/{$this->ItemID}.png";
+		return "http://services.runescape.com/m=itemdb_rs/5081_obj_big.gif?id={$this->ItemID}";
 	}
 
 }
