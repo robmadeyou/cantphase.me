@@ -49,6 +49,11 @@ class Item extends ConfigModel
 		parent::createFromCfgLine( new self(), $array );
 	}
 
+	public function GetImageRealPath()
+	{
+		return "/static/images/items/" . $this->ItemID;
+	}
+
 	public function GetImagePath()
 	{
 		return "http://www.runelocus.com/items/img/{$this->ItemID}.png";

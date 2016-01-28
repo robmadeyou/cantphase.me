@@ -31,6 +31,7 @@ class AdminIndexView extends CrudView
         $itemTable = new Table( Item::find(), 50, 'ItemTable' );
         $itemTable->addTableCssClass( [ 'table' ] );
         $itemTable->Columns = [
+            ' ' => '<img src="{ImageRealPath}" width="64" height="64">',
             'ItemID',
             'Name',
             'Examine',
@@ -38,7 +39,6 @@ class AdminIndexView extends CrudView
             'LowAlch',
             'HighAlch',
             '' => '<a href="/admin/item/{ItemAutoID}/edit/" class="btn btn-primary">Edit</a>',
-            ' ' => '<img src="{ImagePath}" width="64" height="64">'
         ];
 
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
