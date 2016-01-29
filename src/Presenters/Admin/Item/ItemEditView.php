@@ -53,35 +53,24 @@ class ItemEditView extends CrudView
 		?>
 
 		<div class="top-inputs">
-			<?php
-				$this->printFieldset( "",
-					[
-						"Name",
-						"Examine",
-						"Price",
-						"LowAlch",
-						"HighAlch",
-			] );
-			?>
-		</div>
-		<div class="item-bonuses">
-			<div class="col-md-6">
+			<div class="col-md-4">
+				<img src="<?= $this->getData( 'ImagePath' ) ?>">
+			</div>
+			<div class="col-md-4">
 				<?php
-					$this->printFieldset( '',
+				$this->printFieldset( '',
 					[
 						"Attack Stab"    => "AStab",
 						"Attack Slash"   => "ASlash",
 						"Attack Crush"   => "ACrush",
 						"Attack Magic"   => "AMagic",
 						"Attack Range"   => "ARange",
-						"Strength bonus" => "OStrength",
-						"Prayer bonus"   => "OPrayer",
 					])
 				?>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<?php
-					$this->printFieldset( '',
+				$this->printFieldset( '',
 					[
 						"Defence Stab"   => "DStab",
 						"Defence Slash"  => "DSlash",
@@ -91,7 +80,29 @@ class ItemEditView extends CrudView
 					] )
 				?>
 			</div>
+
 		</div>
+		<div class="item-bonuses">
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-8" style="padding-left: 69px">
+				<?php
+				$this->printFieldset( "",
+					[
+						"Name",
+						"Examine",
+						"Price",
+						"LowAlch",
+						"HighAlch",
+						"Strength bonus" => "OStrength",
+						"Prayer bonus"   => "OPrayer",
+					] );
+				?>
+
+			</div>
+
+		</div>
+		<div class="clearfix"></div>
 		<?php
 		print $this->presenters[ "Save" ].$this->presenters[ "Cancel" ];
 	}
