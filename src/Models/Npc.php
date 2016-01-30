@@ -36,4 +36,12 @@ class Npc extends ConfigModel
 	{
 		parent::createFromCfgLine( new self(), $array );
 	}
+
+	/**
+	 * @returns NpcDrop[]
+	 */
+	public function GetDrops()
+	{
+
+	}
 }

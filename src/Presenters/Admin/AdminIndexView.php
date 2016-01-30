@@ -211,6 +211,7 @@ HTML;
         {$this->presenters['LoadNpcs']}
         {$this->presenters['LoadNpcSpawn']}
         {$this->presenters[ 'GetItemImages' ]}
+        {$this->presenters[ 'LoadNpcDrops' ]}
 HTML;
 
     }
