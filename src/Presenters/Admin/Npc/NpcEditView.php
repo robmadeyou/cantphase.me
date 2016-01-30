@@ -12,15 +12,9 @@ class NpcEditView extends CrudView
     {
         parent::createPresenters();
 
-        $table = new Table( Npc::find(), 50, 'NpcTable' );
 
-        $table->addTableCssClass( 'table' );
-        $table->Columns = [
-
-        ];
 
         $this->addPresenters(
-            $table
         );
     }
 

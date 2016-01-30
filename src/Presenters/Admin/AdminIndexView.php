@@ -4,6 +4,7 @@ namespace Cant\Phase\Me\Presenters\Admin;
 
 use Cant\Phase\Me\Handler\Server;
 use Cant\Phase\Me\Models\Item;
+use Cant\Phase\Me\Models\Npc;
 use Rhubarb\Leaf\Presenters\Application\Search\SearchPanel;
 use Rhubarb\Leaf\Presenters\Application\Table\Table;
 use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
@@ -41,11 +42,23 @@ class AdminIndexView extends CrudView
             '' => '<a href="/admin/item/{ItemAutoID}/edit/" class="btn btn-primary">Edit</a>',
         ];
 
+        $npcTable = new Table( Npc::find(), 50, 'NpcTable' );
+
+        $npcTable->addTableCssClass( [ 'table' ] );
+        $npcTable->Columns = [
+            'NpcID',
+            'Name' => 'NpcName',
+            'Combat Level' => 'Combat',
+            'Health' => 'Health',
+            'Number of Drops' => 'NumberOfDrops'
+        ];
+
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
 
         $this->addPresenters(
             $itemTable,
             $itemSearch,
+            $npcTable,
             new Button( 'ReloadItemConfigsForServer', 'Update Server with new configs', function()
             {
 
@@ -108,6 +121,9 @@ class AdminIndexView extends CrudView
             </div>
             <div id="item-edit" class="paged" style="display:none">
                 <?= $this->getItemEditor() ?>
+            </div>
+            <div id="npc-edit" class="paged" style="display: none;">
+                <?= $this->getNpcEditor() ?>
             </div>
             <div id="config" class="paged" style="display:none">
                 <?= $this->getConfig() ?>
@@ -199,7 +215,13 @@ HTML;
         {$this->presenters[ 'ItemSearch' ]}
         {$this->presenters[ 'ItemTable' ]}
 HTML;
+    }
 
+    public function getNpcEditor()
+    {
+        return <<<HTML
+            {$this->presenters[ 'NpcTable' ] }
+HTML;
     }
 
     public function getConfig()

@@ -2,6 +2,8 @@
 
 namespace Cant\Phase\Me\Models;
 
+use Rhubarb\Stem\Collections\Collection;
+use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Schema\Columns\AutoIncrement;
 use Rhubarb\Stem\Schema\Columns\Integer;
 use Rhubarb\Stem\Schema\Columns\String;
@@ -38,10 +40,18 @@ class Npc extends ConfigModel
 	}
 
 	/**
-	 * @returns NpcDrop[]
+	 * @returns Collection
 	 */
 	public function GetDrops()
 	{
+		return NpcDrop::find( new Equals( 'NpcID', $this->NpcID ) );
+	}
 
+	/**
+	 * @returns Int
+	 */
+	public function GetNumberOfDrops()
+	{
+		return $this->GetDrops()->count();
 	}
 }
