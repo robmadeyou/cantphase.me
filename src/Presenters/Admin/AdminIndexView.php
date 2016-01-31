@@ -50,7 +50,8 @@ class AdminIndexView extends CrudView
             'Name' => 'NpcName',
             'Combat Level' => 'Combat',
             'Health' => 'Health',
-            'Number of Drops' => 'NumberOfDrops'
+            'Number of Drops' => 'NumberOfDrops',
+            '' => '<a href="/admin/npc/{NpcAutoID}/edit/" class="btn btn-primary">Edit</a>'
         ];
 
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );

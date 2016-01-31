@@ -51,7 +51,7 @@ class Item extends ConfigModel
 
 	public function GetImageRealPath()
 	{
-		return "/static/images/items/" . $this->ItemID;
+		return "http://services.runescape.com/m=itemdb_rs/5081_obj_big.gif?id=" . $this->ItemID;
 	}
 
 	public function GetImagePath()
