@@ -2,7 +2,7 @@
 
 Here lies the code behind [cantphase.me](http://cantphase.me)
 
-So far I've added the homepage ( One page scrollable site ), and I'm slowly working through the admin configuration screens.
+So far I've added the homepage ( One page scrollable site ), and I'm slowly working through the admin configuration screens, with items and Npcs almost done.
 
 In the future my plans are to ( take this as a sorts of TODO, I'm going to try and address each one of these )
   * Create highscores
