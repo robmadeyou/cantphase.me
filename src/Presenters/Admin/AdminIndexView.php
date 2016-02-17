@@ -55,11 +55,13 @@ class AdminIndexView extends CrudView
         ];
 
         $itemSearch = new AdminItemSearchPanel( 'ItemSearch' );
+        $npcSearch = new AdminNpcSearchPanel( 'NpcSearch' );
 
         $this->addPresenters(
             $itemTable,
             $itemSearch,
             $npcTable,
+            $npcSearch,
             new Button( 'ReloadItemConfigsForServer', 'Update Server with new configs', function()
             {
 
@@ -221,6 +223,7 @@ HTML;
     public function getNpcEditor()
     {
         return <<<HTML
+            {$this->presenters['NpcSearch']}
             {$this->presenters[ 'NpcTable' ] }
 HTML;
     }
