@@ -12,7 +12,10 @@
     "rhubarbphp/module-leaf": "dev-develop",
     "rhubarbphp/module-patterns": "dev-develop",
     "rhubarbphp/scaffold-authentication": "dev-develop",
-    "rhubarbphp/scaffold-authentication-with-roles": "dev-develop"
+    "rhubarbphp/scaffold-authentication-with-roles": "dev-develop",
+    "codeception/codeception": "*",
+    "codeception/verify": "*",
+    "codeception/specify": "*"
   },
   "autoload":
   {
@@ -20,5 +23,9 @@
     {
       "Cant\\Phase\\Me\\": "src/"
     }
+  },
+  "config":
+  {
+    "bin-dir": "bin/"
   }
 }

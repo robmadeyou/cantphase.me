@@ -9,7 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "centos_php55.box"
   config.vm.box_url = "http://files.gcdtech.com/vagrant/centos_php55.box"
   config.vm.provision "shell", :path => "vagrant/provision.sh"
-
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 90, host: 9090
   config.vm.network "forwarded_port", guest: 3306, host: 3307
