@@ -107,6 +107,7 @@ class AdminIndexView extends CrudView
         );
 
         $itemSearch->bindEventsWith( $itemTable );
+        $npcSearch->bindEventsWith( $npcTable );
     }
 
     protected function printViewContent()
