@@ -79,3 +79,22 @@ table
     max-width: 100%;
     margin-bottom: 20px;
 }
+
+@media (min-width: 992px) {
+    .col-md-offset-2 {
+        margin-left: 13.666667%;
+    }
+}
+
+.search-panel
+{
+    background-color: #222;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.search-panel .grid
+{
+    margin-bottom: 0;
+}
