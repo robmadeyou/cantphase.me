@@ -44,12 +44,12 @@ class Item extends ConfigModel
 		return $schema;
 	}
 
-	public function GetExamine()
+	public function getExamine()
 	{
 		return str_replace( '_', ' ', $this->modelData[ 'Examine' ] );
 	}
 
-	public function SetExamine( $examine )
+	public function setExamine( $examine )
 	{
 		$this->modelData[ 'Examine' ] = str_replace( ' ', '_', $examine );
 	}
@@ -59,12 +59,12 @@ class Item extends ConfigModel
 		parent::createFromCfgLine( new self(), $array );
 	}
 
-	public function GetImageRealPath()
+	public function getImageRealPath()
 	{
 		return "http://services.runescape.com/m=itemdb_rs/5102_obj_big.gif?id=" . $this->ItemID;
 	}
 
-	public function GetImagePath()
+	public function getImagePath()
 	{
 		return "http://services.runescape.com/m=itemdb_rs/5102_obj_big.gif?id={$this->ItemID}";
 	}

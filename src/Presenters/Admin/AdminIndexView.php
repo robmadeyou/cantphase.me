@@ -36,7 +36,7 @@ class AdminIndexView extends CrudView
             'ItemID',
             'Name',
             'Examine',
-            'Price',
+            'Price' => 'FormattedPrice',
             'LowAlch',
             'HighAlch',
             '' => '<a href="/admin/item/{ItemAutoID}/edit/" class="btn btn-primary">Edit</a>',
