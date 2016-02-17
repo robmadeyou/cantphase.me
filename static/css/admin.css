@@ -90,8 +90,14 @@ table
 {
     background-color: #222;
     color: #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    -webkit-box-shadow: 2px -1px 5px #101010;
+    -moz-box-shadow: 2px -1px 5px #101010;
+    box-shadow: 2px -1px 5px #101010;
+    margin-top: -20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .search-panel .grid
