@@ -54,6 +54,11 @@ class Item extends ConfigModel
 		$this->modelData[ 'Examine' ] = str_replace( ' ', '_', $examine );
 	}
 
+	public function getFormattedPrice()
+	{
+		return number_format( $this->modelData[ 'Price' ] );
+	}
+
 	public static function createFromCfgLine( $class, $array )
 	{
 		parent::createFromCfgLine( new self(), $array );
