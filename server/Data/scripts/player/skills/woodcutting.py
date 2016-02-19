@@ -95,7 +95,7 @@ def objectAction1_5551(player, objX, objY):
 def objectAction1_5552(player, objX, objY):
 	doAxeCheck(player, "WILLOW", 5552, objX, objY)
 def objectAction1_5553(player, objX, objY):
-	doAxeCheck(player, "WILLOW", 5553, objX, objY)	
+	doAxeCheck(player, "WILLOW", 5553, objX, objY)
 
 # Yew Trees
 def objectAction1_1309(player, objX, objY):

@@ -6,13 +6,14 @@ use Cant\Phase\Me\Models\Item;
 use Cant\Phase\Me\Models\Npc;
 use Cant\Phase\Me\Models\NpcDrop;
 use Rhubarb\Crown\Context;
+use Rhubarb\Stem\Exceptions\RecordNotFoundException;
 use Rhubarb\Stem\Filters\Equals;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 
 class Server
 {
-    public static $dataDir = './Server/Data/';
-    public static $jarPath = './Server/ServerManager.jar';
+    public static $dataDir = './server/Data/';
+    public static $jarPath = './server/ServerManager.jar';
 
     private static $uptime;
 
@@ -61,6 +62,20 @@ class Server
         {
             $price = explode( ' ', $price[ 0 ] );
             MySql::returnSingleValue( "UPDATE tblItem SET Price = " . $price[ 1 ] . " WHERE ItemID = " . $price[ 0 ] );
+        }
+    }
+
+    public static function LoadItemStackability()
+    {
+        $file = file_get_contents( self::$dataDir . 'data/stackable.dat' );
+
+        foreach( explode( "\n", $file ) as $line )
+        {
+            try{
+                $item = Item::findFirst( new Equals( 'ItemID', $line ) );
+                $item->Stacks = true;
+                $item->save();
+            }catch (RecordNotFoundException $ex ){}
         }
     }
 

@@ -2,8 +2,8 @@
 
 namespace Cant\Phase\Me\Models;
 
-use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrement;
+use Rhubarb\Stem\Schema\Columns\Boolean;
 use Rhubarb\Stem\Schema\Columns\Integer;
 use Rhubarb\Stem\Schema\Columns\String;
 use Rhubarb\Stem\Schema\ModelSchema;
@@ -24,6 +24,7 @@ class Item extends ConfigModel
 			new Integer( 'ItemID' ),
 			new String( 'Name', 200 ),
 			new String( 'Examine', 200 ),
+			new Boolean( 'Stacks' ),
 			new Integer( 'Price', 1 ),
 			new Integer( 'LowAlch', 1 ),
 			new Integer( 'HighAlch', 1 ),

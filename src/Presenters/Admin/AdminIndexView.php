@@ -73,7 +73,7 @@ class AdminIndexView extends CrudView
             new Button( 'DumpItems', 'Dump items to Json', function()
             {
                 ini_set('memory_limit', '512M');
-                file_put_contents( './Server/items.json', Server::GetItemJson() );
+                file_put_contents( './server/items.json', Server::GetItemJson() );
             }, true ),
             new Button( 'LoadItemCost', 'Load item cost into SQL', function()
             {
@@ -94,7 +94,7 @@ class AdminIndexView extends CrudView
             new Button( 'DumpNpcs', 'Dump npc list' , function()
             {
                 ini_set('memory_limit', '512M');
-                file_put_contents( './Server/npcs.json', Server::GetItemJson() );
+                file_put_contents( './server/npcs.json', Server::GetItemJson() );
             }, true ),
             new Button( 'GetItemImages', 'Get Item Images', function()
             {
