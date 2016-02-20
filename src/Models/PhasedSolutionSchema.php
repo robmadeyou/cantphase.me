@@ -6,7 +6,7 @@ use Rhubarb\Stem\Schema\SolutionSchema;
 
 class PhasedSolutionSchema extends SolutionSchema
 {
-    public function __construct( $version = 0.1023 )
+    public function __construct( $version = 0.1025 )
     {
         parent::__construct( $version );
 
