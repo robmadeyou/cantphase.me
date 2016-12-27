@@ -2,6 +2,5 @@
 /.idea/
 /deployed/
 /vendor/
-/composer.lock
 /cache
 /logs
