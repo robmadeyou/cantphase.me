@@ -1,6 +1,8 @@
-/.vagrant/
-/.idea/
-/deployed/
-/vendor/
-/cache
-/logs
+.idea/
+bin/
+vendor/
+.vagrant/
+deployed/
+cache/
+settings/site.config.php
+static/images/products/*
