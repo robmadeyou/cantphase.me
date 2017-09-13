@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
-<h1>Welcome to my home</h1>
+<h1>You matter</h1>
 <script src="/s/js.js"></script>
 </body>
 </html>
